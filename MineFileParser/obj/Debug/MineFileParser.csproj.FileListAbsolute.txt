@@ -1,0 +1,10 @@
+E:\Programming\Uni\Github\Signal - Studio Project 2\MineFileParser\bin\Debug\MineFileParser.exe.config
+E:\Programming\Uni\Github\Signal - Studio Project 2\MineFileParser\bin\Debug\MineFileParser.exe
+E:\Programming\Uni\Github\Signal - Studio Project 2\MineFileParser\bin\Debug\MineFileParser.pdb
+E:\Programming\Uni\Github\Signal - Studio Project 2\MineFileParser\obj\Debug\MineFileParser.csprojAssemblyReference.cache
+E:\Programming\Uni\Github\Signal - Studio Project 2\MineFileParser\obj\Debug\MineFileParser.Form1.resources
+E:\Programming\Uni\Github\Signal - Studio Project 2\MineFileParser\obj\Debug\MineFileParser.Properties.Resources.resources
+E:\Programming\Uni\Github\Signal - Studio Project 2\MineFileParser\obj\Debug\MineFileParser.csproj.GenerateResource.cache
+E:\Programming\Uni\Github\Signal - Studio Project 2\MineFileParser\obj\Debug\MineFileParser.csproj.CoreCompileInputs.cache
+E:\Programming\Uni\Github\Signal - Studio Project 2\MineFileParser\obj\Debug\MineFileParser.exe
+E:\Programming\Uni\Github\Signal - Studio Project 2\MineFileParser\obj\Debug\MineFileParser.pdb
