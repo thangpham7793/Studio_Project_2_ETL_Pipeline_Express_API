@@ -38,17 +38,22 @@ class Load:
             print("File Path Must Have an Extension Followed by A Dot")
 
     def no_unnamed(self, colnames):
+        no_of_unnamed = 0
         for col in colnames:
             if "Unnamed" in str(col):
-                return False
-        return True
+                no_of_unnamed += 1
+        # if there are too many unnamed columns, probably all col names are unnamed!
+        if no_of_unnamed >= len(colnames) / 2:
+            return False
+        else:
+            return True
 
     # check for duplicates
     def is_unique_index_col(self, colnames):
         no_of_colnames = len(colnames)
         no_of_distinct_colnames = len(set(list(colnames)))
-        # colnames must be unique!
-        return no_of_colnames == no_of_distinct_colnames
+        # colnames must be unique! (plus 2 to allow for cases where one or two columns are duplicated)
+        return no_of_colnames <= no_of_distinct_colnames + 2
 
     # combine both conditions:
     def is_valid_colnames_list(self, colnames):
@@ -96,14 +101,21 @@ class Load:
             # print out the first 5 values of each column
             sample_record = ""
             for col in df.columns:
-                sample_record += f"<li style='font-weight: normal;'> <strong>{col}</strong>: {str(list(df[col][0:5]))}</li>"
+                values = df[col].unique()
+
+                # print all values if there are less than 50 unique values, or just print the first 50 unique values
+                if len(values) < 50:
+                    sample_values = values
+                else:
+                    sample_values = values[0:50]
+                sample_record += f"<li style='font-weight: normal;'> <strong>{col}</strong>: {sample_values}</li>"
 
             summary = f"""
                       <header>
                       <h1>
                         <a name="{state_folder}">{state_folder}</a>
                       </h1>
-                        <a href="../../overview.html">Back to Index</a>
+                        <a href="../../index.html">Back to Index</a>
                         <h2>{file_path}</h2>
 
                         <h4>Number of Rows and Columns</h4> 
@@ -150,7 +162,12 @@ class Load:
             print(
                 f"There was an error parsing {file_path} using Pandas: \n{sys.exc_info()}"
             )
+        # removing duplicate columns
+        # https://stackoverflow.com/questions/14984119/python-pandas-remove-duplicate-columns
+        df = df.T.drop_duplicates().T
 
+        # drop duplicate rows
+        df = df.drop_duplicates()
         df = df.fillna("no record")
 
         try:
@@ -169,7 +186,4 @@ class Load:
             )
         finally:
             return df
-
-
-# FIXME: some tables still have invalid column names! (OH)
 

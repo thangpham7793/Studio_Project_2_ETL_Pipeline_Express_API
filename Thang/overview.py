@@ -183,6 +183,6 @@ def make_overview_html_index():
     html = overview_template.substitute(
         top_nav_list=top_nav_list, links_to_log_pages=links_to_log_pages
     )
-    f = open("overview.html", "w")
+    f = open("index.html", "w")
     f.write(html)
     f.close()
