@@ -151,7 +151,7 @@ class Load:
             log.write(self.summary_template.substitute(summary=summary))
             log.close()
 
-    def to_df(self, file_path):
+    def to_df(self, file_path, make_html_summary=False):
         ext = self.get_extension(file_path)
         try:
             if ext == "txt":
@@ -173,17 +173,18 @@ class Load:
         try:
             # check for unnamed columns
             df = self.check_colnames(df)
+
         except:
             print(
                 f"There was an error checking the column names of {file_path}: \n{sys.exc_info()}"
             )
 
-        try:
-            self.load_success_summary(df, file_path)
-        except:
-            print(
-                f"There was an error writing success summary for {file_path}: \n{sys.exc_info()}"
-            )
-        finally:
-            return df
+        if make_html_summary == True:
+            try:
+                self.load_success_summary(df, file_path)
+            except:
+                print(
+                    f"There was an error writing success summary for {file_path}: \n{sys.exc_info()}"
+                )
+        return df
 
