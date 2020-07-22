@@ -1,0 +1,623 @@
+"Permit No","Site Name","Permittee Name","Project Name","Permit Type","Status","Rating","Location","City","County","EFO Name","__Issuance__","_Effective_","__Expiration__"
+"TN0047392","APAC Atlantic, Inc. Harrison Division, Sand Mine 1","APAC Atlantic, Inc. Harrison Division","Mine 1 - Harrison Sand Plant ","Mining","Reissuance","Minor","1902 Cox Valley Road
+","Crab Orchard","Cumberland","Cookeville","20-MAY-2016","01-JUN-2016","31-MAY-2021"
+"TN0070424","Affordable Crushed Stone LLC","Affordable Crushed Stone, LLC","Fairview Road Quarry","Mining","Modification","Minor","1478 Fairview Road","Tellico Plains","Monroe","Knoxville","04-JUN-2019","04-JUN-2019","03-JUN-2024"
+"TN0045233","American Colloid Company","American Colloid Company","-","Mining","Reissuance","Minor","Shirley Street","Paris","Henry","Jackson","15-MAY-2018","01-JUN-2018","31-MAY-2023"
+"TN0072109","American Materials Technologies, LLC - Chattanooga Quarry; Ready Mix USA, Jersey Pike Plant","American Materials Technologies, LLC - Martin Marietta Materials, Inc","Chattanooga Quarry ","Mining","Active","Minor","2 Pelican Drive","Chattanooga","Hamilton","Chattanooga","28-AUG-2019","01-NOV-2019","31-OCT-2024"
+"TN0069302","American Sand Company, LLC - Quarry No. 2","American Sand Company LLC","Quarry 2","Mining","Reissuance","Minor","Highway 70 near Roberson Road in Sand Springs","Monterey","Putnam","Cookeville","17-MAY-2019","01-JUN-2019","31-MAY-2024"
+"TN0062910","American Sand Preparation Plant","American Sand Company LLC","American Sand Prep Plant ","Mining","Reissuance","Minor","9130 Monterey Highway","Monterey","Putnam","Cookeville","15-APR-2019","01-MAY-2019","30-APR-2024"
+"TN0066231","American Sand Company, 50 Acre Tract","American Sand Company LLC","50 Acre Tract","Mining","Reissuance","Minor","Rocky Point Road, off of US Hwy 70","Monterey","Putnam","Cookeville","20-FEB-2019","01-MAR-2019","29-FEB-2024"
+"TN0066249","American Sand Company LLC","American Sand Company LLC","40 Acre Tract","Mining","Reissuance","Minor","US Hwy 70, near Pinhook","Monterey","Putnam","Cookeville","01-OCT-2018","01-OCT-2018","30-SEP-2023"
+"TN0079901","American Sand Company LLC - Quarry No. 1","American Sand Company LLC","Quarry 1","Mining","Reissuance","Minor","10901 Monterey Highway (US-70)","Monterey","Putnam","Cookeville","22-JUN-2018","01-AUG-2018","31-JUL-2023"
+"TN0066265","American Sand Company, LLC (80 Acre Tract)","American Sand Company, LLC","80 Acre Tract","Mining","Reissuance","Minor","Highway 70 at Sand Springs","Monterey","Putnam","Cookeville","01-MAR-2018","01-MAR-2018","28-FEB-2023"
+"TN0063282","American Sand Company, LLC - Sand Springs Mine and Processing Facility","American Sand Company, LLC","Sand Springs Mine & Processing Facility","Mining","Modification","Minor","Hwy 70 at Sand Springs (Monterey Hwy at Joe Jackson Road)","Monterey","Putnam","Cookeville","14-DEC-2017","01-JAN-2018","31-DEC-2022"
+"TN0070084","BFI Waste Systems of Tennessee, LLC dba Middle Point Landfill
+","BFI Waste Systems of Tennessee, LLC ","Middle Point Landfill - Limestone Quarry ","Mining","Active","Minor","750 East Jefferson Pike","Murfreesboro","Rutherford","Nashville","11-JAN-2017","15-JAN-2017","14-JAN-2022"
+"TN0070378","Jake Copeland Quarry","BMJ Stone Company, LLC","Jake Copeland Quarry","Mining","New","Minor","2657 Pomona Road","Crossville","Cumberland","Cookeville","29-OCT-2018","01-NOV-2018","31-OCT-2023"
+"TN0069949","BMJ Stone Company, LLC - Bickford Quarry","BMJ Stone Company, LLC","Bickford Quarry","Mining","Active","Minor","1152 Groves Road","Pikevlle","Van Buren","Cookeville","12-NOV-2015","12-NOV-2015","11-NOV-2020"
+"TN0069906","BMJ Stone Company, LLC","BMJ Stone Company, LLC","Sandstone Processing Facility","Mining","New","Minor","405 County Seat Road","Crossville","Cumberland","Cookeville","16-JUL-2015","16-JUL-2015","15-JUL-2020"
+"TN0069990","BMJ Stone Company, LLC - R3M","BMJ Stone Company, LLC - R3M Quarry","R3M Quarry","Mining","New","Minor","Groves Road Pikeville, TN","-","Van Buren","Cookeville","23-FEB-2016","01-MAR-2016","22-FEB-2021"
+"TN0061069","BWI ETN LLC dba Blue Water Industries 
+BWI Unicoi, LLC - Quarry ","BWI ETN LLC dba Blue Water Industries","BWI Unicoi, LLC - Quarry","Mining","Reissuance","Minor","4175 Marbleton Road","Unicoi","Unicoi","Johnson City","14-MAY-2020","01-JUN-2020","31-MAY-2025"
+"TN0004987","BWI ETN dba Blue Water Industries LLC
+BWI Forks of the River, LLC Quarry","BWI ETN LLC dba Blue Water Industries","BWI Forks of the River Quarry, LLC Quarry","Mining","Modification","Minor","2303 John Sevier Highway (SR-168)","Knoxville","Knox","Knoxville","17-MAY-2018","01-JUN-2018","31-MAY-2023"
+"TN0071030","BWI Coy Stone, LLC
+","BWI ETN LLC dba Blue Water Industries","BWI Coy Stone, LLC Plant","Mining","Modification","Minor","345 East Broadway Boulevard 
+","Jefferson City","Jefferson","Knoxville","27-APR-2018","01-JUN-2018","31-MAY-2023"
+"TN0031089","BWI ETN LLC dba Blue Water Industries
+BWI Midway, LLC - Quarry
+","BWI ETN LLC dba Blue Water Industries","BWI Midway, LLC - Quarry","Mining","Modification","Minor","9600 Mascot Road","Mascot","Knox","Knoxville","19-APR-2018","01-MAY-2018","30-APR-2023"
+"TN0001775","BWI ETN LLC dba Blue Water Industrties
+BWI Watauga, LLC - Quarry","BWI ETN LLC dba Blue Water Industries","BWI Watauga, LLC - Quarry","Mining","Reissuance","Minor","350 West Fourth Avenue","Watauga","Carter","Johnson City","01-DEC-2017","01-DEC-2017","30-NOV-2022"
+"TN0066010","BWI ETN LLC, Blue Water Industries dba BWI Locust Mount, LLC Quarry
+Locust Mount, LLC - Quarry ","BWI ETN LLC dba Blue Water Industries","BWI Locust Mount, LLC - Quarry","Mining","Active","Minor","164 Asphalt Plant Road","Jonesborough","Washington","Johnson City","17-NOV-2017","01-DEC-2017","30-NOV-2022"
+"TN0068977","BWI ETN LLC dba Blue Water Industries BWI Elizabethton, LLC - Quarry ","BWI ETN LLC dba Blue Water Industries","BWI Elizabethton, LLC - Quarry","Mining","Modification","Minor","210 Judge Ben Allen Road","Elizabethton","Carter","Johnson City","06-APR-2017","06-APR-2017","05-APR-2022"
+"TN0027588","BWI ETN LLC, dba Blue Water Industries
+BWI Tri-Cites Airport, LLC Quarry
+","BWI ETN LLC dba Blue Water Industries","BWI Tri-Cites Airport, LLC Quarry","Mining","Modification","Minor","736 Centenary Road","Blountville","Sullivan","Johnson City","23-NOV-2016","01-DEC-2016","30-NOV-2021"
+"TN0063355","BWI ETN LLC dba Blue Water Industries
+BWI I-75, LLC Quarry (West)
+","BWI ETN LLC dba Blue Water Industries","BWI I-75, LLC Quarry (West)","Mining","Reissuance","Minor","9509 Diggs Gap Road","Heiskell","Knox","Knoxville","01-MAY-2016","01-AUG-2016","31-JUL-2021"
+"TN0072516","BWI ETN LLC dba Blue Water Industries 
+BWI Riverbend, LLC Quarry ","BWI ETN LLC dba Blue Water Industries","BWI Riverbend, LLC Quarry","Mining","Reissuance","Minor","605 Cherokee Explosive Drive
+","Rutledge","Grainger","Knoxville","17-MAR-2016","01-JUN-2016","31-MAY-2021"
+"TN0066397","BWI ETN LLC dba Blue Water Industries 
+BWI Greenback, LLC Quarry 
+","BWI ETN LLC dba Blue Water Industries","BWI Greenback, LLC Quarry","Mining","Active","Minor","2107 Big Hill Road","Lenoir City","Loudon","Knoxville","01-OCT-2014","01-OCT-2014","30-SEP-2019"
+"TN0079341","BWI ETN LLC dba Blue Water Industries
+BWI I-75, LLC Quarry (East)","BWI ETN LLC dba Blue Water Industries
+","BWI I-75, LLC Quarry (East)","Mining","Reissuance","Minor","1949 East Racoon Valley Drive","Heiskell","Knox","Knoxville","27-NOV-2019","01-JAN-2020","31-DEC-2024"
+"TN0060771","BWI MTN II Inc., dba Blue Water Industries Smyrna Quarry / Asphalt Plant
+","BWI MTN II Inc. dba Blue Water Industries","Smyrna Quarry","Mining","Active","Minor","5441 Hickory Grove Road","Smyrna","Rutherford","Nashville","10-DEC-2019","01-FEB-2020","31-JAN-2025"
+"TN0059455","Murfreesboro Quarry 608","BWI MTN II Inc. dba Blue Water Industries","Murfreesboro Quarry","Mining","Reissuance","Minor","2106 Twin Oak Drive","Murfreesboro","Rutherford","Nashville","27-APR-2018","01-MAY-2018","30-APR-2023"
+"TN0059617","BWI MTN II Inc., dba Blue Water Industries Lebanon Quarry / Asphalt Plant","BWI MTN II Inc. dba Blue Water Industries","Lebanon Quarry","Mining","Reissuance","Minor","2147 Murfreesboro Road","Lebanon","Wilson","Nashville","01-FEB-2018","01-MAR-2018","28-FEB-2023"
+"TN0076201","Berry Hills Corporation  - Quarry #1","Berry Hills Corporation ","Quarry #1","Mining","Reissuance","Minor","PO Box 1267","Bulls Gap","Hawkins","Johnson City","28-JUN-2018","01-AUG-2018","31-JUL-2023"
+"TN0069493","Bluegrass Materials, LLC and Hiwassee Paving, LLC","Bluegrass Materials, LLC (formerly East Tennessee Materials, LLC)","Calhoun Quarry","Mining","Modification","Minor","130 CR-971 (Oostanaula Valley Road)","Calhoun","McMinn","Chattanooga","18-DEC-2015","28-JAN-2016","27-JAN-2021"
+"TN0070181","Bobby Hall Stone - Cumberland Quarry","Bobby Hall Stone ","Quarry No. 1 ","Mining","New","Minor","510 Officer Knob","Crossville","Cumberland","Cookeville","09-JAN-2017","01-FEB-2017","31-JAN-2022"
+"TN0070394","Bryan Daniels Property","Bryan Daniels dba Daniels & Parvin Sand Company","Daniels Sand Mine","Mining","New","Minor","River Mile 61 Nolichuky","Afton","Greene","Johnson City","10-APR-2019","01-MAY-2019","30-APR-2024"
+"TN0079642","Bubba Johnson Sand and Gravel, L.L.C.  - Bubba Johnson Contractors Sand Plant","Bubba Johnson Sand and Gravel, L.L.C. - Bubba Johnson Contractors Sand Plant","Bubba Johnson Contractors Sand Plant","Mining","New","Minor","Northwest corner of So. Highland Ave and Bond Creek (Map 100P, Parcel 5.01).  Cerro Gordo Road","Jackson","Madison","Jackson","15-JUN-2020","01-JUL-2020","30-JUN-2025"
+"TN0071625","Butler Stone And Gravel Cook Hollow Quarry, Inc.","Butler Stone & Gravel","Cook Hollow Quarry ","Mining","Reissuance","Minor","1571 Doe Creek Road","Butler","Johnson","Johnson City","30-APR-2018","01-MAY-2018","30-APR-2023"
+"TN0048895","Consol Mining Company, LLC 
+Formerly: Consolidation Coal Company","CONSOL Mining Company, LLC","Matthews Mine Complex","Mining","Reissuance","Minor","Consolidation Coal 
+Matthews Mine Complex","Clairfield","Claiborne","Knoxville","20-OCT-2017","01-NOV-2017","31-OCT-2022"
+"TN0070009","CSH, Inc., dba Custom Stone Handlers, Inc.","CSH, Inc. dba Custom Stone Handlers, Inc.","Soddy Daisy Site","Mining","Modification","Minor","8447 Dayton Pike","Soddy-Daisy","Hamilton","Chattanooga","19-SEP-2016","01-OCT-2016","30-SEP-2021"
+"TN0070149","Calcium Silicate Corporation, Inc.","Calcium Silicate Corporation, Inc.","Columbia Plant","Mining","New","Minor","2656 Harlan Farm Rd","Columbia","Maury","Columbia","09-JAN-2017","01-JAN-2017","31-DEC-2021"
+"TN0070556","Camden Gravel Company","Camden Gravel Company","Camden Gravel Mine","Mining","New","Minor","Missionary Grove Church Road","Camden","Benton","Jackson","09-APR-2020","01-MAY-2020","30-APR-2025"
+"TN0070076","Camden Gravel Company, Pit No. 5","Camden Gravel Company","Camden Pit No. 5 ","Mining","New","Minor","US Highway 70 Bypass","Camden","Benton","Jackson","12-JAN-2017","01-FEB-2017","31-JAN-2022"
+"TN0069540","Camden Gravel Company, Bivins Cypress Creek Mine","Camden Gravel Company","Camden - Bivins Cypress Creek Mine ","Mining","Reissuance","Minor","Bivins Cypress Creek Road","Camden","Benton","Jackson","03-JUN-2016","01-SEP-2016","31-AUG-2021"
+"TN0063606","Campbell County Highway Dept.","Campbell County Hwy. Dept.","Area No. 1 ","Mining","Reissuance","Minor","136 Mount Paran Road","Jacksboro","Campbell","Knoxville","15-MAY-2018","01-JUN-2018","31-MAY-2023"
+"TN0060844","Carmeuse Lime & Stone, O-N Minerals (Luttrell) Company","Carmeuse Lime & Stone","Luttrell Operation","Mining","Reissuance","Minor","486 Clinch Valley Road","Luttrell","Union","Knoxville","20-SEP-2019","01-DEC-2019","30-NOV-2024"
+"TN0060127","Carmeuse Lime and Stone - Thorn Hill Operation","Carmeuse Lime and Stone ","Thorn Hill Operation","Mining","Reissuance","Minor","379 Dave Jackson Road","Thorn Hill","Grainger","Knoxville","05-APR-2018","01-MAY-2018","30-APR-2023"
+"TN0079782","Caryville Limestone LLC","Caryville Limestone LLC","Caryville Limestone","Mining","Reissuance","Minor","Off Highway 116 in Vasper ","Caryville","Campbell","Knoxville","06-APR-2018","06-APR-2018","05-APR-2023"
+"TN0069965","Cave Cove Stone LLC - Stone Site (Martin Springs)","Cave Cove Stone LLC","Cave Cove Stone","Mining","New","Minor","2289 Martin Springs Rd","Cave Cove","Marion","Chattanooga","23-FEB-2016","23-FEB-2016","22-FEB-2021"
+"TN0069388","Cedar Hill Construction & Supply Co., Inc.","Cedar Hill Construction & Supply Co., Inc.","Cedar Hill Quarry","Mining","Reissuance","Minor","389 Hunter Branch Lane","LaFollette","Campbell","Knoxville","04-MAR-2020","04-MAR-2020","03-MAR-2025"
+"TN0070211","Childer's Hill Sand & Gravel - Childer's Hill Pitt","Childer's Hill Sand & Gravel","Childer's Hill Pit","Mining","New","Minor","874 Bud Clearly Road","Stantonville","Hardin","Jackson","17-MAR-2017","01-APR-2017","31-MAR-2022"
+"TN0069833","Mine Road Property","Claiborne Hauling LLC","Mine Road","Mining","Modification","Minor","Old Mine Road","Mascot","Knox","Knoxville","25-FEB-2019","01-MAR-2019","29-FEB-2024"
+"TN0070271","Claiborne Hauling, LLC 
+Fish Lake","Claiborne Hauling LLC","Fish Lake Quarry ","Mining","Modification","Minor","4714 A Rutledge Pike ","Rutledge","Grainger","Knoxville","17-MAY-2019","17-MAY-2019","19-MAR-2023"
+"TN0069311","Mine 12 - Owl Hole Gap","Claiborne Hauling LLC
+Formerly: Tennessee Valley Aggregate Company, LLC","Mine 12 - Owl Hole Gap","Mining","Reissuance","Minor","455 Owl Gap Road","Rutledge","Grainger","Knoxville","15-APR-2019","01-JUL-2019","30-JUN-2024"
+"TN0070475","Claiborne Hauling LLC - Friendsville South 321 Quarry","Claiborne Hauling, LLC","Friendsville South 321 Quarry","Mining","New","Minor","412 Endsley Quarry Road","Friendsville","Blount","Knoxville","15-JAN-2020","01-FEB-2020","31-JAN-2025"
+"TN0069795","Claiborne Hauling, LLC - Fox Farm Development","Claiborne Hauling, LLC - Fox Farm Development 
+Formerly: Tennessee Valley Aggregate Company, LLC","Quarry 14","Mining","Reissuance","Minor","6210 Rutledge Pike","Blaine","Grainger","Knoxville","01-OCT-2018","01-OCT-2018","30-SEP-2023"
+"TN0070441","Thorn Hill Quarry","Clear Development, LLC","Thorn Hill Quarry","Mining","New","Minor","911 Tennessee Highway 131","Thorn Hill","Grainger","Knoxville","13-SEP-2019","01-OCT-2019","30-SEP-2024"
+"TN0072231","Clear Energy Corporation (formerly Dalco Of Tennessee, Inc.)","Clear Energy Corporation ","Oliver Springs Tipple and Coal Refuse Area","Mining","Reissuance","Minor","Tipple #1","Oliver Springs","Morgan","Knoxville","01-DEC-2017","01-DEC-2017","30-NOV-2022"
+"TN0070106","Coastal Rock Inc. (formerly TMC River Operations Inc.) - Linden Quarry","Coastal Rock, Inc.","Linden Quarry","Mining","New","Minor","4716 Lego School Road 
+
+","Linden","Perry","Columbia","12-APR-2017","12-APR-2017","11-APR-2022"
+"TN0066613","Cocke County Highway Department","Cocke County Highway Dept.","Cocke County Quarry ","Mining","Reissuance","Minor","820 Lower Quarry Road","Newport","Cocke","Knoxville","10-JAN-2020","01-FEB-2020","31-JAN-2025"
+"TN0076252","Cook Stone Company - Seed Tick Quarry","Cook Stone Company, LLC","Seed Tick Quarry","Mining","Reissuance","Minor","3070 Westel Road","Rockwood","Morgan","Knoxville","22-JAN-2018","01-FEB-2018","31-JAN-2023"
+"TN0079758","Cook Stone Company - Westel Road Stone Yard","Cook Stone Company, LLC","Westel Road Stone Yard","Mining","Modification","Minor","3070 Westel Road","Rockwood","Cumberland","Cookeville","22-AUG-2018","22-AUG-2018","31-OCT-2022"
+"TN0001881","Covia Holdings Corporation","Covia Holdings Corporation
+Formerly: Unimin Corporation, Plant 3 Camden","Plant 3 Site","Mining","Incomplete","Minor","1700 Sand Mill Road","Camden","Benton","Jackson","13-SEP-2017","01-DEC-2017","30-NOV-2022"
+"TN0066532","Covia Holdings Corporation 
+B-2 Mine/Reservoir/Classifier","Covia Holdings Corporation 
+Formerly: Unimin Corporation","B-2 Mine","Mining","Modification","Minor","1700 Sand Mill Road","Camden","Benton","Jackson","02-NOV-2018","01-DEC-2018","30-NOV-2023"
+"TN0069850","Crab Orchard Stone Company, Inc.","Crab Orchard Stone Company, Inc.","-","Mining","Reissuance","Minor","Rock Quarry Road","Crossville","Cumberland","Cookeville","15-MAY-2019","01-JUN-2019","31-MAY-2024"
+"TN0071633","Crossville Coal Inc ","Crossville Coal, Inc.","Turner Mine","Mining","Incomplete","Minor","6728 Smith Mountain Road","Crab Orchard","Cumberland","Cookeville","22-JUL-2019","01-AUG-2019","11-MAY-2020"
+"TN0070602","Crossville Stone Company","Crossville Stone Company","Crossville Stone Quarry","Mining","New","Minor","9170 Hwy 127 S","Crossville","Cumberland","Cookeville","20-MAY-2020","20-MAY-2020","19-MAY-2025"
+"TN0070114","Crump Sand and Gravel Pit Quarry","Crump Sand & Gravel Inc.","Pit Quarry","Mining","New","Minor","23030 Hwy 69","Crump","Hardin","Jackson","12-APR-2017","12-APR-2017","11-APR-2022"
+"TN0070092","Crump Sand & Gravel","Crump Sand and Gravel, Inc.","Crump Sand and Gravel Mine","Mining","Incomplete","Minor","Highway 22(Sheffield Road), near New Hope Drive","Crump","Hardin","Jackson","-","-","-"
+"TN0069655","CSH, Inc., dba Custom Stone Handlers, Inc.","Custom Stone Handlers, Inc.","Soddy-Daisy Rock Processing Plant ","Mining","New","Minor","Industrial park Drive","Soddy Daisy","Hamilton","Chattanooga","29-JUN-2018","01-JUL-2018","30-JUN-2023"
+"TN0079448","Custom Stone, LLC - Lusk Gap Quarry","Custom Stone, LLC","Lusk Gap Quarry","Mining","Reissuance","Minor","State Route 127, Log Mile 7.8","Hillsboro","Coffee","Columbia","09-APR-2020","01-JUN-2020","31-MAY-2025"
+"TN0069396","Wright Paving Contractors, Inc. and Custom Stone, LLC","Custom Stone, LLC","Shelbyville Quarry","Mining","Reissuance","Minor","196 L Fisher Road","Shelbyville","Bedford","Columbia","09-APR-2020","01-JUN-2020","31-MAY-2025"
+"TN0072567","DRC Coal LLC (Formerly Mountainside Coal Company) Cooper Ridge Area 2","DRC Coal LLC (Formerly Mountainside Coal Company)","Cooper Ridge Area#2","Mining","Modification","Minor","Cooper Ridge Area 2","Clairfield","Claiborne","Knoxville","16-MAR-2018","16-MAR-2018","31-JUL-2021"
+"TN0072877","DRC Coal LLC (formerly Mountainside Coal Company)- Leach Mountain Areas 6c & 6d","DRC Coal LLC (formerly Mountainside Coal Company)","Leach Mt Area 6C &D","Mining","Modification","Minor","7692 South Highway 25w","-","Claiborne","Knoxville","16-MAR-2018","16-MAR-2018","31-JUL-2021"
+"TN0042722","Davex Energy Shipping and Processing Plant","Davex Energy, LLC","Davex Energy Processing Plant","Mining","Active","Minor","548 Wooldridge Pike","Jellico","Campbell","Knoxville","25-JUL-2019","01-AUG-2019","31-JUL-2024"
+"TN0070416","Davis Creek Energy, LLC, Area # BG-1","Davis Creek Energy, LLC","Davis Creek Energy Area BG-1","Mining","Incomplete","Minor","Lick Fork Road","Stanfill","Campbell","Knoxville","-","-","-"
+"TN0069248","Davis Creek Energy, LLC, Area # 1","Davis Creek Energy, LLC","Davis Creek Energy Mine 1","Mining","Active","Minor","Westbourne Lane","Duff","Campbell","Knoxville","13-MAR-2020","01-APR-2020","31-MAR-2025"
+"TN0070408","Davis Creek Energy, LLC, Area # 6","Davis Creek Energy, LLC","Area 6","Mining","Active","Minor","Westborne Lane","Duff","Campbell","Knoxville","06-MAR-2020","01-APR-2020","31-MAR-2025"
+"TN0069183","Davis Creek Energy, LLC, Area # 5","Davis Creek Energy, LLC","Area 5","Mining","Reissuance","Minor","Davis Creek Road","Duff","Campbell","Knoxville","03-AUG-2017","03-AUG-2017","02-AUG-2022"
+"TN0069604","DeKalb County Highway Department","DeKalb County Highway Department","Highway Department Rock Crusher ","Mining","Reissuance","Minor","1640 Murfreesboro Highway (Highway 96 West)","Liberty","DeKalb","Cookeville","30-JUN-2016","01-SEP-2016","31-AUG-2021"
+"TN0069094","Delta Contracting Company, LLC - Denmark Sand Plant","Delta Contracting Co. LLC","Denmark Sand Plant","Mining","Reissuance","Minor","329 Hardee Road ","Jackson","Madison","Jackson","14-SEP-2016","01-OCT-2016","30-SEP-2021"
+"TN0069469","Tri County Investments, LLC dba Tri County Stone","Denny Patterson, Owner
+Tri County Investments, LLC ","Tri County Stone Quarry ","Mining","Reissuance","Minor","481 Oak Grove Road","Sharps Chapel","Union","Knoxville","02-JUL-2015","08-SEP-2015","07-SEP-2020"
+"TN0052485","Double Mountain Mining, LLC - Area #5
+Mine ","Double Mountain Mining LLC","Area 5","Mining","Reissuance","Minor","SR-132, Motch","Middlesboro","Claiborne","Knoxville","01-JUN-2017","01-JUN-2017","31-MAY-2022"
+"TN0072176","Double Mountain Mining, LLC  - Jellico North Deep Mine","Double Mountain Mining LLC","Jellico North underground Mine","Mining","Reissuance","Minor","Valley Creek Road","Clairfield","Claiborne","Knoxville","29-MAR-2017","01-APR-2017","31-MAR-2022"
+"TN0079219","Middlesboro Mining Operations, Inc. - Valley Creek Tipple","Double Mountain Mining, LLC","Valley Creek Tipple","Mining","Reissuance","Minor","PO Box 1727","Clairfield","Claiborne","Knoxville","01-NOV-2017","01-NOV-2017","31-OCT-2022"
+"TN0079634","Double Mountain Mining,LLC - Buckeye Springs Surface Mine 2","Double Mountain Mining, LLC","Buckeye Spring 2 Surface Mine","Mining","Modification","Minor","Valley Creek Road","Clairfield","Claiborne","Knoxville","06-SEP-2017","06-SEP-2017","05-SEP-2022"
+"TN0072818","Middlesboro Mining Operations, Inc. - Jellico South Deep Mine","Double Mountain Mining, LLC","Jellico South Deep Mine","Mining","Reissuance","Minor","Valley Creek Road","Manring","Claiborne","Knoxville","29-MAR-2017","01-APR-2017","31-MAR-2022"
+"TN0054097","Double Mountain Mining, LLC - Deep Mine 1 & 3 and Surface Mine 2","Double Mountain Mining, LLC","Deep Mines 1 & 3, Surface Mine 2","Mining","Reissuance","Minor","SR-132, Motch","Middlesboro","Claiborne","Knoxville","27-OCT-2016","01-NOV-2016","31-OCT-2021"
+"TN0076414","Double Mountain Mining, LLC - Jellico Strip Mine","Double Mountain Mining, LLC","Jellico Strip Mine","Mining","Incomplete","Minor","SR-90 and Valley Creek Road","Clairfield","Claiborne","Knoxville","20-OCT-2014","20-OCT-2014","23-JUL-2019"
+"TN0069281","Double Mountain Mining, LLC  Sterling & Strays Mine 1","Double Mountain Mining, LLC.","Sterling-Strays Surface Mine 1","Mining","Reissuance","Minor","Rich Gap -Valley Creek Road ","Clairfield","Claiborne","Knoxville","20-OCT-2014","-","17-AUG-2019"
+"TN0079626","Double Mountain Mining, LLC 
+Formerly:
+Middlesboro Mining Operations, Inc","Double Mountain Mining, LLC.","KY Line Rich Mountain Mine","Mining","Reissuance","Minor","Valley Creek Road","Clairfield","Claiborne","Knoxville","20-OCT-2014","26-OCT-2007","31-JUL-2019"
+"TN0072338","Middlesboro Mining Operations, Inc. - Bennett's Fork Mine","Double Mountain Mining, LLC.","Bennett's Fork Tennessee Surface Mine","Mining","Incomplete","Minor","SR-132, Manring","Clairfield","Claiborne","Knoxville","19-APR-2017","30-APR-2017","10-JUL-2019"
+"TN0079359","Middlesboro Mining Operations, Inc. - Mingo Mine 1","Double Mountain Mining,LLC","Mingo Mine (Underground Coal Mine)","Mining","Reissuance","Minor","PO Box 1727","Manring","Claiborne","Knoxville","15-MAR-2018","15-MAR-2018","30-NOV-2021"
+"TN0065811","Dunlap Stone, Inc. - Quarry 1","Dunlap Stone, Inc.","Quarry 1","Mining","Reissuance","Minor","5139 West Valley Road","Dunlap","Sequatchie","Chattanooga","18-FEB-2020","01-MAR-2020","28-FEB-2025"
+"TN0071331","Dunlap Stone, Inc. Quarry 3","Dunlap Stone, Inc.","Plant #3","Mining","Reissuance","Minor","47437 State Road 30","Pikeville","Bledsoe","Chattanooga","08-JUN-2015","06-SEP-2015","05-SEP-2020"
+"TN0065803","Dunlap Stone, Inc. - Quarry 2","Dunlap Stone, Inc.","Quarry #2","Mining","Reissuance","Minor","1719 Valley View Highway","Jasper","Marion","Chattanooga","25-JUL-2014","01-NOV-2014","31-OCT-2019"
+"TN0066257","Dunlap Stone, Inc. (Plateau Sand Site)","Dunlap Stone, Inc.
+","Plateau Sand Site","Mining","Reissuance","Minor","5497 Henson Gap Road","Dunlap","Sequatchie","Chattanooga","20-NOV-2019","01-DEC-2019","30-NOV-2024"
+"TN0076236","Duracap Asphalt Materials, LLC","Duracap Asphalt Materials, LLC","Asphalt Plant ","Mining","Active","Minor","9509 DIGGS GAP RD HEISKELL TN 37754","HEISKELL","Knox","Knoxville","01-NOV-2017","01-DEC-2017","30-NOV-2022"
+"TN0072613","Duracap Materials, LLC dba Goins Hollow Quarry / Willis Paving Inc
+","Duracap Materials, LLC
+Formerly: Goins Hollow Quarry LLC","Goins Hollow Quarry ","Mining","Reissuance","Minor","4586 Highway 25 East","Tazewell","Claiborne","Knoxville","11-JAN-2019","11-JAN-2019","01-NOV-2020"
+"TN0069761","EP Minerals, LLC – Mine 6 (formerly Moltan Company Mine 4)","EP Minerals, LLC","Mine 6","Mining","Reissuance","Minor","County road off Highway 125 South","Middleton","Hardeman","Memphis","15-JAN-2019","01-FEB-2019","31-JAN-2024"
+"TN0069841","EP Minerals, LLC - Mine 7","EP Minerals, LLC - Mine 7","Mine 7","Mining","Reissuance","Minor","220 Highway 125 South","Middleton","Hardeman","Memphis","19-JUN-2019","01-JUL-2019","30-JUN-2024"
+"TN0063657","Asbury Project Area 1","East Tennessee Industries, Inc.","Asbury Project Area 1","Mining","Reissuance","Minor","N& S of Cinder Lane and NE of Marbledale","Knoxville","Knox","Knoxville","08-JUN-2018","01-JUL-2018","30-JUN-2023"
+"TN0070327","Engle Investments, LLC Bringle Road Sand & Gravel 
+Bringle Farming Company Borrow Pit","Engle Investments, LLC Bringle Road Sand & Gravel ","Bringle Road Sand and Gravel ","Mining","New","Minor","1050 Bringle Road","Covington","Tipton","Memphis","17-AUG-2018","01-SEP-2018","31-AUG-2023"
+"TN0069043","Ferrell Paving, Inc. - Chelsea Plant","Ferrell Paving, Inc. (formerly Metro Materials, Inc.)","Chelsea Mine - Area 1","Mining","Incomplete","Minor","1793 Nedra Avenue","Memphis","Shelby","Memphis","15-APR-2015","01-JUL-2015","30-JUN-2020"
+"TN0071242","Ford Construction Company - Orr Pit","Ford Construction Co., Inc.","Orr Pit","Mining","Reissuance","Minor","Orr Road","Troy","Obion","Jackson","05-NOV-2019","01-DEC-2019","30-NOV-2024"
+"TN0071072","White Pit","Ford Construction Co., Inc.","White Pit ","Mining","Reissuance","Minor","Meachum Rd","Dyersburg","Dyer","Jackson","26-JUN-2015","19-SEP-2015","18-SEP-2020"
+"TN0072052","Old London Pit","Ford Construction Company","Old London Pit","Mining","Reissuance","Minor","Kendall Road","Troy","Obion","Jackson","17-AUG-2018","01-NOV-2018","31-OCT-2023"
+"TN0071137","Waterland Mine","Ford Construction Company","Waterland Mine","Mining","Reissuance","Minor","3231 Highway 211 North","Troy","Obion","Jackson","01-JUN-2018","01-JUN-2018","31-MAY-2023"
+"TN0070831","Ford Construction Company - Langley Pit","Ford Construction Company","Langley Pit","Mining","Active","Minor","PO Box 527","Dyersburg","Lauderdale","Jackson","24-JUL-2015","26-AUG-2015","25-AUG-2020"
+"TN0069078","Camden - Carroll Site/Ashby Pit","Ford Construction Company Inc. 
+","Camden - Carroll Site","Mining","Reissuance","Minor","Pit Road","Camden","Benton","Jackson","15-MAR-2019","01-APR-2019","31-MAR-2024"
+"TN0071129","Ford Construction Company - Troy Plant","Ford Construction Company, Inc.","Troy Plant","Mining","Modification","Minor","1697 Highway 21 West","Troy","Obion","Jackson","15-AUG-2019","01-SEP-2019","31-AUG-2024"
+"TN0069591","Ford Construction Company, Inc. - Cunningham Mine","Ford Construction Company, Inc.","Cunningham Mine ","Mining","Active","Minor","Clint Word Road","Troy","Obion","Jackson","31-JAN-2017","01-FEB-2017","31-JAN-2022"
+"TN0066133","Camden - Memphis Stone Pit","Ford Construction Company, Inc. ","Camden-Memphis Stone Pit","Mining","Reissuance","Minor","Highway 70 Bypass
+","Camden","Benton","Jackson","24-SEP-2018","01-OCT-2018","30-SEP-2023"
+"TN0068951","Franklin County Highway Department","Franklin County Hwy Dept.","Highway Department Rock Quarry ","Mining","Reissuance","Minor","466 Widall Road","Decherd","Franklin","Columbia","29-JAN-2016","20-APR-2016","19-APR-2021"
+"TN0070629","Fred Hall Topsoil Screening Operation","Fred Hall","-","Mining","Pending","N/A","Shelbyville Road","McMinnville","Warren","Cookeville","-","-","-"
+"TN0070530","Pevahouse Farms Gravel Pit","Gary Pevahouse (sole proprietor)","Pevahouse Farms Gravel Pit","Mining","Incomplete","Minor","8265 Mt. Carmel Road","Decaturville","Decatur","Jackson","-","-","-"
+"TN0079863","General Shale Brick, Inc. - Spring City Mine 23","General Shale Brick, Inc.","Spring City Mine 23","Mining","Active","Minor","Highway 27 near Hoyle Road","Spring City","Rhea","Chattanooga","06-JAN-2020","01-FEB-2020","30-APR-2023"
+"TN0079839","General Shale Brick, Inc. - Kitty Hollow Mine #22","General Shale Brick, Inc.","Kitty Hollow Mine No. 22","Mining","Reissuance","Minor","Macedonia Road","Spring City","Rhea","Chattanooga","01-MAR-2018","01-APR-2018","31-MAR-2023"
+"TN0070165","General Shale Brick, Inc. - Kitty South Mine No. 24 ","General Shale Brick, Inc. ","Kitty South Mine No. 24 ","Mining","Modification","Minor","Rocky Springs Road, Spring City TN 37381","Spring City ","Rhea","Chattanooga","06-JUN-2019","01-JUL-2019","30-JUN-2024"
+"TN0045527","Gleason Clay Company, LLC - Mine 10","Gleason Clay Company LLC
+
+","Mine 10","Mining","Modification","Minor","5110 Old Highway 22","Gleason","Weakley","Jackson","01-JUN-2018","01-JUN-2018","31-MAY-2023"
+"TN0045497","Gleason Clay Company, LLC - Mine #3","Gleason Clay Company, LLC","Mine #3","Mining","Reissuance","Minor","US 70 ALT","Gleason","Carroll","Jackson","21-OCT-2015","13-JAN-2016","12-JAN-2021"
+"TN0072851","Gleason Clay Company LLC - Mine 12","Gleason Clay Company, LLC
+","Mine #12","Mining","Modification","Minor","Hwy 124 (Between Brawners and McAdams Road)","Gleason","Weakley","Jackson","12-JUN-2017","23-JUL-2017","22-JUL-2022"
+"TN0045535","Gleason Clay Company, LLC - Mine 11","Gleason Clay Company, LLC 
+
+
+","Mine 11","Mining","Modification","Minor","5119 Old Highway 22","Gleason","Weakley","Jackson","28-APR-2020","01-JUN-2020","31-MAY-2025"
+"TN0045489","Gleason Clay Company, LLC Pit #2","Gleason Clay Company, LLC Pit #2","-","Mining","Reissuance","Minor","Mine 2","Gleason","Weakley","Jackson","21-OCT-2015","13-JAN-2016","12-JAN-2021"
+"TN0079367","Gravel, Sand and Solid Rock, LLC - McCommon/Turner Pit","Gravel, Sand and Solid Rock, LLC","McCommon/Turner Pit","Mining","Reissuance","Minor","1442 Baskin Road","Burlison","Tipton","Memphis","20-SEP-2016","20-SEP-2016","30-JUN-2021"
+"TN0043800","Green Pilgrim, LLC Tipple 1
+","Green Pilgrim, LLC","Tipple 1","Mining","Reissuance","Minor","Smoky Creek Road","Smoky Creek","Scott","Knoxville","01-APR-2016","01-APR-2016","31-MAR-2021"
+"TN0062961","Green Pilgrim, LLC - Jordan Ridge Refuse Area","Green Pilgrim, LLC","Jordan Ridge Refuse Area","Mining","Reissuance","Minor","Smoky Junction Road","Smoky Junction","Scott","Knoxville","01-FEB-2017","01-FEB-2017","31-JAN-2021"
+"TN0076261","Green Pilgrim, LLC - Mine #12
+Formerly: 0955615 US Inc. ","Green Pilgrim, LLC 
+Formerly: 0955615 US Inc.","Mine 12","Mining","Reissuance","Minor","5289 Stinking Creek Road
+","Pioneer","Campbell","Knoxville","01-DEC-2017","01-DEC-2017","30-NOV-2022"
+"TN0052027","Green Pilgrim, LLC
+Previously: Triple H Coal, LLC 
+Previously: TIACME LLC
+Rex Mine","Green Pilgrim, LLC 
+Previously: Triple H Coal, LLC 
+Previously: TIACME LLC","Rex  Mine","Mining","Reissuance","Minor","Stinking Creek Road","Pioneer","Campbell","Knoxville","16-OCT-2018","01-NOV-2018","30-OCT-2023"
+"TN0069531","Limestone Quarry and Rock Crushing Facility","Guy Hommel Jr. dba Hommel Concrete Company","Highway 73 Quarry and Crushing Facility","Mining","Incomplete","Minor","1784 SR-73","Newport","Cocke","Knoxville","28-MAY-2015","01-JUN-2015","31-MAY-2020"
+"TN0069868","Hommel Concrete Company - Clear Creek Quarry and Crushing Facility","Guy Hommel Jr., dba Hommel Concrete Company","Clear Creek Quarry and Crushing Facility","Mining","Modification","Minor","Clear Creek Road","Newport","Cocke","Knoxville","07-JUL-2019","01-OCT-2019","30-SEP-2024"
+"TN0070432","Hommel Concrete Company Highway 73 Sand and Gravel Pit","Guy Hommel Jr., dba Hommel Concrete Company","Highway 73 Sand and Gravel Pit","Mining","New","Minor","Highway 73 and Mantooth Hills Road","Newport","Cocke","Knoxville","26-JUN-2019","01-JUL-2019","30-JUN-2024"
+"TN0069434","H & H Rock- Georgetown Quarry
+(James Walter Hickman Farms)","H & H Rock, Inc.","Georgetown Quarry","Mining","Reissuance","Minor","4480 BRITTSVILLE RD","GEORGETOWN","Meigs","Chattanooga","05-AUG-2015","22-OCT-2015","21-OCT-2020"
+"TN0071951","H. C. Spinks Clay Company  Inc. -Mine # 28, Wilbanks","H. C. Spinks Clay Co., Inc."," #28 Wilbanks","Mining","Reissuance","Minor","1527 Woodard Road","Gleason","Weakley","Jackson","21-MAR-2018","01-JUN-2018","31-MAY-2021"
+"TN0030465","Mine #10, Black Charm","H. C. Spinks Clay Co., Inc., dba Lhoist North America","Mine 10 - Black Charm","Mining","Active","Minor","3220 Goldston Springs Rd","Puryear","Henry","Jackson","25-JUN-2020","01-AUG-2020","31-JUL-2025"
+"TN0076155","H. C. Spinks Clay Company,  Inc., dba Lhoist North America - Karen Brown - Mine #31","H. C. Spinks Clay Co., Inc., dba Lhoist North America","Karen Brown - Mine #31","Mining","Reissuance","Minor","Seminary Church Road","Gleason","Weakley","Jackson","21-MAR-2019","01-JUN-2019","31-MAY-2024"
+"TN0072265","H.C. Spinks Clay Co., Mine #29, Gearin","H. C. Spinks Clay Company, Inc. ","Mine #29 Gearin","Mining","Reissuance","Minor","650 Wingo Levee Road","Greenfield","Weakley","Jackson","02-APR-2018","01-JUL-2018","30-JUN-2023"
+"TN0072800","H. C. Spinks Clay Company, Inc., dba Lhoist North America - Mine #30 - Grable","H.C. Spinks Clay Co., Inc., dba. Lhoist North Amercia
+","Mine #30 - Grable","Mining","Reissuance","Minor","Ben Smith Road","Henry","Henry","Jackson","21-NOV-2016","01-DEC-2016","30-NOV-2021"
+"TN0079740","Lhoist North America, dba Spinks Clay Company - Mine #33 - Hilliard","H.C. Spinks Clay Company, Inc., dba Lhoist North America
+","Mine #33 - Hilliard","Mining","Reissuance","Minor","Willoughly Road (Route 79, between Henry and Paris)","Paris","Henry","Jackson","16-OCT-2017","01-JAN-2018","31-DEC-2022"
+"TN0079774","H.C. Spinks Clay Company, Inc., - dba Lhoist North America - Mine 34 - Orr","H.C. Spinks Clay Company, Inc., dba Lhoist North America
+","Mine 34 - Orr","Mining","Modification","Minor","Purdy Road","Clarksburg","Carroll","Jackson","02-NOV-2018","02-NOV-2018","07-MAR-2021"
+"TN0070611","Stricklin Pit","Hardin County Highway Dept.","Stricklin Pit","Mining","Incomplete","Minor","Lonesome Pine Rd","Savannah","Hardin","Jackson","-","-","-"
+"TN0069817","Thurman Mine","Haskle & Sharon Thurman","Thurman Mine","Mining","Reissuance","Minor","700 Big Fork Road","Chattanooga","Marion","Chattanooga","15-JAN-2019","01-FEB-2019","31-JAN-2024"
+"TN0070351","Hawkeye Contracting Company - Area No. 1","Hawkeye Contracting Company","Area #1","Mining","New","Minor","467 Helton Road","Bean Station","Grainger","Knoxville","27-MAR-2019","01-APR-2019","31-MAR-2024"
+"TN0070203","Highlands Aggragate, LLC - Quarry No. 1","Highlands Aggregate, LLC","Quarry No. 1","Mining","New","Minor","Boswell Road","Monterey","Putnam","Cookeville","04-APR-2017","04-APR-2017","31-MAR-2022"
+"TN0070548","Dry Creek Processing","Hill's Mountain 5100, LLC","Dry Creek Processing","Mining","Active","Minor","16399 State Route 8","McMinnville","Van Buren","Cookeville","21-MAY-2020","01-JUN-2020","31-MAY-2025"
+"TN0055140","Hinkle Contracting Company, LLC - Jellico Stone Quarry","Hinkle Contracting Company, LLC","Jellico Stone Quarry","Mining","Modification","Minor","2698 North Highway 25","Jellico","Campbell","Knoxville","20-MAR-2020","01-APR-2020","31-MAR-2025"
+"TN0079804","Horse Creek Rock, Inc.","Horse Creek Rock Inc.","Hwy 69 Quarry","Mining","Modification","Minor","12935 Highway 69","Savannah","Hardin","Jackson","30-APR-2015","01-MAY-2015","30-APR-2020"
+"TN0070301","Houston Branch Sand & Gravel","Houston Branch Sand & Gravel ","Houston Sand & Gravel Borrow Pit ","Mining","Modification","Minor","Old SR-57","Counce","Hardin","Jackson","06-APR-2018","06-APR-2018","05-APR-2023"
+"TN0070238","Hwy 84 Limestone LLC","Hwy 84 Limestone, LLC","Quarry No. 2","Mining","New","Minor","Highway 84 near Matheney Drive","Monterey","Putnam","Cookeville","19-SEP-2017","01-OCT-2017","30-SEP-2022"
+"TN0069922","Industrial Land Developers LLC - Nashville Quarry","Industrial Land Developers, LLC","Nashville Quarry","Mining","Active","Minor","771 Burnett Road","Old Hickory","Davidson","Nashville","14-SEP-2018","01-OCT-2018","30-SEP-2023"
+"TN0069582","Iron Properties LLC, Liberty Mine","Iron Properties, LLC","Liberty Mine","Mining","Reissuance","Minor","Ogden Road","Dayton","Rhea","Chattanooga","20-SEP-2019","01-OCT-2019","30-SEP-2024"
+"TN0070220","J. M. Shaffer Quarries, Inc. - Sandstone Quarry","J. M. Shaffer Quarries, Inc.","Browntown Quarry","Mining","Active","Minor","Deck Road ","Pleasant Hill","Cumberland","Cookeville","18-MAY-2017","01-JUN-2017","31-MAY-2022"
+"TN0071200","J. R. Hayes Construction Co., Inc. - Mine #4","J. R. Hayes Constr. Co., Inc. ","Mine 4","Mining","Reissuance","Minor","Joe Milam Road ","Buchanan","Henry","Jackson","13-DEC-2019","01-JAN-2020","31-DEC-2024"
+"TN0070785","J R HAYES CONSTRUCTION COMPANY Mine #2","J. R. Hayes Construction Company, Inc. ","Mine 2","Mining","Modification","Minor","Oak Grove Road","Buchanan","Henry","Jackson","15-NOV-2019","01-DEC-2019","30-NOV-2024"
+"TN0060348","J. R. Hayes Construction Co., Inc. - South Fork Plant","J. R. Hayes Construction Company, Inc. ","South Fork Pit","Mining","Reissuance","Minor","1389 Joe Milan Road","Buchanan","Henry","Jackson","20-DEC-2018","01-JAN-2019","31-DEC-2023"
+"TN0069744","Monteagle Sand Man","James David Oliver","Monteagle Sand Man ","Mining","Reissuance","Minor","Monteagle Sand Man Quarry","Monteagle","Marion","Chattanooga","15-APR-2019","01-MAY-2019","30-APR-2024"
+"TN0070467","Jamestown Stone LLC Quarry","Jamestown Stone LLC","Jamestown Stone LLC Quarry","Mining","New","Minor","2064 North York Highway","Jamestown","Fentress","Cookeville","31-JAN-2020","01-FEB-2020","31-JAN-2025"
+"TN0070050","Smith Brothers Sand & Gravel","Jason Smith","Smith Sand and Gravel Mine","Mining","Modification","Minor","4859 New Hope Road","Sweetwater","Loudon","Knoxville","10-JAN-2020","10-JAN-2020","31-OCT-2021"
+"TN0063347","Jefferson County Highway Department","Jefferson County Hwy Dept. Quarry","-","Mining","Modification","Minor","1011 J. C. Thomas Drive","Dandridge","Jefferson","Knoxville","10-JAN-2020","01-APR-2020","31-MAR-2025"
+"TN0072672","Johnson County Highway Department","Johnson County Highway Dept","Quarry No. 1 ","Mining","Reissuance","Minor","Johnson County Quarry","Butler","Johnson","Johnson City","11-MAY-2017","15-MAY-2017","14-MAY-2022"
+"TN0070254","Marty Judd Property","Judd Farms","Judd Farms - Processing Facility and Borrow Area","Mining","New","Minor","2663 Highway 394","Blountville","Sullivan","Johnson City","26-OCT-2017","01-NOV-2017","31-OCT-2022"
+"TN0069477","K and S Sand and Gravel, LLC 
+Formerly: Smith Stone - Sand and Gravel Site","K and S Sand and Gravel, LLC
+Formerly: Smith Stone","K and S Sand and Gravel Mine ","Mining","Reissuance","Minor","Mt. Vinson Road","Stantonville","McNairy","Jackson","15-JAN-2016","22-MAR-2016","21-MAR-2021"
+"TN0070599","Kentucky-Tennessee Clay Company - Cunningham - Mine #21/ McCord Mine #27","Kentucky Tennessee Clay Co.","McCord Mine #27","Mining","New","Minor","Mine #21 - Cunningham","Como","Henry","Jackson","-","-","-"
+"TN0046264","Kentucky-Tennessee Clay Co.- 
+Jackson Mine 11","Kentucky Tennessee Clay Co.
+","Jackson Mine 11","Mining","Reissuance","Minor","Jackson","Gleason","Weakley","Jackson","21-MAR-2018","01-APR-2018","31-MAR-2023"
+"TN0069370","KT Clay Edna Smith, Mine #24","Kentucky- Tennessee Clay Company ","Edna Smith Mine No. 24","Mining","Modification","Minor","White Road (approx 1 mi west of TN 190)","Gleason","Weakley","Jackson","23-SEP-2019","01-NOV-2019","31-OCT-2024"
+"TN0046329","Kentucky-Tennessee Clay Company - Stallcup - Mine #17","Kentucky-Tennessee Clay Company"," Stallcup 17 - Mine #17","Mining","Reissuance","Minor","Sandhill Road near intersection with Sandhill Lane.","Gleason","Weakley","Jackson","14-MAY-2020","01-JUN-2020","31-MAY-2025"
+"TN0046272","Kentucky-Tennessee Clay Company - Lowery - Mine #12","Kentucky-Tennessee Clay Company","Lowery - Mine #12","Mining","Modification","Minor","Bradford/McKenzie Road, .5 miles east of Skullbone","Skullbone","Gibson","Jackson","14-FEB-2020","01-MAR-2020","28-FEB-2025"
+"TN0072290","Kentucky-Tennessee Clay Company - Mine 23 - Storey","Kentucky-Tennessee Clay Company","Mine #23, Storey","Mining","Reissuance","Minor","Doe Road (0.5 miles east of intersection with Hwy 424)","Clarksburg","Carroll","Jackson","06-JUN-2019","01-AUG-2019","31-JUL-2024"
+"TN0070319","Spencer Mine","Kentucky-Tennessee Clay Company","Spencer Mine #26","Mining","New","Minor","TN Hwy 190","Gleason","Weakley","Jackson","21-MAY-2018","01-JUN-2018","31-MAY-2023"
+"TN0069701","Kentucky - Tennessee Clay Company - Guill Mine - #25","Kentucky-Tennessee Clay Company","Guill Mine #25","Mining","Modification","Minor","NE Corner of Shady Grove and Clay Hill Roads","McKenzie","Carroll","Jackson","21-MAY-2018","01-JUN-2018","23-AUG-2022"
+"TN0046281","Kentucky-Tennessee Clay Company - Mine 13- Shankle","Kentucky-Tennessee Clay Company # 13 Shankle"," Mine #13 - Shankle","Mining","Reissuance","Minor","1/4 mile east of the intersection of Pled Wade Road on Sparks Road","Cottage Grove","Henry","Jackson","16-APR-2020","01-JUL-2020","30-JUN-2025"
+"TN0065641","Kentucky-Tennessee Clay Company - Moore - Mine #20","Kentucky-Tennessee Clay Company Moore #20","Moore Mine #20","Mining","Reissuance","Minor","2 miles west of Como on Moore's School Road","Como","Henry","Jackson","04-FEB-2016","13-APR-2016","12-APR-2021"
+"TN0069809","Kopper Glo Mining LLC - Clear Fork Surface Mine","Kopper Glo Mining LLC","Clear Fork Surface Mine","Mining","Reissuance","Minor","Clairfield","Clairfield","Claiborne","Knoxville","16-OCT-2019","01-NOV-2019","31-OCT-2024"
+"TN0069671","Kopper Glo Mining LLC - Cooper Ridge Deep Mine","Kopper Glo Mining LLC","Cooper Ridge Deep Mine","Mining","Modification","Minor","Marion near Clairfield","Clairfield","Claiborne","Knoxville","31-JAN-2020","31-JAN-2020","30-SEP-2024"
+"TN0079430","Kopper Glo Mining LLC
+Tackett Cr. Surface Mine No. 1","Kopper Glo Mining LLC","Tackett Creek Surface Mine No. 1","Mining","Reissuance","Minor","7692 South Highway 25w","Marion","Claiborne","Knoxville","28-DEC-2018","01-JAN-2019","31-DEC-2023"
+"TN0079286","Kopper Glo Mining LLC - Ben's Branch Mine","Kopper Glo Mining LLC","Ben's Branch Underground Mine","Mining","Reissuance","Minor","1197 Rock Creek Ridge Road","Clairfield","Claiborne","Knoxville","14-JAN-2019","01-FEB-2019","30-APR-2023"
+"TN0079812","Kopper Glo Mining, Inc. - Straight Cr. Surface Mine","Kopper Glo Mining LLC","Straight Creek Surface  Mine","Mining","Reissuance","Minor","Claiborne County","Marion","Claiborne","Knoxville","16-DEC-2016","01-JAN-2017","31-DEC-2021"
+"TN0053759","Kopper Glo Mining, LLC dba Marion Tipple","Kopper Glo Mining LLC","Marion Tipple ","Mining","Reissuance","Minor","1197 Rock Creek Ridge Road","Clairfield","Claiborne","Knoxville","16-MAY-2016","01-JUN-2016","31-MAY-2021"
+"TN0079791","Kopper Glo Mining LLC - Tackett Creek Surface Mine 2","Kopper Glo Mining LLC","Tackett Creek Surface Mine 2","Mining","Modification","Minor","Rock Creek Ridge Road","Clairfield","Claiborne","Knoxville","14-JAN-2019","01-FEB-2019","31-JAN-2021"
+"TN0062952","Kopper Glo Mining LLC - Refuse Area 2","Kopper Glo Mining LLC","Refuse Area 2","Mining","Incomplete","Minor","1197 Rock Creek Ridge Road	","Clairfield","Claiborne","Knoxville","09-NOV-2015","09-NOV-2015","08-NOV-2020"
+"TN0069337","Kopper Glo Mining LLC - Double Mountain Mine","Kopper Glo Mining LLC","Double Mountain Deep Mine","Mining","Reissuance","Minor","Claiborne County - Spruce Lick Watershed","Clairfield","Claiborne","Knoxville","21-JUL-2015","21-JUL-2015","20-JUL-2020"
+"TN0069736","Kopper Glo Mining LLC - Cooper Ridge Surface Mine","Kopper Glo Mining, LLC","Cooper Ridge Surface Mine Phase I","Mining","Active","Minor","Valley Creek Road","Clairfield","Claiborne","Knoxville","13-MAR-2020","01-APR-2020","31-MAR-2025"
+"TN0070157","Kopper Glo Mining LLC - Cooper Ridge Surface Mine","Kopper Glo Mining, LLC ","Cooper Ridge Surface Mine Phase II ","Mining","Reissuance","Minor","Valley Creek Road","Clairfield","Claiborne","Knoxville","13-MAR-2020","01-APR-2020","31-MAR-2025"
+"TN0069914","Kraus Stone","Kraus Stone Co., LLC","Kraus Stone","Mining","Active","Minor","1159 Winningham Road","Crossville","Cumberland","Cookeville","02-JUL-2015","02-JUL-2015","01-JUL-2020"
+"TN0072753","Processing Facility, Silvara Stone Company","Kraus Stone Company, LLC","Silvara Processing Facility ","Mining","Modification","Minor","309 County Seat Road","Crossville","Cumberland","Cookeville","30-AUG-2016","01-SEP-2016","31-AUG-2021"
+"TN0062782","LCC TN LLC - Pine Ridge East Mine - TN0062782","LCC Tennessee LLC","Pine Ridge East Mine","Mining","Reissuance","Minor","Pine Ridge East Mine","Dunlap","Bledsoe","Chattanooga","13-FEB-2019","01-MAR-2019","29-FEB-2024"
+"TN0054127","LCC TN, LLC - Glady Fork Mine - TN0054127","LCC Tennessee, LLC","Glady Fork Mine","Mining","Reissuance","Minor","Highway 111 & Hwy 8","Dunlap","Sequatchie","Chattanooga","14-JAN-2019","01-FEB-2019","30-JAN-2024"
+"TN0050679","LCC Tennessee, LLC","LCC Tennessee, LLC","Energy Wash Facility","Mining","Reissuance","Minor","John Barley Hollow","LaFollette","Campbell","Knoxville","12-JAN-2016","12-JAN-2016","12-JAN-2021"
+"TN0054151","LCC TN, LLC - Big Brush Creek Mines 1 & 2 - TN0054151","LCC Tennessee, LLC","Big Brush Creek Mine 2- Alternative Bond Site ","Mining","Reissuance","Minor","Hwy 111 and Hwy 8","Dunlap","Sequatchie","Chattanooga","26-JUN-2014","26-JUN-2014","25-JUN-2019"
+"TN0072737","LoJac Enterprises, Inc.","LOJAC ENTERPRISES, INC.","Smith County Quarry ","Mining","Reissuance","Minor","16 Turkey Creek Highway","Carthage","Smith","Cookeville","14-MAR-2016","01-JUN-2016","31-MAY-2021"
+"TN0071901","Lauderdale County Highway Department","Lauderdale County Highway Department","-","Mining","Reissuance","Minor","281 Bud Armour Rd","Ripley","Lauderdale","Jackson","27-JUN-2018","01-JUL-2018","30-JUN-2023"
+"TN0066044","Lexington Coal Company, LLC
+Lane Cove Strip Mine #2
+TN0066044","Lexington Coal Comapny, LLC","Lane Cove Strip Mine #2","Mining","Reissuance","Minor","1000 Pocket Road","Whitwell","Sequatchie","Chattanooga","01-MAY-2018","01-MAY-2018","30-APR-2023"
+"TN0054321","Lexington Coal Company, LLC
+Morganville Strip Mine #3
+TN0054321","Lexington Coal Company, LLC","Morganville Strip Mine #3/ DM 62","Mining","Reissuance","Minor","1000 Pocket Road","Whitwell","Marion","Chattanooga","14-JAN-2019","01-FEB-2019","30-JAN-2024"
+"TN0052108","Lexington Coal Company, LLC
+Mine No. 23
+TN0052108","Lexington Coal Company, LLC","Mine No. 23","Mining","Reissuance","Minor","1000 Pocket Road","Whitwell","Sequatchie","Chattanooga","26-MAR-2018","01-APR-2018","31-MAR-2023"
+"TN0052132","Lexington Coal Company, LLC
+Preparation Plant","Lexington Coal Company, LLC","Preparation Plant","Mining","Reissuance","Minor","1000 Pocket Road","Whitwell","Marion","Chattanooga","26-MAR-2018","01-APR-2018","31-MAR-2023"
+"TN0053341","Lexington Coal Company, LLC 
+River Dock
+TN0053341","Lexington Coal Company, LLC","River Dock","Mining","Reissuance","Minor","River Dock","Jasper","Marion","Chattanooga","26-MAR-2018","01-APR-2018","31-MAR-2023"
+"TN0050423","Lexington Coal Company, LLC
+Poor Fork Surface Mine #1
+TN0050423","Lexington Coal Company, LLC","Poor Fork Surface Mine #1 (Reclaimed)","Mining","Reissuance","Minor","1000 Pocket Road","Whitwell","Sequatchie","Chattanooga","12-MAY-2017","01-JUN-2017","31-MAY-2022"
+"TN0063690","Lexington Coal Company, LLC
+Kelley Creek Strip Mine #2
+TN0063690","Lexington Coal Company, LLC","Kelley Creek Strip Mine #2 ","Mining","Reissuance","Minor","1000 Pocket Road","Whitwell","Sequatchie","Chattanooga","10-SEP-2015","10-SEP-2015","09-SEP-2020"
+"TN0063151","Lhoist North America dba Anderson Plant","Lhoist North America - Anderson Plant","Anderson Plant","Mining","Reissuance","Minor","2024 Crownover Road","Sherwood","Franklin","Columbia","14-OCT-2015","11-JAN-2016","10-JAN-2021"
+"TN0063631","Lhoist North America - Crab Orchard Plant","Lhoist North America - Crab Orchard Plant","Crab Orchard Plant","Mining","Reissuance","Minor","10583 Highway 70 East","Crab Orchard","Cumberland","Cookeville","15-AUG-2019","01-SEP-2019","31-AUG-2024"
+"TN0071391","Chappell Mine #26","Lhoist North America of TN, LLC dba Spinks Clay Co., Inc. "," Chappell Mine #26","Mining","Modification","Minor","208 Bynum Rd","Gleason","Weakley","Jackson","09-JUN-2020","01-JUL-2020","30-JUN-2023"
+"TN0071102","Spinks Clay Roberts Mine 25","Lhoist North America of Tennessee dba Spinks Clay Co.","Spinks Clay Roberts Mine 25","Mining","Modification","Minor","799 Roberts Road","Gleason","Weakley","Jackson","09-JUN-2020","01-JUL-2020","30-JUN-2025"
+"TN0063541","H. C. Spinks Clay Company, Inc. - dba Lhoist North America, Perry - Mine 23","Lhoist North American of TN, Inc. dba H. C. Spinks Clay Company, Inc.","Perry - Mine 23","Mining","Modification","Minor","Black Gulley Rd.","Clarksburg","Carroll","Jackson","27-JAN-2020","27-JAN-2020","31-JUL-2021"
+"TN0054348","Spinks Mine #21 - Richmond","Lhost North America of TN, Inc., dba H. C. Spinks Clay Company, Inc."," Mine #21 Richmond","Mining","Reissuance","Minor","1000 Liberty Road","Gleason","Weakley","Jackson","02-MAY-2019","01-AUG-2019","31-JUL-2024"
+"TN0066176","Lincoln County Highway Department","Lincoln County Highway Department","Lincoln County Rock Quarry","Mining","Reissuance","Minor","161 Molino Road","Fayetteville","Lincoln","Columbia","05-SEP-2019","01-OCT-2019","30-SEP-2024"
+"TN0069779","Hanging Limb Sand","LoJac Enterprises, Inc. ","Hanging Limb Sand","Mining","Reissuance","Minor","1892 Hanging Limb Highway","Crawford","Overton","Cookeville","28-SEP-2018","01-DEC-2018","30-NOV-2023"
+"TN0079685","Young Portable Crusher Plant","Long Excavating and Hauling, LLC ","Young Portable Crusher Plant","Mining","Reissuance","Minor","Young Portable Crusher Plant","Tazewell","Grainger","Knoxville","18-SEP-2015","18-SEP-2015","17-SEP-2020"
+"TN0072150","Claiborne Hauling LLC dba Loyston Quarry","Loyston Quarry, LLC","Loyston Road Quarry","Mining","Modification","Minor","569 Loyston Road","Maynardville","Union","Knoxville","20-FEB-2019","01-MAR-2019","29-FEB-2024"
+"TN0070246","Majestic Quarries, LLC - Ogden Road Rock Yard","Majestic Quarries, LLC","Ogden Road Rock Yard","Mining","Active","Minor","6219 Ogden Road","Dayton","Rhea","Chattanooga","01-NOV-2017","01-NOV-2017","31-OCT-2022"
+"TN0079413","Martin Paving Sand Pit","Martin Paving Company, Inc.","Martin Paving Sand Pit","Mining","Reissuance","Minor","200 Bakers Chapel Road","Medina","Madison","Jackson","16-APR-2020","01-JUN-2020","31-MAY-2025"
+"TN0069221","Martin Sand and Gravel Mine","Martin Sand and Gravel","Middle Mine","Mining","Modification","Minor","Red Sulphur Springs Road","Counce","Hardin","Jackson","09-AUG-2019","09-AUG-2019","31-JAN-2024"
+"TN0066206","Maymead Potter Quarry","Maymead Materials, Inc.","Potter Quarry","Mining","Modification","Minor","1955 Roan Creek Road
+PO Box 911","Mountain City","Johnson","Johnson City","19-OCT-2018","01-NOV-2018","31-OCT-2023"
+"TN0066192","421 Plant","Maymead Materials, Inc.","421 Plant","Mining","Reissuance","Minor","US Hwy 421 South
+PO Box 911","Mountain City","Johnson","Johnson City","19-OCT-2018","01-NOV-2018","31-OCT-2023"
+"TN0072532","Memphis Stone & Gravel Company - North Plant - Area #5","Memphis Stone & Gravel Co.","North Plant Area 5","Mining","Active","Minor","North Plant - Area #5","Arlington","Shelby","Memphis","20-JUL-2015","15-SEP-2015","14-SEP-2020"
+"TN0072541","Memphis Stone & Gravel Company (Lopez Site)","Memphis Stone & Gravel Co.","Lopez Property","Mining","Active","Minor","Highway 59 West","Covington","Tipton","Memphis","13-JUL-2015","15-SEP-2015","14-SEP-2020"
+"TN0079375","Memphis Stone And Gravel Co. - Area 7 F.M. Duke Estate","Memphis Stone & Gravel Co. Duke Estate","Area 7 F.M. Duke Estate","Mining","Reissuance","Minor","10577 Millington-Arlington Rd","Arlington","Shelby","Memphis","15-JAN-2019","01-FEB-2019","31-JAN-2024"
+"TN0063185","Memphis Stone & Gravel Company -North Plant - Area 1","Memphis Stone & Gravel Company","North Plant - Area 1","Mining","Reissuance","Minor","10236 Millington-Arlington Road","Arlington","Shelby","Memphis","19-JUN-2019","01-JUL-2019","30-JUN-2024"
+"TN0063037","Meridian Brick, LLC - Mine No. 2 Collins","Meridian Brick, LLC","Mine No. 2 - Collins","Mining","Reissuance","Minor","4970 Old State Route 22","Gleason","Weakley","Jackson","14-SEP-2016","01-DEC-2016","30-NOV-2021"
+"TN0063029","Meridian Brick, LLC - Mine No. 3 Rich Pit","Meridian Brick, LLC - Mine No. 3 Rich Pit","Mine 3 Rich Pit ","Mining","Modification","Minor","179 Cypress Rd","Gleason","Weakley","Jackson","18-FEB-2020","01-MAR-2020","28-FEB-2025"
+"TN0069973","Meta Elkhorn, LLC","Meta Elkhorn, LLC","Mine 1","Mining","Incomplete","Minor","Back Valley Road...","Oliver Springs...","Morgan","Knoxville","-","-","-"
+"TN0069205","Metro Materials - James Road Sand Plant","Metro Materials, Inc.","James Road Sand Plant Area 4","Mining","Active","Minor","2600 N. Hollywood Street","Memphis","Shelby","Memphis","31-AUG-2018","01-SEP-2018","31-AUG-2023"
+"TN0070882","Ferrell Paving, Inc. - Crestview Plant","Metro Materials, Inc.","Crestview Plant","Mining","Incomplete","Minor","5253 Crestview Rd","Memphis","Shelby","Memphis","23-OCT-2015","29-OCT-2015","28-OCT-2020"
+"TN0079405","Middle Quarry","Middle Quarry","Quartzite Mine ","Mining","Reissuance","Minor","633 Doe Creek Road (SR-167)","Butler","Johnson","Johnson City","12-JAN-2017","01-MAR-2017","28-FEB-2022"
+"TN0072095","Middle Tennessee Limestone, Inc.","Middle Tennessee Limestone, Inc.","-","Mining","Reissuance","Minor","5880 McMinnville Highway","Doyle","White","Cookeville","15-APR-2019","01-MAY-2019","30-APR-2024"
+"TN0022764","Midsouth Paving, Inc. dba Midsouth Aggregates 
+Previously: APAC Mid-South, Inc.","Midsouth Paving, Inc. dba Midsouth Aggregates 
+Previously APAC Mid-South, Inc..","Lookout Valley Quarry ","Mining","Reissuance","Minor","901 Birmingham Highway","Chattanooga","Hamilton","Chattanooga","18-DEC-2015","18-DEC-2015","17-DEC-2020"
+"TN0076228","Monteagle Sand, LLC - Sand Processing Plant & Quarry","Monteagle Sand, LLC","Sand Processing Plant and Quarry ","Mining","Modification","Minor","731 Pineville Road","Monteagle","Marion","Chattanooga","04-OCT-2016","01-JAN-2017","31-DEC-2021"
+"TN0069881","Montes Stone Products, LLC Blaine Smith Road Quarries 1 and 2","Montes Stone Products, LLC","Blain Smith Road Quarry 1 and Quarry 2","Mining","New","Minor","Blaine Smith Road","Pikeville","Bledsoe","Chattanooga","22-MAR-2016","01-APR-2016","31-MAR-2021"
+"TN0070131","Montes Stone Products, LLC ","Montes Stone Products, LLC ","Castle Rock Quarry ","Mining","New","Minor","Castle Rock Quarry 1552 Shaver Road","Dayton","Bledsoe","Chattanooga","26-JAN-2017","01-FEB-2017","31-JAN-2022"
+"TN0071994","Armour Pit","Monty McWilliams dba McArmour Enterprises","Armour Pit","Mining","Reissuance","Minor","Curve-Woodville Rd","Ripley","Lauderdale","Jackson","24-JUL-2015","08-SEP-2015","07-SEP-2020"
+"TN0057029","Mossy Creek Mining, LLC","Mossy Creek Mining, LLC","New Market Mine and Mill","Mining","Reissuance","Minor","New Market Mine & Mill","New Market","Jefferson","Knoxville","11-JUL-2017","01-AUG-2017","31-JUL-2022"
+"TN0079847","Little Tackett Creek Surface Mine","Mountainside Coal Company","Little Tackett Creek Area, Surface Mine","Mining","Pending","Minor","White Oak Community","Habersham","Campbell","Knoxville","-","-","-"
+"TN0069787","Mr. Guy Hommel, dba Hommel Construction Company - Oneil Road Sand & Gravel Borrow Pit","Mr. Guy Hommel, dba Hommel Construction Company","Oneil Road Sand & Gravel Borrow Pit","Mining","Modification","Minor","811 Oneil Road","Newport","Cocke","Knoxville","10-JUN-2019","01-JUL-2019","30-JUN-2024"
+"TN0069175","National Coal, LLC - Mine 3B","National Coal LLC.","Mine 3B","Mining","Reissuance","Minor","Ligias Fork Watershed of New River near Stainville","Briceville","Anderson","Knoxville","01-APR-2016","01-APR-2016","31-MAR-2021"
+"TN0076376","Premium Coal Company
+National Coal LLC Mine 7","National Coal, LLC","Mine 7","Mining","Reissuance","Minor","Lick Fork of Elk Valley","PIONEER","Campbell","Knoxville","17-JAN-2019","21-JAN-2019","20-JAN-2024"
+"TN0079120","National Coal, LLC - Deep Mine #11","National Coal, LLC","Deep Mine 11","Mining","Reissuance","Minor","8915 George Williams Road","-","Campbell","Knoxville","01-AUG-2016","01-AUG-2016","31-JAN-2021"
+"TN0076180","National Coal, LLC - Deep Mine #10","National Coal, LLC","Deep Mine 10","Mining","Active","Minor","8915 George Williams Road","Knoxville","Campbell","Knoxville","06-MAY-2015","07-MAY-2015","06-MAY-2020"
+"TN0072729","National Coal, LLC","National Coal, LLC
+","Deep Mine 9 ","Mining","Reissuance","Minor","Deep Mine 9","Hembree","Scott","Knoxville","07-MAY-2015","07-MAY-2015","06-MAY-2020"
+"TN0071803","National Coal, LLC
+Deep Mine 8","National Coal, LLC
+","Deep Mine 8","Mining","Incomplete","Minor","Smoky Creek","Hembree","Scott","Knoxville","01-MAY-2015","01-MAY-2015","30-APR-2020"
+"TN0079502","National Coal, LLC - Mine 14","National Coal, LLC
+Mine 14","Reclaimed Underground Mine","Mining","Reissuance","Minor","Cross Mountain","Caryville","Campbell","Knoxville","10-JAN-2018","01-FEB-2018","30-JAN-2023"
+"TN0079162","Navajo Transitional Energy Company, LLC
+Formerly: Sequatchie Valley Coal Corp. - Main Area","Navajo Transitional Energy Company, LLC
+Formerly: Sequatchie Valley Coal Corp.","Main Area","Mining","Reissuance","Minor","443 SVC Road","Dunlap","Sequatchie","Chattanooga","28-DEC-2018","01-JAN-2019","31-DEC-2023"
+"TN0045951","Navajo Transitional Energy Company, LLC
+Formerly: Sequatchie Valley Coal Corporation - TN0045951","Navajo Transitional Energy Company, LLC
+Formerly: Sequatchie Valley Coal Corp.","Mine 1","Mining","Reissuance","Minor","Hcr 65, Box 364","Dunlap","Van Buren","Cookeville","10-AUG-2015","11-AUG-2015","09-AUG-2020"
+"TN0079871","Charles Blalock & Sons, Inc. (aka Newport Pit)","Newport Mine","Newport Pit","Mining","Reissuance","Minor","601 Rankin Road","Newport","Cocke","Knoxville","01-FEB-2018","01-MAY-2018","30-APR-2023"
+"TN0069825","Newport Sand & Gravel- Condor Pit Mine","Newport Sand & Gravel","Condor Pit Mine","Mining","Modification","Minor","1191 Oneil Road","Newport","Cocke","Knoxville","08-MAY-2019","01-JUN-2019","31-MAY-2024"
+"TN0063100","Newport Sand & Gravel","Newport Sand & Gravel Company","Freeman Mine ","Mining","Reissuance","Minor","1775 Zanzabar Rd","Newport","Cocke","Knoxville","15-JUN-2020","01-JUL-2020","30-JUN-2025"
+"TN0072010","North Benton Pit","Norwood Construction Inc.","North Benton Pit","Mining","Reissuance","Minor","10685 Highway 69","Big Sandy","Benton","Jackson","24-SEP-2018","01-OCT-2018","30-SEP-2023"
+"TN0029360","Nyrstar Gordonsville LLC","Nyrstar Tennessee Mines ","Gordonsville Mine and Mill","Mining","Reissuance","Major","120 Zinc Mine Circle","Gordonsville","Smith","Cookeville","19-SEP-2017","01-NOV-2017","31-OCT-2022"
+"TN0004227","Nyrstar Tennessee Mines - Gordonsville, LLC (Elmwood Mine)","Nyrstar Tennessee Mines - Gordonsville, LLC","Elmwood Mine","Mining","Reissuance","Major","Helms Bend Road","Elmwood","Smith","Cookeville","14-JUN-2018","01-AUG-2018","31-JUL-2023"
+"TN0001732","Coy Mine","Nyrstar Tennessee Mines - Strawberry Plains, LLC ","Coy Mine","Mining","Reissuance","Major","420 E. Broadway Blvd","Jefferson City","Jefferson","Knoxville","17-OCT-2018","01-JAN-2019","31-DEC-2023"
+"TN0061468","Beaver Creek Shaft","Nyrstar Tennessee Mines - Strawberry Plains, LLC 
+","Beaver Creek Shaft","Mining","Modification","Major","2421 W. Old Andrew Johnson Highway","Strawberry Plains","Jefferson","Knoxville","14-JUL-2017","01-AUG-2017","31-JUL-2022"
+"TN0064289","Nyrstar Gordsonsville, LLC (Cumberland Mine Site)","Nyrstar Tennessee Mines Gordonsville, LLC ","Cumberland Mine Site","Mining","Reissuance","Major","510 Cumberland Mine Rd","Carthage","Smith","Cookeville","10-AUG-2017","01-SEP-2017","31-AUG-2022"
+"TN0001759","Immel Mine","Nyrstar Tennessee Mines- Strawberry Plains","Immel MIne","Mining","Reissuance","Major","2160 Immel Mine Rd","Mascot","Knox","Knoxville","08-NOV-2016","01-DEC-2016","30-NOV-2021"
+"TN0027677","Nyrstar Tennessee Mines - Strawberry Plains, LLC dba Young Mill Zinc Ore Processing Plant","Nyrstar Tennessee Mines-Strawberry Plains, LLC","Young Mill and Mine","Mining","Reissuance","Major","1977 West Highway 11 East","New Market","Jefferson","Knoxville","26-JUN-2019","01-JUL-2019","30-JUN-2024"
+"TN0070025","O'Neal Melton & Sons Farms","O'NEAL MELTON AND SONS, INCORPORATED ","O'Neal Melton & Sons Mine ","Mining","New","Minor","5095 Highway 70 West","Camden","Benton","Jackson","08-JUL-2016","01-AUG-2016","31-JUL-2021"
+"TN0045811","Old Hickory Clay Company -    
+Volunteer Mine # 1","Old Hickory Clay Co. ","Volunteer Mine # 1","Mining","Modification","Minor","Clay Pit Road","Gleason","Weakley","Jackson","30-APR-2020","01-JUL-2020","30-JUN-2025"
+"TN0070335","Alexander Mine #9","Old Hickory Clay Company","Alexander Mine #9","Mining","New","Minor","2016 Goldston Springs Road","Puryear","Henry","Jackson","24-SEP-2018","01-OCT-2018","30-SEP-2023"
+"TN0070297","Old Hickory Clay Company - J.B. Walker Idlewild Mine - No. 8","Old Hickory Clay Company","J.B. Walker Idlewood Mine - No. 8","Mining","New","Minor","Idlewild Hollyleaf Rd","Milan","Gibson","Jackson","29-JUN-2018","01-JUL-2018","30-JUN-2023"
+"TN0079677","Old Hickory Clay Company - Guill Mine - No. 6","Old Hickory Clay Company","Guill Mine - No. 6","Mining","Reissuance","Minor","Concord Church Rd","McKenzie","Carroll","Jackson","23-JAN-2017","01-MAR-2017","28-FEB-2022"
+"TN0070033","The Scarbrough Mine - Number 7","Old Hickory Clay Company","Scarbrough Mine - Number 7","Mining","New","Minor","Seminary Church Road","Gleason","Weakley","Jackson","20-MAY-2016","01-JUN-2016","31-MAY-2021"
+"TN0041581","Old Hickory Clay Company -  McClain Mine # 2","Old Hickory Clay Company","McClain Mine #2","Mining","Reissuance","Minor","McClain Mine # 2","Gleason","Weakley","Jackson","24-JUL-2015","04-SEP-2015","03-SEP-2020"
+"TN0045837","Old Hickory Clay Company - Cottage Grove - Mine #4","Old Hickory Clay Company","Cottage Grove - Mine #4","Mining","Reissuance","Minor","TN -140/Route 69 (Approx. 10 miles from the Kentucky line)","Cottage Grove","Weakley","Jackson","24-JUL-2015","04-SEP-2015","03-SEP-2020"
+"TN0045845","Old Hickory Clay Company -      Mine #5 - Dunn","Old Hickory Clay Company ","Mine# 5 - Dunn","Mining","Reissuance","Minor","5420 Old Highway 22","Gleason","Weakley","Jackson","25-JUN-2020","01-SEP-2020","31-AUG-2023"
+"TN0069264","Evergreen Farms (The Villas at)","Ole South Excavating, Inc.","Evergreen Farms Borrow Area","Mining","Reissuance","Minor","0.35 miles south from intersection of Cason Tr. and Saint Andrews Dr.","Murfreesboro","Rutherford","Nashville","25-SEP-2019","01-OCT-2019","30-SEP-2024"
+"TN0065668","Overton County Highway Department","Overton County Highway Department
+","Overton County Quarry ","Mining","Reissuance","Minor","Quarry Road","Livingston","Overton","Cookeville","15-DEC-2017","01-JAN-2018","31-DEC-2022"
+"TN0070777","Jackson Sand, LLC","Pope Concrete Products, Inc. dba Jackson Sand, Inc.","Mine 1","Mining","Reissuance","Minor","139 United Drive","Jackson","Madison","Jackson","14-JAN-2019","01-FEB-2019","31-MAR-2024"
+"TN0070581","Potter South East - Borrow Site","Potter South East, LLC ","-","Mining","New","Minor","Jacksboro Pike","Jacksboro","Campbell","Knoxville","-","-","-"
+"TN0076368","Premium Coal Company, Inc., Refuse Area #3","Premium Coal Company, Inc","Refuse Area #3","Mining","Reissuance","Minor","McQueen Hollow
+Lake City USGS Quadrangle 137NW","Briceville","Anderson","Knoxville","07-MAY-2015","07-MAY-2015","06-MAY-2020"
+"TN0052965","Premium Coal Company, Inc","Premium Coal Company, Inc
+Mine 17","Mine 17","Mining","Reissuance","Minor","PO Box 465","Jacksboro","Anderson","Knoxville","07-MAY-2015","07-MAY-2015","06-MAY-2020"
+"TN0051918","Premium Coal Company, Inc. - Tipple & Preparation Plant","Premium Coal Company, Inc.","Coal Preparation Plant ","Mining","Reissuance","Minor","Tipple & Preparation Plant","Rocky Top","Anderson","Knoxville","11-JAN-2018","01-FEB-2018","31-JAN-2023"
+"TN0049964","Premium Coal Company, Inc. Baldwin Plant/Baldwin Refuse Impoundment 3","Premium Coal Company, Inc.","Baldwin Plant / Baldwin Refuse Impoundment","Mining","Reissuance","Minor","7563 New River Highway 116","Moores Camp","Anderson","Knoxville","16-SEP-2015","18-SEP-2015","15-SEP-2020"
+"TN0079529","Premium Coal Company, Inc. - Area #19","Premium Coal Company, Inc.","Mine 19 ","Mining","Reissuance","Minor","Ligias Fork of New River near Windrock","Rocky Top","Anderson","Knoxville","07-AUG-2015","07-AUG-2015","06-AUG-2020"
+"TN0079570","Premium Coal Company, Inc. - Area #20","Premium Coal Company, Inc.","Premium Coal Mine 20","Mining","Reissuance","Minor","Area 20","Caryville","Campbell","Knoxville","07-MAY-2015","07-MAY-2015","06-MAY-2020"
+"TN0071307","Premium Coal Company, Inc. - Area #18","Premium Coal Company, Inc.","Area 18","Mining","Reissuance","Minor","Area #18","Oliver Springs","Anderson","Knoxville","07-MAY-2015","07-MAY-2015","06-MAY-2020"
+"TN0069159","National Coal Mine 5A","Premium Coal Company, Inc.","Mine 5A","Mining","Incomplete","Minor","Ligias Fork Watershed of New River near Stainville","Caryville","Anderson","Knoxville","07-MAY-2015","07-MAY-2015","06-MAY-2020"
+"TN0063592","Premium Coal Company, Inc. - Refuse Area 2","Premium Coal Company, Inc.","Refuse Area 2","Mining","Reissuance","Minor","Old Airbase Road","Briceville","Anderson","Knoxville","07-MAY-2015","07-MAY-2015","06-MAY-2020"
+"TN0043222","Premium Coal Company, Inc.","Premium Coal Company, Inc.
+Loadout Tipple","Baldwin Load Out","Mining","Reissuance","Minor","Tipple 3","Devonia","Anderson","Knoxville","31-OCT-2013","31-OCT-2013","30-OCT-2018"
+"TN0079561","Premium Coal Company, Inc.
+Mine 15, OSM 3235 (formerly 3188)","Premium Coal Company, Inc.
+Mine 15","Mine 15","Mining","Reissuance","Minor","Stallion Mountian approximately 3 miles west of Devonia","Devonia","Anderson","Knoxville","29-MAY-2013","29-MAY-2013","28-MAY-2018"
+"TN0079294","Premium Coal Company, Inc. - Mine 3","Premium Coal Company, Inc. 
+Mine 3"," Surface Mine 3","Mining","Reissuance","Minor","Highway 116","Rosedale","Anderson","Knoxville","10-MAR-2016","10-MAR-2016","09-MAR-2021"
+"TN0079308","Premium Coal Company, Inc. 
+Mine 4","Premium Coal Corporation, Inc.","Mine 4","Mining","Reissuance","Minor","8915 George Williams Road","Rosedale","Anderson","Knoxville","07-MAY-2015","07-MAY-2015","06-MAY-2020"
+"TN0040564","Twin Bluff Farms Quarry","RQ Development,LLC","Twin Bluff Farms Quarry","Mining","New","Minor","Gravel road off of Dry Valley Rd","Cookeville","Putnam","Cookeville","24-APR-2020","01-MAY-2020","30-APR-2025"
+"TN0071277","Doe Creek Quartzite Mine","Radford Quarries Of Boone, Inc","Doe Creek Quartzite Mine ","Mining","Reissuance","Minor","501 Doe Creek Road","Butler","Johnson","Johnson City","30-SEP-2016","01-OCT-2016","30-SEP-2021"
+"TN0070386","Real Stone Veneers","Real Stone Veneers of Tennessee, LLC","Whitwell Stone Yard","Mining","New","Minor","East Minnesota Ave","Whitwell","Marion","Chattanooga","20-DEC-2018","01-JAN-2019","31-DEC-2023"
+"TN0076309","Revelation Energy, LLC transfer from Bell County Coal Corporation - Cabin Hollow Mine #1","Revelation Energy LLC transferred from Bell County Coal Corporation","Cabin Hollow Mine","Mining","Modification","Minor","RR 1, Box 290
+Pruden Road","Motch","Claiborne","Knoxville","25-AUG-2016","01-SEP-2016","31-AUG-2021"
+"TN0070122","Rocky Ridge Stone Company, LLC","Rocky Ridge Stone Company, LLC","Sandstone Processing Facility","Mining","New","Minor","Rock Quarry Rd","CROSSVILLE","Cumberland","Cookeville","21-NOV-2016","01-DEC-2016","30-NOV-2021"
+"TN0070289","Shane Wattenbarger Property - Woodcliff Road","Rockytop Stone Supply, LLC","Area No. 1","Mining","New","Minor","385 Myers Street/Woodcliff Road","Monterey","Putnam","Cookeville","22-JAN-2018","22-JAN-2018","21-JAN-2023"
+"TN0063525","Rogers Group, Inc. - Fentress County Quarry","Rogers Group Inc","Fentress County Quarry","Mining","Active","Minor","2355 North York Highway","Pall Mall","Fentress","Cookeville","17-JAN-2020","01-APR-2020","31-MAR-2025"
+"TN0071846","Rogers Group, Inc. - Deason Quarry/Hawkins Asphalt Paving, LLC","Rogers Group Inc.","Deason Quarry","Mining","Modification","Minor","190 Squire Hall Road","Shelbyville","Bedford","Columbia","05-DEC-2018","01-MAR-2019","29-FEB-2024"
+"TN0065781","Cookeville  Quarry","Rogers Group Inc.","Cookeville Quarry ","Mining","Reissuance","Minor","1100 Old Calvary Road","Cookeville","Putnam","Cookeville","24-JUN-2015","23-SEP-2015","22-SEP-2020"
+"TN0072907","Rogers Group, Inc. - Highway 11 Quarry","Rogers Group, Inc","Highway 11 Quarry","Mining","Reissuance","Minor","1942 Christian Road","Pulaski","Giles","Columbia","04-AUG-2017","01-NOV-2017","31-OCT-2022"
+"TN0069124","Rogers Group, Inc. - Gordonsville Quarry","Rogers Group, Inc.","Gordonsville Quarry","Mining","Active","Minor","342 Rogers Road","Gordonsville","Smith","Cookeville","05-JUN-2020","01-AUG-2020","31-JUL-2025"
+"TN0070874","Fayetteville Quarry","Rogers Group, Inc.","Fayetteville Quarry ","Mining","Reissuance","Minor","331 Shelbyville Highway (US-23I N.)","Fayetteville","Lincoln","Columbia","02-APR-2020","01-MAY-2020","30-APR-2025"
+"TN0063461","Rogers Group, Inc. - McMinnville Asphalt Plant","Rogers Group, Inc.","McMinnville Quarry ","Mining","Reissuance","Minor","163 Stone Man Road","McMinnville","Warren","Cookeville","18-FEB-2020","01-MAY-2015","30-APR-2025"
+"TN0023957","Ten Mile Quarry","Rogers Group, Inc.","Ten Mine Quarry ","Mining","Active","Minor","4275 Old Ten Mile Road","Ten Mile","Meigs","Chattanooga","13-MAR-2020","01-APR-2020","31-MAR-2025"
+"TN0066168","Caryville Quarry","Rogers Group, Inc.","Caryville Quarry","Mining","Modification","Minor","429 Queener Road","Caryville","Campbell","Knoxville","08-NOV-2019","01-DEC-2019","30-NOV-2024"
+"TN0072371","Rogers Group, Inc. dba Hillsdale Quarry","Rogers Group, Inc.","Hillsdale Quarry ","Mining","Reissuance","Minor","Carter Branch Road","Dixon Springs","Macon","Cookeville","15-OCT-2019","01-DEC-2019","30-NOV-2024"
+"TN0029262","Rogers Group, Inc. - LaFollette Quarry","Rogers Group, Inc.","Lafollette Quarry","Mining","Modification","Minor","504 Towe String Road","LaFollette","Campbell","Knoxville","04-SEP-2019","01-DEC-2019","30-NOV-2024"
+"TN0061395","Columbia Quarry - Rogers Group, Inc.","Rogers Group, Inc.","Columbia Quarry","Mining","Active","Minor","1071 Blue Springs Road","Columbia","Maury","Columbia","03-JUL-2019","01-AUG-2019","31-JUL-2024"
+"TN0069141","Rogers Group Inc. Clinton Quarry","Rogers Group, Inc.","Clinton Quarry","Mining","Modification","Minor","Highway 61 East, southeast corner of I-75 intersection at exit 122","Clinton","Anderson","Knoxville","06-JUN-2019","01-JUL-2019","30-JUN-2024"
+"TN0057452","Rogers Group, Inc. - White's Creek Pike Quarry","Rogers Group, Inc.","Whites Creek Pike Quarry","Mining","Reissuance","Minor","2819 Whites Creek Pike","Nashville","Davidson","Nashville","15-APR-2019","01-MAY-2019","30-APR-2024"
+"TN0066338","Anchor Rock Quarry","Rogers Group, Inc.","Anchor Rock Quarry","Mining","Reissuance","Minor","Hardison Mill Road","Columbia","Maury","Columbia","15-FEB-2019","01-MAR-2019","29-FEB-2024"
+"TN0066541","Rogers Group, Inc. - TN0066541","Rogers Group, Inc.","Grundy Quarry","Mining","Reissuance","Minor","Highway 50","Pellham","Grundy","Chattanooga","27-SEP-2018","01-NOV-2018","31-OCT-2023"
+"TN0004472","Rogers Group, Inc. - Roane County Quarry","Rogers Group, Inc.","Roane County Quarry","Mining","Reissuance","Minor","260 Quarry Road","Harriman","Roane","Knoxville","23-AUG-2018","01-OCT-2018","30-SEP-2023"
+"TN0065986","Rogers Group, Inc. - Hillsboro Quarry/ Hillsboro Asphalt","Rogers Group, Inc.","Hillsboro Quarry","Mining","Reissuance","Minor","1871 Rogers Crusher Road","Hillsboro","Coffee","Columbia","22-AUG-2018","01-SEP-2018","31-AUG-2023"
+"TN0063517","Rogers Group, Inc. - Algood Quarry & Rogers Group, Inc.","Rogers Group, Inc.","Algood Quarry","Mining","Reissuance","Minor","355 East Main Street","Algood","Putnam","Cookeville","27-JUL-2018","01-SEP-2018","31-AUG-2023"
+"TN0072028","Cross Plains Quarry","Rogers Group, Inc.","Cross Plains Quarry","Mining","Reissuance","Minor","4450 South Rockhouse Road","Cross Plains","Robertson","Nashville","20-AUG-2013","01-SEP-2013","31-AUG-2023"
+"TN0063509","Rogers Group, Inc. - Sparta Quarry; Rogers Group, Inc. dba Sparta Asphalt","Rogers Group, Inc.","Sparta Asphalt","Mining","Modification","Minor","1684 Old Smithville Highway ","Sparta","White","Cookeville","01-MAY-2018","01-AUG-2018","31-JUL-2023"
+"TN0056421","Rogers Group, Inc. - Pulaski Asphalt/Pulaski Quarry","Rogers Group, Inc.","Pulaski Quarry","Mining","Reissuance","Minor","2212 Bethel Road","Pulaski","Giles","Columbia","02-APR-2018","01-JUL-2018","30-JUN-2023"
+"TN0063495","Rogers Group, Inc. - Allons Quarry","Rogers Group, Inc.","Allons Quarry","Mining","Reissuance","Minor","Highway 52 North","Livingston","Overton","Cookeville","17-APR-2018","01-MAY-2018","30-APR-2023"
+"TN0066320","Rogers Group, Inc. - Liberty Quarry","Rogers Group, Inc.","Liberty Quarry","Mining","Reissuance","Minor","470 Woodbury Highway","Liberty","DeKalb","Cookeville","01-DEC-2017","01-DEC-2017","30-NOV-2022"
+"TN0004219","Rogers Group, Inc. dba Oak Ridge Quarry","Rogers Group, Inc.","Oak Ridge Quarry","Mining","Modification","Minor","250 Union Valley Road","Oak Ridge","Anderson","Knoxville","01-NOV-2017","01-DEC-2017","30-NOV-2022"
+"TN0063479","Rogers Group, Inc., - Celina Quarry","Rogers Group, Inc.","Celina Quarry ","Mining","Reissuance","Minor","120 River Road - Off Highway 53","Celina","Clay","Cookeville","12-JUL-2017","01-OCT-2017","30-SEP-2022"
+"TN0057967","Rogers Group, Inc. - Lawrenceburg Quarry","Rogers Group, Inc.","Lawrenceburg Quarry","Mining","Reissuance","Minor","2690 Waynesboro Highway","Lawrenceburg","Lawrence","Columbia","01-JUL-2017","07-AUG-2017","06-AUG-2022"
+"TN0072273","Rogers Group, Inc. dba Hickman County Quarry","Rogers Group, Inc.","Hickman County Quarry","Mining","Reissuance","Minor","11201 Spencer Mill Road","Bon Aqua","Hickman","Columbia","03-MAR-2016","02-JUN-2016","01-JUN-2021"
+"TN0063444","Rogers Group, Inc. 
+Livingston Quarry","Rogers Group, Inc.","Livingston Quarry","Mining","Reissuance","Minor","Highway 42","Livingston","Overton","Cookeville","14-JAN-2016","13-APR-2016","12-APR-2021"
+"TN0069523","Rogers Group, Inc. - Gum Branch Quarry","Rogers Group, Inc.","Gum Branch Quarry","Mining","Modification","Minor","152 Lime Kiln Road","Burns","Dickson","Nashville","22-JUL-2019","22-JUL-2019","17-MAR-2021"
+"TN0072508","Rogers Group, Inc.
+Gainesboro Quarry","Rogers Group, Inc.","Gainesboro Quarry","Mining","Reissuance","Minor","10796 Dodson Branch Highway","Gainesboro","Jackson","Cookeville","22-OCT-2015","25-JAN-2016","24-JAN-2021"
+"TN0071251","Rogers Group, Inc. - Belfast Quarry","Rogers Group, Inc.","Belfast Quarry","Mining","Modification","Minor","1960 Fayetteville Hwy","Belfast","Marshall","Columbia","19-OCT-2015","16-JAN-2016","15-JAN-2021"
+"TN0063487","Rogers Group, Inc. - Monterey Quarry ","Rogers Group, Inc.","Monterey Quarry","Mining","Reissuance","Minor","11825 Matheny Drive","Monterey","Putnam","Cookeville","06-NOV-2015","17-DEC-2015","16-DEC-2020"
+"TN0022756","Rogers Group, Inc.","Rogers Group, Inc.","Shelbyville Quarry","Mining","Reissuance","Minor","2540 Highway 41A","Shelbyville","Bedford","Columbia","20-AUG-2015","17-NOV-2015","16-NOV-2020"
+"TN0069418","Englewood Quarry","Rogers Group, Inc.","Englewood Quarry","Mining","Reissuance","Minor","Highway 39
+near Burger Branch Rd","Englewood","McMinn","Chattanooga","31-JUL-2015","01-AUG-2015","31-JUL-2020"
+"TN0071676","Rogers Group, Inc. dba Monroe County Quarry","Rogers Group, Inc.
+","Monroe County Stone ","Mining","Reissuance","Minor","197 Campground Road","Madisonville","Monroe","Knoxville","26-OCT-2017","01-FEB-2018","31-JAN-2023"
+"TN0065901","Rogers Group, Inc. dba Rhea County Quarry","Rogers Group, Inc.
+","Rhea County Quarry ","Mining","Reissuance","Minor","7981 Old Washington Highway","Dayton","Rhea","Chattanooga","14-SEP-2017","01-DEC-2017","30-NOV-2022"
+"TN0003654","Rogers Group, Inc.","Rogers Group, Inc.
+","Lewisburg Quarry","Mining","Reissuance","Minor","600 Darnell-Mealer Road","Lewisburg","Marshall","Columbia","01-SEP-2017","01-OCT-2017","30-SEP-2022"
+"TN0057657","Rogers Group, Inc., REOstone Quarry","Rogers Group, Inc. ","REOstone Quarry","Mining","Modification","Minor","6514 Robertson Road","Nashville","Davidson","Nashville","01-JUN-2020","01-JUN-2020","31-MAY-2025"
+"TN0004201","Rogers Group Inc. - Gallatin Quarry/Asphalt
+","Rogers Group, Inc. ","Gallatin Quarry","Mining","Modification","Minor","245 Lower Station Camp Creek Road","Gallatin","Sumner","Nashville","27-JAN-2016","24-APR-2016","23-APR-2021"
+"TN0079511","Millcreek Limestone, LLC","Rogers Group, Inc. ","Mill Creek Quarry ","Mining","Reissuance","Minor","Highway 70 North, near Walker Mountain Road","Monterey","Putnam","Cookeville","18-NOV-2015","14-FEB-2016","13-FEB-2021"
+"TN0066273","Rogers Group, Inc. - Lynchburg Quarry ","Rogers Group, Inc. 
+","Lynchburg Quarry","Mining","Reissuance","Minor","643 Buckeye Loop Road","Lynchburg","Moore","Columbia","01-SEP-2017","01-NOV-2017","31-OCT-2022"
+"TN0069639","Rogers Group, Inc. dba Tennessee River Sand & Gravel","Rogers Group, Inc. 
+Formerly: Teague Sand and Gravel, Inc.","Tennessee River Sand and Gravel 
+Formerly: Teague Sand and Gravel ","Mining","Modification","Minor","3107 Cypress Creek Road 
+prior WPC 
+R #1 Cypress Creek Road Decatur","Linden","Perry","Columbia","29-JUN-2018","01-JUL-2018","30-JUN-2023"
+"TN0065706","Rogers Group, Inc. (Grimsley Sand & Gravel)","Rogers Group, Inc. (Grimsley Sand & Gravel)","-","Mining","Reissuance","Minor","1300 Old Sunbright Road","Grimsley","Fentress","Cookeville","12-DEC-2016","01-JAN-2017","31-DEC-2021"
+"TN0066311","Rogers Group, Inc. - Cowan Quarry and Cowan Asphalt","Rogers Group, Inc. - Cowan Quarry","Cowan Quarry","Mining","Reissuance","Minor","221 Rogers Group Road","Cowan","Franklin","Columbia","20-SEP-2018","01-NOV-2018","31-OCT-2023"
+"TN0066630","Rogers Group, Inc. - Pottsville dba Pottsville Quarry","Rogers Group, Inc. - Pottsville Quarry","Pottsville Quarry","Mining","Modification","Minor","646 Highway 99","Lewisburg","Marshall","Columbia","15-FEB-2019","01-MAR-2019","29-FEB-2024"
+"TN0066150","Rogers Group, Inc. - Rutherford dba Rutherford County Quarry","Rogers Group, Inc. - Rutherford Quarry","Rutherford County Quarry","Mining","Reissuance","Minor","5920 Burnt Knob Road","Murfreesboro","Rutherford","Nashville","07-DEC-2018","01-JAN-2019","31-DEC-2023"
+"TN0059561","Rutherford County Highway Department - Rutherford County Rock Quarry","Rutherford County Highway Department","Rutherford County Rock Quarry","Mining","Reissuance","Minor","3901 Shelbyville Highway","Murfreesboro","Rutherford","Nashville","13-NOV-2014","13-NOV-2014","12-NOV-2019"
+"TN0072168","S & H Mining, Inc. - Deep Mine 11","S & H Mining, Inc.","Deep Mine 11","Mining","Reissuance","Minor","PO Box 480","Rocky Top","Campbell","Knoxville","07-JUL-2017","01-AUG-2017","31-JUL-2022"
+"TN0046647","S & H Mining, Inc. - Deep Mine 2","S & H Mining, Inc.","Deep Mine 2","Mining","Reissuance","Minor","PO Box 480","Rocky Top","Campbell","Knoxville","07-JUL-2017","01-AUG-2017","31-JUL-2022"
+"TN0052531","S & H Mining, Inc.","S & H Mining, Inc.","Deep Mine 8","Mining","Reissuance","Minor","Deep Mine #8","Caryville","Campbell","Knoxville","07-JUL-2017","01-AUG-2017","31-JUL-2022"
+"TN0072419","S & H Mining, Inc. - Deep Mine 12","S & H Mining, Inc.","Deep Mine 12","Mining","Reissuance","Minor","PO Box 480","Rocky Top","Campbell","Knoxville","30-JUN-2017","01-JUL-2017","30-JUN-2022"
+"TN0079618","S.C.P. Investments, LLC","SCP Investments, LLC","Crab Orchard Quarry ","Mining","Modification","Minor","323 Crab Orchard Rock Quarry Road","Crab Orchard","Cumberland","Cookeville","07-JUL-2017","13-SEP-2017","12-SEP-2022"
+"TN0070572","SRM Materials, LLC - Smyrna Quarry","SRM Materials, LLC","Smyrna Quarry","Mining","New","Minor","5983 Hickory Grove Road","Murfreesboro","Rutherford","Nashville","26-MAR-2020","01-APR-2020","31-MAR-2025"
+"TN0070459","Saltillo Sand & Gravel, Inc. Material Wash Plant","Saltillo Sand & Gravel, Inc.","Saltillo Sand & Gravel Material Wash Plant","Mining","New","Minor","810 Highway 104","Saltillo","Hardin","Jackson","25-SEP-2019","01-OCT-2019","30-SEP-2024"
+"TN0072362","Sand Products, LLC","Sand Products, LLC","Mineral Springs Mine ","Mining","Reissuance","Minor","4039 Hanging Limb Highway","Monterey","Overton","Cookeville","30-SEP-2016","01-OCT-2016","30-SEP-2021"
+"TN0065897","Sand Switch Mine","Sequatchie Concrete Service","Sand Switch Mine ","Mining","Reissuance","Minor","Winchester Road (Hwy 56)","Monteagle","Marion","Chattanooga","22-JUN-2016","01-JUL-2016","30-JUN-2021"
+"TN0066214","Sevier County Highway Department","Sevier County Highway Department
+","Sevier County Quarry","Mining","Reissuance","Minor","139 County Garage Road ","Sevierville","Sevier","Knoxville","01-MAY-2018","01-MAY-2018","30-APR-2023"
+"TN0079723","Sherwood Mining Company, LLC","Sherwood Mining Company, LLC
+Sherwood Rock Quarry","Sherwood Rock Quarry ","Mining","Reissuance","Minor","9881 Sherwood Road","Sherwood","Franklin","Columbia","15-JUN-2017","15-JUN-2017","14-JUN-2022"
+"TN0069230","Shiloh Processing Facility","Shiloh Sand & Gravel","-","Mining","Modification","Minor","215 Owen Lane","Shiloh","Hardin","Jackson","20-FEB-2019","01-MAR-2019","29-FEB-2024"
+"TN0054291","Short Mountain Silica","Short Mountain Silica Company
+","Short Mountain Sand Quarry","Mining","Modification","Minor","170 Silica Road","Mooresburg","Hawkins","Johnson City","12-JAN-2017","01-MAR-2017","28-FEB-2022"
+"TN0071919","Short Mountain Trucking, Inc.
+Truck Loading and Maintenance","Short Mountain Trucking, Inc.","Truck Loading and Maintenance","Mining","Modification","Minor","151 Silica Road","Mooresburg","Hawkins","Johnson City","12-JAN-2018","25-JAN-2018","24-JAN-2023"
+"TN0066460","Area #1 - Clayfield","Signal Mountain Cement Co. dba Buzzi Unicem USA","Area #1 - Clayfield","Mining","Reissuance","Minor","Hudson Road","Chattanooga","Hamilton","Chattanooga","22-JUL-2019","01-SEP-2019","31-AUG-2024"
+"TN0001821","Signal Mountain Cement Company, L. P.","Signal Mountain Cement Co. dba Buzzi Unicem USA","Bennett's Lake Quarry","Mining","Reissuance","Minor","1260 Bennett's Lake Road","Jasper","Marion","Chattanooga","16-NOV-2016","01-DEC-2016","30-NOV-2021"
+"TN0079707","Silvara Industries, Inc.- Quarry No. 3","Silvara Industries, Inc.","Quarry No. 3","Mining","Reissuance","Minor","Chestnut Hill Rd","Crab Orchard","Cumberland","Cookeville","12-MAR-2018","12-MAR-2018","11-MAR-2023"
+"TN0070041","Westhaven Partners, LLC","Southern Land Company, LLC ","Portable Rock Crusher ","Mining","New","Minor","City of Franklin","Franklin","Williamson","Nashville","16-SEP-2016","01-OCT-2016","30-SEP-2021"
+"TN0063622","Taylor Brothers Sand Company","Southern Rock Manufacturers, LLC","Quarry No. 2","Mining","Reissuance","Minor","650 Cox Valley Road","Crossville","Cumberland","Cookeville","04-NOV-2015","31-JAN-2016","30-JAN-2021"
+"TN0069558","Southern Rock Manufacturing, LLC 
+- Smith Site","Southern Rock Manufacturing, LLC
+Community Stone","Community Stone","Mining","Modification","Minor","1327 John Bragg Highway","Woodbury","Cannon","Cookeville","19-JUN-2019","01-JUN-2018","30-SEP-2021"
+"TN0030431","Mine # 7, Powers","Spinks Clay Co., dba Lhoist North America","Mine #7 - Powers","Mining","Reissuance","Minor","1705 Woodard Rd","Como","Henry","Jackson","04-JAN-2019","01-MAR-2019","29-FEB-2024"
+"TN0062821","Mine #22, Swain","Spinks Clay Co., dba Lhoist North America
+","Mine 22 Swain ","Mining","Reissuance","Minor","1200 Mount Zion Rd","Gleason","Weakley","Jackson","29-JUN-2015","09-JUL-2015","08-JUL-2020"
+"TN0071293","Standard Construction Company, Inc. McNairy Pit","Standard Constr. Co., Inc.","McNairy Pit ","Mining","Reissuance","Minor","Dennie Barber Rd","Stantonville","McNairy","Jackson","18-DEC-2015","16-JAN-2016","15-JAN-2021"
+"TN0071790","Standard Construction Company, Inc. - Hardin Pit","Standard Construction Company
+","Hardin Pit","Mining","Reissuance","Minor","Doctor Williams Road aka Wayne Road","Counce","Hardin","Jackson","22-DEC-2017","01-JAN-2018","31-DEC-2022"
+"TN0054496","Standard Construction Frank Road, Area #5","Standard Construction Company, Inc.","Frank Road - Area #5","Mining","Reissuance","Minor","1035 Frank Road","Collierville","Shelby","Memphis","11-JAN-2019","01-FEB-2019","31-JAN-2024"
+"TN0066591","Standard Construction - Deadfall Pit - Area #7
+","Standard Construction Company, Inc.","Deadfall Pit - Area #7","Mining","Reissuance","Minor","8476 Deadfall Road","Arlington","Shelby","Memphis","29-APR-2016","01-MAY-2016","30-APR-2021"
+"TN0070173","Standard Construction Godwin Road Mining Site","Standard Construction Company, Inc. ","Godwin Road Mine #9","Mining","New","Minor","Godwin Road and Van Road","Arlington","Shelby","Memphis","28-APR-2017","01-MAY-2017","30-APR-2022"
+"TN0071587","Standard Construction Company, Inc. dba Whiteville Asphalt Plant","Standard Construction Company, Inc. 
+","Hardeman Sand Pit","Mining","Reissuance","Minor","4195 Ermon Road","Whiteville","Hardeman","Memphis","11-MAY-2017","15-MAY-2017","14-MAY-2022"
+"TN0072770","Stone Quarries of Tennessee, Inc. 
+Winningham Quarry 
+Formerly: Silvara Industries Quarry 1 ","Stone Quarries of Tennessee, Inc. 
+Formerly: Silvara Industries, Inc. 
+","Winningham Quarry
+Formerly: Quarry #1","Mining","Active","Minor","Winningham Road","Crossville","Cumberland","Cookeville","22-JUL-2016","01-AUG-2016","31-JUL-2021"
+"TN0069621","Stones River Quarry, LLC","Stones River Quarry, LLC","Site 1","Mining","Reissuance","Minor","895 Bradyville Road","Woodbury","Cannon","Cookeville","30-SEP-2016","01-NOV-2016","31-OCT-2021"
+"TN0072389","Stone Sales Service","Stones Sales & Service, Inc.","Lewis Chapel Quarry ","Mining","Reissuance","Minor","579 Quarry Road (Rt. 2, Box 173A)","Dunlap","Sequatchie","Chattanooga","15-JAN-2016","15-JAN-2016","14-JAN-2021"
+"TN0066664","Sumner County Highway Department Limestone Quarry #1","Sumner County Highway Dept.","Sumner County Highway Department Quarry ","Mining","Reissuance","Minor","555 Odoms Bend Road","Gallatin","Sumner","Nashville","20-FEB-2019","01-MAR-2019","29-FEB-2024"
+"TN0070807","Teague Transports, LLC - Jackson Quarry ","Teague Transports, LLC ","Jackson Quarry","Mining","Reissuance","Minor","813 Airways Blvd","Jackson","Madison","Jackson","15-AUG-2019","01-SEP-2019","31-AUG-2024"
+"TN0071862","Tennessee Marble - Brown Quarry","Tennessee Marble Company","Brown Quarry","Mining","Modification","Minor","343 W. Vinegar Valley Road","Friendsville","Blount","Knoxville","06-DEC-2018","01-MAR-2019","29-FEB-2024"
+"TN0072125","Tennessee Marble Company
+Endsley Quarry","Tennessee Marble Company","Endsley Quarry","Mining","Reissuance","Minor","428 Endsley Quarry Lane","Friendsville","Blount","Knoxville","30-APR-2015","23-JUL-2015","22-JUL-2020"
+"TN0072745","Tennessee Marble Company, Inc.","Tennessee Marble Company, Inc.","Gray Knox Quarry","Mining","Reissuance","Minor","Gray Knox Quarry
+343 West Vinegar Valley Road","Knoxville","Knox","Knoxville","14-MAR-2016","01-JUN-2016","31-MAY-2021"
+"TN0071749","Tennessee Valley Authority
+Flatwoods Mine Area","Tennessee Valley Authority (TVA)","TVA Flatwoods Mine","Mining","Reissuance","Minor","Ershell Collins Industrial Park","Caryville","Campbell","Knoxville","04-NOV-2015","04-NOV-2015","03-NOV-2020"
+"TN0079324","Tinker-Watkins Sand & Gravel - Perryville Mine Site","Tinker-Watkins Sand & Gravel","Perryville Mine Site","Mining","Reissuance","Minor","1340 Perryville Road","Parsons","Decatur","Jackson","07-OCT-2015","05-JAN-2016","04-JAN-2021"
+"TN0069507","Tinsley Asphalt Products dba Greenhaw Road Quarry","Tinsley Asphalt Products","Greenhaw Road Quarry","Mining","Reissuance","Minor","5540 Greenhaw Road","Decherd","Franklin","Columbia","10-NOV-2015","07-FEB-2016","06-FEB-2021"
+"TN0070190","Delaney Loop Quarry","Tomahawk Materials Inc.","Delaney Loop Quarry","Mining","New","Minor","23010 Hwy 69","Crump","Hardin","Jackson","06-APR-2017","06-APR-2017","05-APR-2022"
+"TN0070343","Doubletop Quarry","Top of the Mountain Stone, LLC","Doubletop Quarry","Mining","New","Minor","Doubletop Road","Jamestown","Fentress","Cookeville","24-SEP-2018","01-OCT-2018","30-SEP-2023"
+"TN0063711","Tri-County Stone Company, Inc.
+Area 1","Tri-County Stone Co., Inc.
+","Grundy County Facility","Mining","Reissuance","Minor","Highway 108 - Viola Road","Morrison","Grundy","Chattanooga","01-NOV-2017","01-DEC-2017","30-NOV-2022"
+"TN0069647","Triple H Coal, LLC Surface Mine 2A","Triple H Coal, LLC","Mine 2A","Mining","Incomplete","Minor","US 25W Rock Creek","Duff","Campbell","Knoxville","-","-","-"
+"TN0079898","Triple H Coal, LLC 
+Surface Mine 2","Triple H Coal, LLC","Area #2","Mining","Reissuance","Minor","Peabody Mountain 
+","LaFollette","Campbell","Knoxville","10-SEP-2015","10-SEP-2015","09-SEP-2020"
+"TN0079464","Triple H Coal, LLC dba
+Rosevelt Tipple","Triple H Coal, LLC
+Rosevelt Tipple","Rosevelt Tipple ","Mining","Reissuance","Minor","2959 South Highway 25 West","Lafollette","Campbell","Knoxville","26-JUN-2019","01-JUL-2019","30-JUN-2024"
+"TN0072648","Turner Brothers Stone Company","Turner Brothers Stone Company, Inc. DBA Cumberland Mountain Stone ","-","Mining","Reissuance","Minor","389 Flagstone Lane","Crossville","Cumberland","Cookeville","10-JUN-2016","01-JUL-2016","30-JUN-2021"
+"TN0079171","Volunteer Materials, LLC
+/ Volunteer Concrete,LLC dba Volunteer Concrete, LLC - Plant 1","Volunteer Materials, LLC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+","Highway 99 Quarry ","Mining","Reissuance","Minor","750 Highway 99","Lewisburg","Marshall","Columbia","15-MAY-2019","01-JUN-2019","31-MAY-2024"
+"TN0082236","Volunteer Sand and Gravel, LLC","Volunteer Sand and Gravel, LLC","Volunteer Sand and Gravel Mine","Mining","New","Minor","519 Hwy 13","Hurricane Mills","Humphreys","Nashville","-","-","-"
+"TN0072346","Vulcan Construction Materials, LLC","Vulcan Construction Materials, LLC","Madisonville Quarry ","Mining","Reissuance","Minor","Madisonville Quarry","Philadelphia","Monroe","Knoxville","14-MAY-2020","01-AUG-2020","31-JUL-2025"
+"TN0063835","Vulcan Construction Materials, LLC - Dayton Quarry","Vulcan Construction Materials, LLC","Dayton Quarry","Mining","Modification","Minor","5730 Old Washington Highway","Dayton","Rhea","Chattanooga","09-APR-2020","01-JUL-2020","30-JUN-2025"
+"TN0005487","Vulcan Construction Materials, LLC - Athens Quarry","Vulcan Construction Materials, LLC","Athens Quarry ","Mining","Reissuance","Minor","110 CR-173","Athens","McMinn","Chattanooga","02-APR-2020","01-MAY-2020","30-APR-2025"
+"TN0061697","Vulcan Construction Materials, LLC - Richard City Quarry","Vulcan Construction Materials, LLC","Richard City Quarry ","Mining","Active","Minor","802 19th Street","South Pittsburg","Marion","Chattanooga","13-MAR-2020","01-APR-2020","31-MAR-2025"
+"TN0064157","Vulcan Construction Materials, LLC","Vulcan Construction Materials, LLC","Bristol Quarry","Mining","Active","Minor","1516 Highway 11 West","Bristol","Sullivan","Johnson City","18-OCT-2019","01-DEC-2019","30-NOV-2024"
+"TN0065714","Vulcan Construction Materials, LLC - Readyville Quarry","Vulcan Construction Materials, LLC","Readyville Quarry","Mining","Active","Minor","Airpark II, Ste. B-19, 1410 Donelson Pike","Nashville","Cannon","Cookeville","21-AUG-2019","01-SEP-2019","31-AUG-2024"
+"TN0063142","Vulcan Construction Materials, LLC - Pleasant View Quarry","Vulcan Construction Materials, LLC","Pleasant View Quarry","Mining","Active","Minor","3025 Joe Dowlen Road","Pleasant View","Robertson","Nashville","24-JUL-2019","01-SEP-2019","31-AUG-2024"
+"TN0068896","Vulcan Construction Materials, LLC - Midway Quarry","Vulcan Construction Materials, LLC","Midway Quarry","Mining","Reissuance","Minor","348 Midway Road","Midway","Greene","Johnson City","22-JUL-2019","01-AUG-2019","31-JUL-2024"
+"TN0003018","Vulcan Construction Materials, LLC - Sevierville Quarry","Vulcan Construction Materials, LLC","Sevierville Quarry","Mining","Modification","Minor","1138 Park Road","Sevierville","Sevier","Knoxville","18-JUL-2019","01-AUG-2019","31-JUL-2024"
+"TN0066494","Vulcan Construction Materials, LLC - Cookeville Quarry","Vulcan Construction Materials, LLC","Cookeville Quarry","Mining","Reissuance","Minor","2988 Dacco Quarry Road","Cookeville","Putnam","Cookeville","18-JUL-2019","01-AUG-2019","31-JUL-2024"
+"TN0066648","Vulcan Construction Materials, LLC - Claiborne County Quarry","Vulcan Construction Materials, LLC","Claiborne County Quarry","Mining","Reissuance","Minor","945 Cedar Fork Road","Tazewell","Claiborne","Knoxville","19-JUN-2019","01-JUL-2019","30-JUN-2024"
+"TN0072222","Friendsville North Quarry","Vulcan Construction Materials, LLC","Friendsville North Quarry","Mining","Reissuance","Minor","3758 West Lamar Alexander Pkwy","Friendsville","Blount","Knoxville","03-APR-2019","01-JUL-2019","30-JUN-2024"
+"TN0072311","Vulcan Construction Materials, LLC - Newport Quarry","Vulcan Construction Materials, LLC","Newport Quarry","Mining","Reissuance","Minor","630 Yorkshire Way","Newport","Cocke","Knoxville","17-MAY-2019","01-JUN-2019","31-MAY-2024"
+"TN0065790","Georgetown Quarry","Vulcan Construction Materials, LLC","Georgetown Quarry","Mining","Reissuance","Minor","Old Hwy 58","Georgetown","Meigs","Chattanooga","15-MAY-2019","01-JUN-2019","31-MAY-2024"
+"TN0029467","Vulcan Construction Materials, LLC - Riverside Drive Quarry","Vulcan Construction Materials, LLC","Riverside Drive Quarry","Mining","Reissuance","Minor","2500 Riverside Drive","Knoxville","Knox","Knoxville","15-MAY-2019","01-JUN-2019","31-MAY-2024"
+"TN0003042","Vulcan Construction Materials, LLC dba Maryville Quarry","Vulcan Construction Materials, LLC","Maryville Quarry","Mining","Reissuance","Minor","2201 Duncan Road","Maryville","Blount","Knoxville","21-MAR-2019","01-JUN-2019","31-MAY-2024"
+"TN0072303","Birds Bridge Dredge","Vulcan Construction Materials, LLC","Birds Bridge Dredge","Mining","Reissuance","Minor","6950 Old Asheville Hwy","Greeneville","Greene","Johnson City","15-APR-2019","01-MAY-2019","30-APR-2024"
+"TN0004171","Vulcan Construction Materials, LLC - Columbia Quarry","Vulcan Construction Materials, LLC","Columbia Quarry","Mining","Reissuance","Minor","580 Theta Pike","Columbia","Maury","Columbia","15-FEB-2019","01-MAR-2019","29-FEB-2024"
+"TN0027910","Vulcan Construction Materials, LLC - Rogersville Quarry","Vulcan Construction Materials, LLC","Rogersville Quarry","Mining","Reissuance","Minor","417 Shepards Chapel Road","Rogersville","Hawkins","Johnson City","01-OCT-2018","01-OCT-2018","30-SEP-2023"
+"TN0003069","Vulcan Construction Materials, LLC -Tazewell Quarry","Vulcan Construction Materials, LLC","Tazewell Quarry","Mining","Reissuance","Minor","560 Cedar Fork Road","Tazewell","Claiborne","Knoxville","17-AUG-2018","01-OCT-2018","30-SEP-2023"
+"TN0003085","Vulcan Construction Materials, LLC dba
+Savanah Quarry","Vulcan Construction Materials, LLC","Savannah Quarry ","Mining","Reissuance","Minor","12475 Highway 64 East","Savannah","Hardin","Jackson","15-JUN-2018","01-SEP-2018","31-AUG-2023"
+"TN0071960","Clifton Quarry","Vulcan Construction Materials, LLC","Clifton Quarry","Mining","Reissuance","Minor","121 Bush Road","Nashville","Wayne","Columbia","01-AUG-2018","01-AUG-2018","31-JUL-2023"
+"TN0065994","Vulcan Construction Materials, LLC dba Morristown Quarry","Vulcan Construction Materials, LLC","Morristown Quarry","Mining","Reissuance","Minor","4375 McClister Road","Morristown","Hamblen","Knoxville","23-JUL-2018","01-AUG-2018","31-JUL-2023"
+"TN0003077","Vulcan Construction Materials, LLC","Vulcan Construction Materials, LLC","Chattanooga Quarry","Mining","Modification","Minor","537 Market Street, Suite 203","Chattanooga","Hamilton","Chattanooga","01-MAY-2018","01-JUL-2018","30-JUN-2023"
+"TN0026484","Vulcan Construction Materials, LLC - Dixie Lee Quarry","Vulcan Construction Materials, LLC","Dixie Lee Quarry ","Mining","Reissuance","Minor","1716 Everett Road","Concord","Knox","Knoxville","01-FEB-2018","01-MAY-2018","30-APR-2023"
+"TN0076333","Monterey Sand Quarry","Vulcan Construction Materials, LLC","Monterey Sand Quarry","Mining","Reissuance","Minor","2889 Hanging Limb Highway","Monterey","Putnam","Cookeville","28-FEB-2018","01-APR-2018","31-MAR-2023"
+"TN0076341","Vulcan Construction Materials, LLC dba Greystone Sand & Gravel","Vulcan Construction Materials, LLC","Greystone Sand and Gravel","Mining","Reissuance","Minor","1980 Greystone Road","Greeneville","Greene","Johnson City","01-FEB-2018","01-APR-2018","31-MAR-2023"
+"TN0076244","Vulcan Construction Materials, LLC - Giles County Quarry","Vulcan Construction Materials, LLC","Giles County Quarry","Mining","Reissuance","Minor","3101 Campbellsville Road","Pulaski","Giles","Columbia","01-DEC-2017","01-MAR-2018","28-FEB-2023"
+"TN0072460","Maynardville Quarry","Vulcan Construction Materials, LLC","Maynardville Quarry","Mining","Reissuance","Minor","776 John Deere Drive","Maynardville","Union","Knoxville","21-JUL-2017","01-AUG-2017","31-JUL-2022"
+"TN0027774","Vulcan Construction Materials, LLC - Franklin Quarry","Vulcan Construction Materials, LLC","Franklin Quarry","Mining","Modification","Minor","1001 Downs Boulevard","Franklin","Williamson","Nashville","29-JUN-2018","01-JUL-2018","31-JAN-2022"
+"TN0066508","Vulcan Construction Materials, LLC - dba Shelbyville Quarry","Vulcan Construction Materials, LLC","Shelbyville Quarry ","Mining","Reissuance","Minor","1683 Railroad Avenue","Shelbyville","Bedford","Columbia","01-AUG-2016","01-AUG-2016","31-JUL-2021"
+"TN0072761","Vulcan Construction Materials, LLC dba Rockford Quarry","Vulcan Construction Materials, LLC","-","Mining","Reissuance","Minor","210 Caney Branch Road","Rockford","Blount","Knoxville","09-MAY-2016","01-AUG-2016","31-JUL-2021"
+"TN0072354","Vulcan Construction Materials, LLC Polk County Quarry
+","Vulcan Construction Materials, LLC","Polk County Quarry","Mining","Reissuance","Minor","142 Rock Drive","Benton","Polk","Chattanooga","24-FEB-2016","25-MAY-2016","24-MAY-2021"
+"TN0066681","Vulcan Construction Materials, LLC","Vulcan Construction Materials, LLC","Afton Quarry ","Mining","Reissuance","Minor","Afton Quarry","Afton","Greene","Johnson City","21-AUG-2015","21-NOV-2015","20-NOV-2020"
+"TN0072621","Vulcan Construction Materials, LLC - Friendsville South Quarry","Vulcan Construction Materials, LLC","Friendsville South Quarry","Mining","Reissuance","Minor","412 Endsley Quarry Road","Friendsville","Blount","Knoxville","21-AUG-2015","20-NOV-2015","19-NOV-2020"
+"TN0005495","Cleveland Quarry","Vulcan Construction Materials, LLC","Cleveland Quarry ","Mining","Reissuance","Minor","3854 Bates Pike","Cleveland","Bradley","Chattanooga","02-JUL-2015","30-AUG-2015","29-AUG-2020"
+"TN0060879","Vulcan Construction Materials, LLC
+- Greeneville Quarry","Vulcan Construction Materials, LLC","Greeneville Quarry","Mining","Modification","Minor","1192 Lonesome Pine Trail","Greeneville","Greene","Johnson City","10-APR-2015","10-JUL-2015","09-JUL-2020"
+"TN0003026","Vulcan Construction Materials, LLC
+Danley Quarry","Vulcan Construction Materials, LLC
+","Danley Quarry","Mining","Modification","Minor","Franklin Limestone Ct","Nashville","Davidson","Nashville","28-MAY-2020","28-MAY-2020","30-SEP-2023"
+"TN0026476","Vulcan Construction Materials, LLC dba Clarksville Quarry","Vulcan Construction Materials, LLC
+","Clarksville Quarry","Mining","Modification","Minor","7 Quarry Road
+","Clarksville","Montgomery","Nashville","15-JAN-2020","01-FEB-2020","30-SEP-2022"
+"TN0003115","Vulcan Construction Materials, LLC
+Hermitage Quarry","Vulcan Construction Materials, LLC
+","Hermitage Quarry","Mining","Modification","Minor","5301 Old Hickory Blvd","Hermitage","Davidson","Nashville","28-AUG-2017","01-SEP-2017","31-AUG-2022"
+"TN0065951","Vulcan Construction Materials, LP dba Kodak Quarry","Vulcan Construction Materials, LLC
+Kodak Quarry","Kodak Quarry ","Mining","Reissuance","Minor","3360 Winfield Dunn Parkway","Kodak","Sevier","Knoxville","01-FEB-2018","01-APR-2018","31-MAR-2023"
+"TN0003107","Vulcan Construction Materials, LLC - Benton County Quarry
+ TN0003107","Vulcan Construction Materials, LLC ","Benton County Quarry","Mining","Modification","Minor","8595 Highway 192","Holladay","Benton","Jackson","15-NOV-2019","01-DEC-2019","30-NOV-2024"
+"TN0002747","Vulcan Construction Materials, LLC - Dickson Quarry","Vulcan Construction Materials, LLC ","Dickson Quarry","Mining","Active","Minor","1150 North Hummingbird Lane","Dickson","Dickson","Nashville","24-JUL-2019","01-SEP-2019","31-AUG-2024"
+"TN0066389","Vulcan Construction Materials, LLC","Vulcan Construction Materials, LLC ","Decatur County Quarry ","Mining","Reissuance","Minor","Brodies Landing Road","Parsons","Decatur","Jackson","05-OCT-2018","01-JAN-2019","31-DEC-2023"
+"TN0027782","Vulcan Construction Materials, LLC -  Parsons Quarry","Vulcan Construction Materials, LLC ","Parsons Quarry","Mining","Reissuance","Minor","150 Rock Crusher Lane","Parsons","Decatur","Jackson","16-AUG-2018","01-NOV-2018","31-OCT-2023"
+"TN0003549","Vulcan Construction Materials, LLC - River Road Quarry","Vulcan Construction Materials, LLC ","River Road Quarry","Mining","Modification","Minor","5853 River Road","Nashville","Davidson","Nashville","15-JUN-2018","01-SEP-2018","31-AUG-2023"
+"TN0066362","WL Asphalt Plant,
+Black Rock Crushing,
+Vulcan Construction Materials, LLC dba Kingsport Quarry","Vulcan Construction Materials, LLC ","Kingsport Quarry","Mining","Reissuance","Minor","400 Deneen Lane","Kingsport","Sullivan","Johnson City","01-MAR-2018","01-MAY-2018","30-APR-2023"
+"TN0063134","Vulcan Construction Materials, LLC -  Springfield Quarry","Vulcan Construction Materials, LLC 
+","Springfield Quarry","Mining","Modification","Minor","4275 Highway 431 North","Springfield","Robertson","Nashville","01-FEB-2018","01-MAY-2018","30-APR-2023"
+"TN0071544","Vulcan Construction Materials, LLC dba 109 Quarry","Vulcan Construction Materials, LLC 
+","Quarry 109/Lojac Enterprises 109 Asphalt Plant","Mining","Reissuance","Minor","379 Leeville Road
+","Lebanon","Wilson","Nashville","04-OCT-2016","01-DEC-2016","30-NOV-2021"
+"TN0069680","Vulcan Construction Materials, LLC dba Grainger County Quarry   / Duracap Asphalt Paving Company, Incorporated dba Plant #3","Vulcan Construction Materials, LLC 
+Formerly: Bean Station Materials ","Grainger County Quarry 
+Formerly: Bean Station Materials Quarry ","Mining","Reissuance","Minor","738 Miller Road","Bean Station","Grainger","Knoxville","26-JAN-2017","01-FEB-2017","31-JAN-2022"
+"TN0066184","Vulcan Construction Materials, LLC 
+Formerly: James T. Tinin dba River Bend Chert","Vulcan Construction Materials, LLC 
+Formerly: James T. Tinin dba River Bend Chert 
+","Holladay North
+Formerly: Benton County Chert Mine ","Mining","Modification","Minor","Pitt Road","Holladay","Benton","Jackson","24-MAY-2018","01-JUN-2018","31-MAY-2023"
+"TN0069566","Vulcan Construction Materials, LLC
+Formerly: 411 Crushed Stone","Vulcan Construction Materials, LLC  dba Loudon County Stone","Loudon County Quarry ","Mining","Modification","Minor","6334 US-411","Greenback","Loudon","Knoxville","27-FEB-2018","27-FEB-2018","07-APR-2021"
+"TN0068969","Vulcan Construction Materials, LLC dba Sweetwater Quarry","Vulcan Construction Materials, LLC - Sweetwater Quarry","Sweetwater Quarry","Mining","Reissuance","Minor","1700 Sands Road","Sweetwater","Monroe","Knoxville","04-NOV-2016","01-FEB-2017","31-JAN-2022"
+"TN0070998","Vulcan Construction Materials, LLC - Wilson County Quarry","Vulcan Construction Materials, LLC - Wilson County Quarry","Wilson County Quarry","Mining","Modification","Minor","2041 Murfreesboro Road","Lebanon","Wilson","Nashville","01-MAY-2016","01-AUG-2016","31-JUL-2021"
+"TN0069353","Walker's Truck Contractors, Inc. - 
+Rock Crushing & Stone Stockpile Area","Walker's Truck Contractors, Inc.","Rock Crushing Plant & Stone Stockpile Area ","Mining","Reissuance","Minor","2002 Hwy. 11 E","New Market","Jefferson","Knoxville","16-SEP-2016","01-OCT-2016","30-SEP-2021"
+"TN0072591","Wayne County Rock, Inc.","Wayne County Rock","Site 1","Mining","Reissuance","Minor","1800 Savannah Highway","Waynesboro","Wayne","Columbia","27-OCT-2016","01-NOV-2016","31-OCT-2021"
+"TN0070017","Wilkerson Creek Quarry - Mayland Road Site","Wilkerson Creek Quarry ","Quarry No. 1 ","Mining","New","Minor","27 Matthews Road","Pleasant Hill","Cumberland","Cookeville","15-MAR-2016","01-APR-2016","31-MAR-2021"
+"TN0068861","Williamson County Rock Quarry and Highway Dept","Williamson County Highway Department","Williamson County Quarry","Mining","Modification","Minor","302 Beasley Drive","Franklin","Williamson","Nashville","11-JAN-2019","01-MAR-2019","29-FEB-2024"
+"TN0066583","Clarksville Quarry","Winn Materials, LLC","Clarksville Quarry","Mining","Active","Minor","800 Barge Point Road","Clarksville","Montgomery","Nashville","15-JUN-2018","15-JUN-2018","24-APR-2020"
+"TN0066346","Wright Brothers Construction Company, Inc. dba Old Fort Quarry","Wright Brothers Construction Company, Inc.","Old Fort Quarry","Mining","Active","Minor","316 Stafford Road","Old Fort","Polk","Chattanooga","01-JUN-2017","01-JUN-2017","31-MAY-2022"
+"TN0070980","Wright Gravel Company, LLC -  Wright Gravel Pit #1","Wright Gravel Company","Wright Gravel Pit #1","Mining","Active","Minor","2950 Hwy 70 Bypass","Camden","Benton","Jackson","21-JUL-2017","21-JUL-2017","20-SEP-2020"
+"TN0071382","Wright Gravel Company, LLC - Wright Gravel Pit #2","Wright Gravel Company, LLC","Wright Gravel Pit #2","Mining","Reissuance","Minor","Highway 70 Bypass","Camden","Benton","Jackson","21-JUL-2017","21-JUL-2017","30-SEP-2021"
+"TN0072788","Wright Gravel Company, LLC - Wright Gravel Pit #3","Wright Gravel Company, LLC","Wright Gravel Pit #3","Mining","Reissuance","Minor","Off Baker Lane","Camden","Benton","Jackson","21-JUL-2017","21-JUL-2017","30-SEP-2021"
+"TN0069957","Wright Paving Limestone Pit","Wright Paving Company","Limestone Pit ","Mining","New","Minor","Wrightway Drive, Fayetteville, TN.","Fayetteville","Lincoln","Columbia","17-FEB-2016","17-FEB-2016","16-FEB-2021"
