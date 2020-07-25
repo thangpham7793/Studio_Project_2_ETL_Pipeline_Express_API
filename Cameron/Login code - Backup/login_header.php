@@ -12,7 +12,6 @@ session_start();
          <!-- Bootstrap CSS -->
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
          <link rel="stylesheet" type="text/css" href="style.css">
-         <script type="text/javascript" src="signup_script.js"></script>
          <title>Soil Mapping</title>
      </head>
      <body>

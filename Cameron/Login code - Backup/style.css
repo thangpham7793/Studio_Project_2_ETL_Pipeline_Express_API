@@ -1,0 +1,25 @@
+.allign_right {
+  position: absolute;
+  right: 0px;
+  padding-right: 10px;
+}
+
+.signup {
+  margin-left: 20px;
+  background-color: black;
+  border: 1px solid white;
+}
+
+.navbar_custom {
+  background-color: #444444;
+}
+
+p {
+  color: white;
+  margin-right: 20px;
+  font-size: large;
+}
+
+.feedback {
+  color: black;
+}

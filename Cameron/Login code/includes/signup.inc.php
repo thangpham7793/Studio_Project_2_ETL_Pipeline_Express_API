@@ -9,30 +9,44 @@ if (isset($_POST['signup-submit'])) {
     $surname = $_POST['surname'];
     $email = $_POST['email'];
     $password = $_POST['pwd'];
-    $passwordConfirm = $_POST['pwd-confirm'];
+    $passwordConfirm = $_POST['pwdConfirm'];
 
-    //Check for errors in info
-    if(empty($firstName) || empty($surname) || empty($email) || empty($password) || empty($passwordConfirm)) {
-        header("Location: ../index.php?error=emptyfields&firstName=".$firstName."&surname=".$surname."&email=".$email);
-        exit();
+    $emptyFirstName = false;
+    $emptySurname = false;
+    $emptyEmail = false;
+    $emptyPwd = false;
+    $emptyPwdConfirm = false;
+    $emailTaken = false;
+    $signupSuccess = false;
+
+    if(empty($firstName)) {
+      $emptyFirstName = true;
     }
-    else if(!filter_var($email, FILTER_VALIDATE_EMAIL) && (!preg_match("/^[a-zA-Z0-9]*$/", $firstName)) || !preg_match("/^[a-zA-Z0-9]*$/", $surname)) {
-        header("Location: ../index.php?error=invalidinputs");
-        exit();
+    if(empty($surname)) {
+      $emptySurname = true;
     }
-    else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        header("Location: ../index.php?error=invalidmail&firstName=".$firstName."&surname=".$surname);
-        exit();
+    if(empty($email)) {
+      $emptyEmail = true;
     }
-    else if(!preg_match("/^[a-zA-Z0-9]*$/", $firstName) || !preg_match("/^[a-zA-Z0-9]*$/", $surname)) {
-        header("Location: ../index.php?error=invalidname&email=".$email);
-        exit();
+    if(empty($password)) {
+      $emptyPwd = true;
     }
-    else if($password !== $passwordConfirm) {
-        header("Location: ../index.php?error=passwordCheck&firstName=".$firstName."&surname=".$surname."&email=".$email);
-        exit();
+    if(empty($passwordConfirm)) {
+      $emptyPwdConfirm = true;
     }
-    else {
+
+    $invalidEmail = false;
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $invalidEmail = true;
+    }
+
+    $invalidPasswordMatch = false;
+    if($password !== $passwordConfirm) {
+        $invalidPasswordMatch = true;
+    }
+
+    // Check if all inputs are valid
+    if(!$emptyFirstName && !$emptySurname && !$emptyPwd && !$emptyPwdConfirm && !$invalidEmail && !$invalidPasswordMatch) {
         // '?' is a standin that is replaced during binding
         // Following code checks if email already exists in DB
         $sql = "SELECT email FROM user WHERE email=?";
@@ -53,33 +67,73 @@ if (isset($_POST['signup-submit'])) {
 
           // If there are results, email is already in DB
           if ($resultCheck > 0) {
-            header("Location: ../index.php?error=emailtaken");
-            exit();
+            $emailTaken = true;
           }
           else {
-            // Fresh user, prepare SQL. '?' is a standin that is replaced during binding
-            $sql = "INSERT INTO user(firstName, surname, email, password) VALUES(?,?,?,?)";
-            $stmt = mysqli_stmt_init($conn);
+            if(!$emailTaken) {
+              // Fresh user, prepare SQL. '?' is a standin that is replaced during binding
+              $sql = "INSERT INTO user(firstName, surname, email, password) VALUES(?,?,?,?)";
+              $stmt = mysqli_stmt_init($conn);
 
-            //Send prepared statement to server
-            if (!mysqli_stmt_prepare($stmt, $sql)) {
-              header("Location: ../index.php?error=sqlerror");
-              exit();
-            }
-            else {
-              // Hash password with salt using bcrypt, default in PHP
-              $hasedPwd = password_hash($password, PASSWORD_DEFAULT);
+              //Send prepared statement to server
+              if (!mysqli_stmt_prepare($stmt, $sql)) {
+                header("Location: ../index.php?error=sqlerror");
+                exit();
+              }
+              else {
+                // Hash password with salt using bcrypt, default in PHP
+                $hasedPwd = password_hash($password, PASSWORD_DEFAULT);
 
-              // Bind parameters to statement
-              mysqli_stmt_bind_param($stmt, "ssss", $firstName, $surname, $email, $hasedPwd);
+                // Bind parameters to statement
+                mysqli_stmt_bind_param($stmt, "ssss", $firstName, $surname, $email, $hasedPwd);
 
-              // Run statement
-              mysqli_stmt_execute($stmt);
-              header("Location: ../index.php?signup=success");
-              exit();
+                // Run statement
+                mysqli_stmt_execute($stmt);
+                $signupSuccess = true;
+
+                ?>
+
+                <script>
+                  var signupSuccess = "<?php echo $signupSuccess ?>";
+
+                  if(signupSuccess) {
+                    $(".submit-feedback").val("Signup successful");
+                  }
+                </script>
+
+                <?php
+              }
             }
           }
         }
+    }
+    else {
+      ?>
+      <script>
+        var emptyFirstName = "<?php echo $emptyFirstName ?>";
+        var emptySurname = "<?php echo $emptySurname ?>";
+        var emptyEmail = "<?php echo $emptyEmail ?>";
+        var emptyPwd = "<?php echo $emptyPwd ?>";
+        var emptyPwdConfirm = "<?php echo $emptyPwdConfirm ?>";
+        var emailTaken = "<?php echo $emailTaken ?>";
+        var invalidEmail = "<?php echo $invalidEmail ?>";
+        var invalidPasswordMatch = "<?php echo $invalidPasswordMatch ?>";
+
+        if(emptyFirstName || emptySurname || emptyEmail || emptyPwd || emptyPwdConfirm) {
+          $(".submit-feedback").val("Please fill all fields");
+        }
+        else if (invalidEmail) {
+          $(".submit-feedback").val("Invalid email");
+        }
+        else if (emailtaken) {
+          $(".submit-feedback").val("Email taken");
+        }
+        else if (invalidPasswordMatch) {
+          $(".submit-feedback").val("Passwords do not match");
+        }
+      </script>
+
+      <?php
     }
 
     // Close connections
