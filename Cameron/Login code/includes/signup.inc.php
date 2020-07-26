@@ -1,6 +1,6 @@
 <?php
 // Check user got here from signup form
-if (isset($_POST['signup-submit'])) {
+//if (isset($_POST['signup-submit'])) {
     // Start DB connection
     require 'dbh.inc.php';
 
@@ -18,7 +18,10 @@ if (isset($_POST['signup-submit'])) {
     $emptyPwdConfirm = false;
     $emailTaken = false;
     $signupSuccess = false;
+    $invalidEmail = false;
+    $invalidPasswordMatch = false;
 
+    // Check if all fields have values
     if(empty($firstName)) {
       $emptyFirstName = true;
     }
@@ -35,17 +38,26 @@ if (isset($_POST['signup-submit'])) {
       $emptyPwdConfirm = true;
     }
 
-    $invalidEmail = false;
-    if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $invalidEmail = true;
+    // Inform user of empty fields
+    if($emptyFirstName || $emptySurname || $emptyEmail || $emptyPwd || $emptyPwdConfirm) {
+      echo "<span class='form-error'>Fill in all fields</span>";
+    }
+    else {
+      // Check if valid email, inform user if not
+      if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+          $invalidEmail = true;
+          echo "<span class='form-error'>Invalid email</span>";
+      }
+      else {
+        // Check if passwords match, inform user if they don't
+        if($password !== $passwordConfirm) {
+          echo "<span class='form-error'>Passwords do not match</span>";
+          $invalidPasswordMatch = true;
+        }
+      }
     }
 
-    $invalidPasswordMatch = false;
-    if($password !== $passwordConfirm) {
-        $invalidPasswordMatch = true;
-    }
-
-    // Check if all inputs are valid
+    // Check if all inputs are valid, enter info into DB
     if(!$emptyFirstName && !$emptySurname && !$emptyPwd && !$emptyPwdConfirm && !$invalidEmail && !$invalidPasswordMatch) {
         // '?' is a standin that is replaced during binding
         // Following code checks if email already exists in DB
@@ -54,7 +66,7 @@ if (isset($_POST['signup-submit'])) {
 
         // Send prepared statement to server
         if(!mysqli_stmt_prepare($stmt, $sql)) {
-          header("Location: ../index.php?error=sqlerror");
+          echo "<span class='form-error'>SQL Error</span>";
           exit();
         }
         else {
@@ -68,6 +80,7 @@ if (isset($_POST['signup-submit'])) {
           // If there are results, email is already in DB
           if ($resultCheck > 0) {
             $emailTaken = true;
+            echo "<span class='form-error'>Email taken</span>";
           }
           else {
             if(!$emailTaken) {
@@ -77,7 +90,7 @@ if (isset($_POST['signup-submit'])) {
 
               //Send prepared statement to server
               if (!mysqli_stmt_prepare($stmt, $sql)) {
-                header("Location: ../index.php?error=sqlerror");
+                //header("Location: ../index.php?error=sqlerror");
                 exit();
               }
               else {
@@ -90,14 +103,20 @@ if (isset($_POST['signup-submit'])) {
                 // Run statement
                 mysqli_stmt_execute($stmt);
                 $signupSuccess = true;
-
+                echo "<span class='form-success'>Signup successful!</span>";
                 ?>
 
                 <script>
                   var signupSuccess = "<?php echo $signupSuccess ?>";
 
                   if(signupSuccess) {
-                    $(".submit-feedback").val("Signup successful");
+                    $("#inputFirstName, #inputSurname, #inputEmail, #inputPwd, #inputPwdConfirm").removeClass("input-error");
+                    $("#inputFirstName, #inputSurname, #inputEmail, #inputPwd, #inputPwdConfirm").addClass("input-success");
+                    $("#inputFirstName").val("");
+                    $("#inputSurname").val("");
+                    $("#inputEmail").val("");
+                    $("#inputPwd").val("");
+                    $("#inputPwdConfirm").val("");
                   }
                 </script>
 
@@ -107,9 +126,11 @@ if (isset($_POST['signup-submit'])) {
           }
         }
     }
-    else {
+    else { // Error in user input, apply styling to help user fill in correct inputs
       ?>
       <script>
+        $("#inputFirstName, #inputSurname, #inputEmail, #inputPwd, #inputPwdConfirm").removeClass("input-error");
+
         var emptyFirstName = "<?php echo $emptyFirstName ?>";
         var emptySurname = "<?php echo $emptySurname ?>";
         var emptyEmail = "<?php echo $emptyEmail ?>";
@@ -119,17 +140,34 @@ if (isset($_POST['signup-submit'])) {
         var invalidEmail = "<?php echo $invalidEmail ?>";
         var invalidPasswordMatch = "<?php echo $invalidPasswordMatch ?>";
 
+        // Apply styling to invalid boxes
         if(emptyFirstName || emptySurname || emptyEmail || emptyPwd || emptyPwdConfirm) {
-          $(".submit-feedback").val("Please fill all fields");
+            if(emptyFirstName) {
+              $("#inputFirstName").addClass("input-error");
+            }
+            if(emptySurname) {
+              $("#inputSurname").addClass("input-error");
+            }
+            if(emptyEmail) {
+              $("#inputEmail").addClass("input-error");
+            }
+            if(emptyPwd) {
+              $("#inputPwd").addClass("input-error");
+            }
+            if(emptyPwdConfirm) {
+              $("#inputPwdConfirm").addClass("input-error");
+            }
         }
         else if (invalidEmail) {
-          $(".submit-feedback").val("Invalid email");
+          $("#inputEmail").addClass("input-error");
         }
-        else if (emailtaken) {
-          $(".submit-feedback").val("Email taken");
+        else if (emailTaken) {
+          // TODO Doesn't work, this area is never reached from taken email being set
+          $("#inputEmail").addClass("input-error");
         }
         else if (invalidPasswordMatch) {
-          $(".submit-feedback").val("Passwords do not match");
+          $("#inputPwd").addClass("input-error");
+          $("#inputPwdConfirm").addClass("input-error");
         }
       </script>
 
@@ -137,12 +175,15 @@ if (isset($_POST['signup-submit'])) {
     }
 
     // Close connections
-    mysqli_stmt_close($stmt);
+    if(isset($stmt)) {
+      mysqli_stmt_close($stmt);
+    }
+
     mysqli_close($conn);
-}
-else {
+//}
+//else {
   // User did not get here through form, send them back
-  header("Location: ../index.php");
-  exit();
-}
+  //header("Location: ../index.php");
+  //exit();
+//}
 ?>
