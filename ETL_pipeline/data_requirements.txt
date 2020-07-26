@@ -1,0 +1,24 @@
+field names / col names should be in snake_case and (like what you did :D)
+
+all values should be String except for the value of the field 'geometry'
+
+all values should not contain any quotes ('/") or special characters (just to be safe)
+
+the field 'geometry' is a dictionary with the form so that Mongodb can do geospatial query:
+
+'geometry': {
+  'coordinates': [lng, lat],
+  'type': 'Point'
+}
+
+This means some transformation is needed on the lat/lng cols
+
+There should be no quotes surrounding the dictionary
+
+[lng, lat]: must be an arr of number (float/double)
+
+lng: should be negative given the geographical location of the US (some tables use West/East instead of +/- before the number)
+
+controller/operator are different, so they should not be combined
+
+NaN, NA values should be emptry string, and Mongodb will not record them (df.fillna(''))
