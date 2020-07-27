@@ -25,20 +25,37 @@ const METERS_PER_MILE = 1609.34;
 //https://docs.atlas.mongodb.com/reference/atlas-search/tutorial/ can use Atlas Search
 // https://docs.atlas.mongodb.com/reference/atlas-search/tutorial/
 const findNearByMinesWithin = ({ lat, lng, material }) => {
+  console.log(
+    `Finding ${material} mines around ${lat} latitude and ${lng} longitude within 50 miles`
+  );
   return {
-    material: { $regex: `${/material/}` },
+    primary_sic: { $regex: `${material}`, $options: "gi" },
     location: {
       $near: {
         $geometry: {
           type: "Point",
           coordinates: [lng, lat],
         },
-        $maxDistance: within * METERS_PER_MILE,
+        $maxDistance: 50 * METERS_PER_MILE,
       },
     },
   };
 };
 
+const projectionMaker = (fieldsArr) => {
+  projectionObject = fieldsArr.reduce(
+    (projectionObject, field) => {
+      return {
+        ...projectionObject,
+        [field]: 1,
+      };
+    },
+    { _id: 0 }
+  );
+  return projectionObject;
+};
+
 module.exports = {
   findNearByMinesWithin,
+  projectionMaker,
 };

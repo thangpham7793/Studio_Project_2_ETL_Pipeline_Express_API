@@ -15,7 +15,7 @@ client.connect(function (err) {
     const app = require("./app");
     const server = http.createServer(app);
 
-    server.listen(PORT, "0.0.0.0", () => {
+    server.listen(PORT, () => {
       logger.info(`Listening on port ${PORT}`);
     });
   }

@@ -9,15 +9,24 @@ const collection = db.collection("msha");
 //can have a look up table depending on the method use as well
 function getRequestHandlerFactory(
   queryHandler,
+  projectionMaker,
   queryOperation,
   resultProcessor
 ) {
   return async function (userInputObject) {
-    const query = queryHandler(userInputObject);
-    console.log(query);
+    const filter = queryHandler(userInputObject);
+    //NOTE: business logic here (what to show)
+    const projection = projectionMaker([
+      "current_mine_name",
+      "primary_sic",
+      "primary_canvass",
+    ]);
+    console.log(filter, projection); //FIXME: how to add projection using Mongod Driver?
     let result;
     try {
-      result = await collection[queryOperation](query).limit(1).toArray();
+      result = await collection[queryOperation](filter, projection)
+        .limit(1)
+        .toArray();
       return resultProcessor(result);
     } catch (error) {
       console.error(error);
@@ -27,6 +36,7 @@ function getRequestHandlerFactory(
 
 const findNearByMinesWithinRadius = getRequestHandlerFactory(
   queryMaker.findNearByMinesWithin,
+  queryMaker.projectionMaker,
   "find",
   callbacks.processNearbyMinesResults
 );
