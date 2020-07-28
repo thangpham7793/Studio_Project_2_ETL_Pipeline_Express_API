@@ -2,6 +2,16 @@
   height: 3em;
 }
 
+html, body, main {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+body {
+  position: relative;
+}
+
 .allign_right {
   position: absolute;
   right: 0px;
@@ -10,6 +20,11 @@
 
 .signup {
   margin-left: 20px;
+  background-color: black;
+  border: 1px solid white;
+}
+
+.signup:focus {
   background-color: black;
   border: 1px solid white;
 }
@@ -46,11 +61,65 @@
   font-weight: bold;
 }
 
-#mapid {
-  height: 180px;
+.sidebar {
+  position: absolute;
+  z-index: 5000;
+  background-color: #fff;
+  border: 0.25px solid #26a69a;
+  border-radius: 1%;
+  margin-top: 1%;
+  margin-left: 45px;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  padding: 0.7rem 1.25rem 0.75rem 1.25rem;
 }
 
-.sidebar_input {
+/* Select all child elements of sidebar */
+.sidebar > * {
   width: 20em;
-  margin-top: 5px;
+  margin-top: 10px;
+}
+
+#map {
+  flex-grow: 1;
+}
+
+.row {
+  margin-bottom: 0;
+  font-size: 12.5px;
+}
+
+.dropdown-content {
+  /* so that the scroll stays within the search box */
+  max-height: 60vh;
+}
+
+.slider-container {
+  margin: 0;
+}
+
+.slider {
+  margin: 2em 0 0 0;
+  height: max-content;
+}
+
+.range-field {
+  margin-top: -2.25em;
+}
+
+.slider-label {
+  font-size: 16px;
+}
+
+.select-dropdown {
+  color: #ff6f00;
+}
+
+.select-dropdown li.optgroup > span {
+  color: #ff6f00;
+}
+
+.filter-sidebar__btn {
+  margin: 10.5em 0.75em 0 0.75em;
 }
