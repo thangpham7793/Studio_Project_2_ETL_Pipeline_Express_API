@@ -9,7 +9,7 @@ $(document).ready(function() {
     var pwd = $("#inputPwd").val();
     var pwdConfirm = $("#inputPwdConfirm").val();
 
-    // SET POST signup-submit
+    // TODO SET POST signup-submit
     $("#submit-feedback").load("includes/signup.inc.php", {
       firstName: firstName,
       surname: surname,
@@ -42,9 +42,36 @@ function getMaterials() {
   });
 }
 
+function searchForSupplier() {
+  var address = $("#inputAddress").val();
+  var material = $("#inputMaterial").val();
+
+  // TODO check coordinates are within US
+  $.ajax({
+    type: 'GET',                                //Material/@lng,lat,search radius(miles)
+    url: 'http://us-mines-api.herokuapp.com/mines/limestone/@-100,100,100',
+    statusCode: {
+      400: function() {
+        // TODO handle no result search
+        alert( "No result" );
+      }
+    },
+    success: function (data) {
+      // data holds supplier info
+      if(data['error'] != "") {
+        alert("Error");
+      }
+      var test = data;
+      test = {};
+    }
+
+  });
+}
+
 
 function init() {
   getMaterials();
+  searchForSupplier();
 }
 
 window.onload = init;
