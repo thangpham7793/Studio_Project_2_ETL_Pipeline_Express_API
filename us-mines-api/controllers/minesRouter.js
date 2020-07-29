@@ -42,7 +42,7 @@ minesRouter.get(
 
 minesRouter.get('/', (request, response) => {
 	response.status(200).json({
-		message: '<h1>Welcome to the US Mines API Portal</h1>',
+		message: '<h1>Welcome to the US Mines API Service</h1>',
 	})
 })
 
