@@ -16,6 +16,10 @@ The general format is:
 
 https://us-mines-api.herokuapp.com/mines/{material}/@{longitude},{latitude},{radius}
 
+Results will be sorted based on distance, from nearest to furthest.
+
+Validation:
+
 Material cannot contain non-characters and should be separated by "+".
 
 The longitude, latitude, and radius are separated by a comma.

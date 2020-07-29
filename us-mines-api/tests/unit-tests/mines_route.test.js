@@ -2,8 +2,6 @@ const assert = require('assert')
 const parsePath = require('./testUtils')
 const longitude = '/@:lng(-\\d+.?\\d*)'
 const materialParam = '/:material([a-zA-Z-_+]{1,})'
-
-//following Google (e.g. /dimension+stone/@-87.3432,45.123123,20)
 const fullPath = require('../../utils/routeRegex').minesByMaterialAndLatLng
 
 describe('Unit Test: Mines Route Path Regex', function () {

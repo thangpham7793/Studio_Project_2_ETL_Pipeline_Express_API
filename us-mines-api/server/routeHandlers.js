@@ -10,13 +10,14 @@ const collection = db.collection('msha')
 function getRequestHandlerFactory(
 	queryHandler,
 	projectionMaker,
-	queryOperation,
-	resultProcessor
+	queryOperation
 ) {
 	return async function (userInputObject) {
 		const filter = queryHandler(userInputObject)
 		//NOTE: business logic here (what to show)
+		//alternative syntax collection.find({}).project({a:1})
 		const projection = projectionMaker([
+			'_id',
 			'current_mine_name',
 			'primary_sic',
 			'primary_canvass',
@@ -24,6 +25,7 @@ function getRequestHandlerFactory(
 			'current_controller_name',
 			'current_operator_name',
 			'directions_to_mine',
+			'nearest_town',
 			'location',
 		])
 		console.log(filter, projection)
@@ -32,7 +34,7 @@ function getRequestHandlerFactory(
 			result = await collection[queryOperation](filter, {
 				projection: projection,
 			}).toArray()
-			return resultProcessor(result)
+			return result
 		} catch (error) {
 			console.error(error)
 		}
@@ -42,8 +44,7 @@ function getRequestHandlerFactory(
 const findNearByMinesWithinRadius = getRequestHandlerFactory(
 	queryMaker.findNearByMinesWithin,
 	queryMaker.projectionMaker,
-	'find',
-	callbacks.processNearbyMinesResults
+	'find'
 )
 
 const getAllMaterials = async () => {

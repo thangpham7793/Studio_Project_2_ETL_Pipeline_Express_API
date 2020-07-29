@@ -6,9 +6,9 @@ const invalidRouteApp = require('express')()
 const mockGETRequestURL = '/Dimension+Stone/@-89,30,20'
 const expectedParams = {
 	material: 'Dimension+Stone',
-	lng: '-89',
-	lat: '30',
-	radius: '20',
+	lng: '-89.5334543534',
+	lat: '30.45546564',
+	radius: '20.5',
 }
 
 validRouteApp.get(routeRegex.minesByMaterialAndLatLng, function (req, res) {
@@ -19,7 +19,7 @@ invalidRouteApp.get(routeRegex.minesByMaterialAndLatLng, function (req, res) {
 	res.status(404).json({ error: 'unknown endpoint' })
 })
 
-describe('Unit Test: Search Mines Params', function () {
+describe.only('Unit Test: Search Mines Params', function () {
 	describe('GET /:material/@:lng,:lat,:radius', function () {
 		it('should contain an object with the correct parameters from the mock request URL', function () {
 			mockGetRequest(validRouteApp)
@@ -54,21 +54,6 @@ describe('Unit Test: Search Mines Params', function () {
 				.catch((err) => console.log(err.message))
 		})
 		//FIXME: how to call remote database with mocha
-		// it('should return only mines that contain the requested material', function () {
-		// 	const requestURL =
-		// 		'https://us-mines-api.herokuapp.com/mines/sand+and+gravel/@-87,30,40'
-
-		// 	mockGetRequest(app)
-		// 		.get(requestURL)
-		// 		.set('Accept', 'application/json; text/html; charset=utf-8')
-		// 		.expect('Content-Type', /[json|text]/)
-		// 		.expect(200)
-		// 		.then((response) => {
-		// 			console.log(response.body)
-		// 			assert(response.body, { error: 'unknown endpoint' })
-		// 		})
-		// 		.catch((err) => console.log(err.message))
-		// })
 	})
 })
 
