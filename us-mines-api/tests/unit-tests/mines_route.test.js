@@ -1,11 +1,10 @@
 const assert = require('assert')
 const parsePath = require('./testUtils')
-const longitude = '/@:lng(-\\d+)'
+const longitude = '/@:lng(-\\d+.?\\d*)'
 const materialParam = '/:material([a-zA-Z-_+]{1,})'
 
 //following Google (e.g. /dimension+stone/@-87.3432,45.123123,20)
-const fullPath =
-	'/:material([a-zA-Z-_+]{1,})/@:lng(-\\d+),:lat(\\d+),:radius(\\d+)'
+const fullPath = require('../../utils/routeRegex').minesByMaterialAndLatLng
 
 describe('Unit Test: Mines Route Path Regex', function () {
 	describe(`the regex half path "/@:lng(-\\d+)"`, function () {
@@ -39,6 +38,13 @@ describe('Unit Test: Mines Route Path Regex', function () {
 			paths.forEach((path) => {
 				assert.equal(null, parsePath(longitude, path))
 			})
+		})
+
+		it('should return a decimal when a decimal is used', function () {
+			const path = '/@-123.85'
+			const res = parsePath(longitude, path)
+			console.log(res)
+			assert.equal(true, res.includes(path))
 		})
 	})
 
@@ -79,15 +85,17 @@ describe('Unit Test: Mines Route Path Regex', function () {
 	describe(`the regex for the full path${fullPath}`, function () {
 		it('should return correct urls regardless of case and delimiter', function () {
 			const paths = [
-				'/sand/@-123,30,20',
-				'/sandAndGravel/@-123,30,4',
-				'/Dimension-Stone/@-123,30,100',
-				'/DimensionStone/@-123,30,0',
-				'/Dimension_Stone/@-123,30,23',
+				'/sand/@-123.234,30.5,20',
+				'/sandAndGravel/@-123,30.5,4',
+				'/Dimension-Stone/@-123.34,30,100',
+				'/DimensionStone/@-123.452,30.54646923942,0.54',
+				'/Dimension_Stone/@-123.435329424932,30.54683249329,23.23423',
 				'/Dimension+Stone/@-123,30,1',
+				'/gravel/@-87,30,40',
 			]
 			paths.forEach((path) => {
 				const res = parsePath(fullPath, path)
+				console.log(res)
 				assert.equal(true, res.includes(path))
 			})
 		})

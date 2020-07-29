@@ -9,11 +9,13 @@ require('express-async-errors')
 minesRouter.get(
 	routeRegex.minesByMaterialAndLatLng,
 	async (request, response) => {
+		console.log(request.params)
 		let { lng, lat, material, radius } = request.params
 
 		lng = parseFloat(lng)
 		lat = parseFloat(lat)
 		radius = parseFloat(radius)
+		//replace all non-character with a space, then split on space and filter out space and empty string before joining them
 		material = material
 			.replace(/[^a-zA-Z]/g, ' ')
 			.split(' ')
@@ -34,8 +36,9 @@ minesRouter.get(
 				radius,
 			}
 			const result = await routeHandlers.findNearByMinesWithinRadius(params)
-			console.log(result)
-			response.status(200).json(result)
+			result.length > 0
+				? response.status(200).json(result)
+				: response.status(200).json({ message: 'No mine found' })
 		}
 	}
 )
