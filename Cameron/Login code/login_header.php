@@ -81,7 +81,7 @@ session_start();
              </div>
 
              <!-- Signup modal -->
-             <form action="includes/signup.inc.php" method="post">
+             <form id="formSignup" action="includes/signup.inc.php" method="post">
              <div class="modal-body">
                   <div class="form-row">
                     <div class="form-group col-md-6">

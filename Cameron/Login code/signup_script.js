@@ -1,5 +1,7 @@
+var allMaterials = {};
+
 $(document).ready(function() {
-  $("form").submit(function(event) {
+  $("#formSignup").submit(function(event) {
     event.preventDefault();
     var firstName = $("#inputFirstName").val();
     var surname = $("#inputSurname").val();
@@ -18,13 +20,42 @@ $(document).ready(function() {
   });
 });
 
+function updateRangeValue(val) {
+  $("#searchRadiusDisplay").html(val);
+}
+
+function getMaterials() {
+  $.ajax({
+    type: 'GET',
+    url: 'https://us-mines-api.herokuapp.com/mines/materials',
+    success: function (data) {
+      allMaterials = data['materials'];
+
+      allMaterials.forEach((item, i) => {
+        var option = document.createElement('option');
+
+        option.setAttribute('value', item);
+        document.getElementById('materialList').appendChild(option);
+      });
+
+    }
+  });
+}
+
+
+function init() {
+  getMaterials();
+}
+
+window.onload = init;
+
 
 // ANCHOR: leaflet
 
 const ACCESS_TOKEN =
   "pk.eyJ1IjoidGhhbmdwaGFtNzc5MyIsImEiOiJja2Jwb3VjangyYmE2MnJwZnhhbHR0aGUyIn0.nX_zeCSrkktjc3k148oQCA";
 
-const map = L.map("map").setView([31, -100], 7);
+const map = L.map("map").setView([40, -100], 5.4);
 
 L.tileLayer(
   `https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=${ACCESS_TOKEN}`,
