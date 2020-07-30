@@ -1,8 +1,5 @@
 import pandas as pd
 import sys
-from classes.Summary import Summary
-
-summarizer = Summary()
 
 
 class Extract:
@@ -64,47 +61,40 @@ class Extract:
             # but this is extremely unlikely
             return df
 
-    def to_df(self, file_path, make_html_summary=False):
+    def to_df(self, file_path):
         ext = self.get_extension(file_path)
         try:
             if ext == "txt":
                 df = self.switcher[ext](file_path, sep="|", encoding="unicode_escape")
             else:
                 df = self.switcher[ext](file_path)
+
+            # removing duplicate columns
+            # https://stackoverflow.com/questions/14984119/python-pandas-remove-duplicate-columns
+            df = df.T.drop_duplicates().T
+
+            # drop duplicate rows
+            df = df.drop_duplicates()
+            df = df.fillna("")
+            df.columns = (
+                df.columns.str.strip()
+                .str.lower()
+                .str.replace(" ", "_")
+                .str.replace("(", "")
+                .str.replace(")", "")
+            )
+
+            try:
+                # check for unnamed columns
+                df = self.check_colnames(df)
+            except:
+                print(
+                    f"There was an error checking the column names of {file_path}: \n{sys.exc_info()}"
+                )
+
+            return df
+
         except:
             print(
                 f"There was an error parsing {file_path} using Pandas: \n{sys.exc_info()}"
             )
-        # removing duplicate columns
-        # https://stackoverflow.com/questions/14984119/python-pandas-remove-duplicate-columns
-        df = df.T.drop_duplicates().T
-
-        # drop duplicate rows
-        df = df.drop_duplicates()
-        df = df.fillna("")
-        df.columns = (
-            df.columns.str.strip()
-            .str.lower()
-            .str.replace(" ", "_")
-            .str.replace("(", "")
-            .str.replace(")", "")
-        )
-
-        try:
-            # check for unnamed columns
-            df = self.check_colnames(df)
-
-        except:
-            print(
-                f"There was an error checking the column names of {file_path}: \n{sys.exc_info()}"
-            )
-
-        if make_html_summary == True:
-            try:
-                summarizer.load_success_summary(df, file_path)
-            except:
-                print(
-                    f"There was an error writing success summary for {file_path}: \n{sys.exc_info()}"
-                )
-        return df
-

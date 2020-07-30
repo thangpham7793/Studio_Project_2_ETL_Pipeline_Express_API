@@ -15,16 +15,19 @@ def update_schema():
 # TODO: should carry out some basic standardisation beforehand (lowercase etc.)
 def check_if_colnames_in_saved_list(col):
     # this could be improved by having some fuzzy search
+    # if the colname is in the list of unchanged columns, simply return it
+    if col in mine_schema["keep_it_as_it_is"]:
+        return {"result": True, "colname": col}
+    # if the colname is in the list of dropped columns, return None to drop it
+    if col in mine_schema["dropped_cols"]:
+        return {"result": True, "colname": None}
+    # if colname is in the list of col names that have been changed
+    # or it has the same name as the standardised name (key),
+    # return the corresponding standardised col name.
     for k in mine_schema:
-        if k != "keep_it_as_it_is":
-            # if colname is in the list of col names that have been changed, return the corresponding standardised col name.
-            if col in mine_schema[k] or col is k:
-                return {"result": True, "colname": k}
-        else:
-            # if the colname is in the list of unchanged columns, simply return it
-            if col in mine_schema[k]:
-                return {"result": True, "colname": col}
-    # if the col name is not in the record, return false and ask for user's input
+        if col in mine_schema[k] or col is k:
+            return {"result": True, "colname": k}
+    # if the column name is not in the dict, return False to ask for user input
     return {"result": False}
 
 
@@ -32,8 +35,16 @@ def choose_dropped_columns(df):
     dropped_cols = []
     filter_dict = {}
     for col in df.columns:
-        if col in mine_schema.keys():
-            continue
+        check_result = check_if_colnames_in_saved_list(col)
+        if check_result["result"] == True:
+            if check_result["colname"] is not None:
+                new_name = check_result["colname"]
+                if new_name != col:
+                    print(f"Renaming {col} to {new_name}")
+                else:
+                    print(f"Keeping {col} as it is.")
+            else:
+                dropped_cols.append(col)
         else:
             sample_values = list(df[col].unique())[0:5]
             print(f"Column '{col.upper()}' has some values like {sample_values}\n")
@@ -46,19 +57,11 @@ def choose_dropped_columns(df):
             if user_input.lower() not in ["yes", "y", "ye"]:
                 dropped_cols.append(col)
             else:
-                check_result = check_if_colnames_in_saved_list(col)
-                if check_result["result"] is True:
-                    new_name = check_result["colname"]
-                    if new_name != col:
-                        print(f"Renaming {col} to {new_name}")
-                    else:
-                        print(f"Keeping {col} as it is.")
+                new_name = show_standardized_colnames(col)
+                if new_name != col:
+                    print(f"Renaming {col} to {new_name}")
                 else:
-                    new_name = show_standardized_colnames(col)
-                    if new_name != col:
-                        print(f"Renaming {col} to {new_name}")
-                    else:
-                        print(f"Keeping {col} as it is.")
+                    print(f"Keeping {col} as it is.")
                 df.rename(columns={col: new_name}, inplace=True)
     return df.drop(columns=dropped_cols)
 
@@ -113,11 +116,10 @@ def clear_screen():
 
 if __name__ == "__main__":
     # TODO: need to turn this into a file-drop or select file_path (GUI?)
-    file_path = "./data/TX/msw-facilities-texas.xls"
+    file_path = "../ETL_pipeline/data/TX/msw-facilities-texas.xls"
     extractor = Extract()
     loader = Load()
     df = extractor.to_df(file_path)
     df = main(df)
-    # FIXME: results show that there are 'nan' fields being saved to the database and no location field is created. Could be because you load the data from a csv
     loader.load_into_database(df)
 
