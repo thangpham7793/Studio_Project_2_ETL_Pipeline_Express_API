@@ -1,3 +1,5 @@
 .env
 .secret
 node_modules/
+scap.js
+utils/test.js
