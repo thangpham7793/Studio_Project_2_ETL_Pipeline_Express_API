@@ -3,6 +3,7 @@ from classes.Extract import Extract
 from classes.Load import Load
 import pandas as pd
 from os import system, name
+from classes.Util import Util
 
 
 def update_schema():
@@ -56,7 +57,7 @@ def choose_dropped_columns(df):
             user_input = input(
                 f"Would you like to keep column {col.upper()}? Type Y/N\n"
             )
-            clear_screen()
+            Util.clear_screen()
             if user_input.lower() not in ["yes", "y", "ye"]:
                 dropped_cols.append(col)
             else:
@@ -89,7 +90,7 @@ def show_standardized_colnames(col):
     user_input = input(
         f'Please choose one that matches "{col.upper()}" or keep it as it is by TYPING IN a number.\n'
     )
-    clear_screen()
+    Util.clear_screen()
     if not user_input.isnumeric():
         user_input = input(f"Please type in a number\n")
     elif int(user_input) < 0 or int(user_input) > len(mine_schema) - 1:
@@ -111,14 +112,6 @@ def main(df):
     update_schema()
     pd.DataFrame.to_csv(df, "./test.csv", index=False)
     return df
-
-
-# https://www.geeksforgeeks.org/clear-screen-python/
-def clear_screen():
-    if name == "nt":
-        _ = system("cls")
-    else:
-        _ = system("clear")
 
 
 if __name__ == "__main__":

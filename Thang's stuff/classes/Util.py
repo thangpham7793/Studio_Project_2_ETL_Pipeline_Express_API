@@ -1,5 +1,6 @@
 import sys
 import os
+from os import system, name
 
 
 class Util:
@@ -24,3 +25,10 @@ class Util:
 
         return customized_func
 
+    @staticmethod
+    # https://www.geeksforgeeks.org/clear-screen-python/
+    def clear_screen():
+        if name == "nt":
+            _ = system("cls")
+        else:
+            _ = system("clear")
