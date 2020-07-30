@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+import pandas as pd
 import dns
 
 # URI string for connecting to the cloud MongoDB
@@ -9,31 +10,23 @@ DB_COLLECTION = "msha_v2"
 
 
 class Load:
-    # this should probably go to the TRANSFORM class
+    # this should probably go to the TRANSFORM ROW class
     def check_longitude(self, longitude):
-        try:
-            # take the absolute value of longitude then make it negative
-            longitude = -abs(longitude)
-            # catch TypeError because longitude may not be a number
-        except TypeError as e:
-            print(e)
-        finally:
-            # return longitude whether it's been transformed or not
+        if type(longitude) == str:
             return longitude
+        else:
+            return -abs(longitude)
 
     def check_latitude(self, latitude):
-        # this should probably go to the TRANSFORM class
-        try:
-            # take the absolute value of latitude then make it negative
-            latitude = abs(latitude)
-            # catch TypeError because latitude may not be a number
-        except TypeError as e:
-            print(e)
-        finally:
-            # return latitude whether it's been transformed or not
+        if type(latitude) == str:
             return latitude
+        else:
+            return abs(latitude)
 
+    # this should probably go to the TRANSFORM ROW class
     def add_location(self, df):
+        # fill all NA values as string
+        df.fillna("", inplace=True)
         # this should probably go to the TRANSFORM class
         # if there's no long lat then pass and return df
         if ("longitude" not in list(df.columns)) or (
@@ -41,36 +34,33 @@ class Load:
         ):
             print("Skip Location!")
             return df
-        # fill all NA values as string
-        df = df.fillna("")
 
-        # double check longitude and latitude values:
-        for i in df.index:
-            row = df.iloc[i]
-            if type(row["longitude"]) == str or type(row["latitude"]) == str:
-                continue
-            df.loc[:, "longitude"][i] = self.check_longitude(row["longitude"])
-            df.loc[:, "latitude"][i] = self.check_latitude(row["latitude"])
+        # this should probably go to the TRANSFORM ROW class
+        df["latitude"] = df["latitude"].apply(lambda x: self.check_latitude(x))
+        df["longitude"] = df["longitude"].apply(lambda x: self.check_longitude(x))
 
-        # make a new location column
-        df["location"] = ""
-
+        # make a new list to store the locations
+        location_list = []
         # iterate through each row to make a nested location dictionary
-        for index, row in df.iterrows():
+        for i in df.index:
+            row = df.loc[i]
             # if there's an emptry string, skip to the next row
             if type(row["longitude"]) == str or type(row["latitude"]) == str:
-                print(index)
-                continue
+                location_list.append("")
             else:
                 # this is based on MongoDB's specification
                 # { type: "Point", coordinates: [ 40, 5 ] }
                 # https://docs.mongodb.com/manual/reference/geojson/#
-                df["location"][index] = {
+                new_location = {
                     "coordinates": [row["longitude"], row["latitude"]],
                     "type": "Point",
                 }
+                location_list.append(new_location)
+        # assign the new list as a new column
+        df["location"] = location_list
+
         # drop the lat long cols
-        df = df.drop(columns=["latitude", "longitude"])
+        df.drop(columns=["latitude", "longitude"], inplace=True)
         return df
 
     def remove_empty_entry(self, doc):
@@ -105,6 +95,7 @@ class Load:
     def add_location_and_turn_into_json_docs(self, df):
         # this should probably go to the TRANSFORM class
         # basically piping df through the functions above
+        # FIXME: find places where PANDAS may throw a view vs df error
         df = self.add_location(df)
         df = self.stringify_all_but_location(df)
 

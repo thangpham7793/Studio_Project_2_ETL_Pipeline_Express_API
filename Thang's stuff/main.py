@@ -68,7 +68,8 @@ def choose_dropped_columns(df):
                 df.rename(columns={col: new_name}, inplace=True)
     # updating the list of dropped columns
     for col in dropped_cols:
-        mine_schema["dropped_cols"].append(col)
+        if col not in mine_schema["dropped_cols"]:
+            mine_schema["dropped_cols"].append(col)
     return df.drop(columns=dropped_cols)
 
 
