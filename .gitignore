@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 __pycache__/
 venv/
 *__pycache__/*
 __pycache__
 *.vscode/
 Thang/.vscode/us-mines-api/
+=======
+us_mines_api/node_modules/
+us_mines_api/.env
+us_mines_api/.secret
+us-mines-api/.git
+>>>>>>> 6fcf5cd6140da1fdc84bee2a80e7c6e5acf5bf9d
