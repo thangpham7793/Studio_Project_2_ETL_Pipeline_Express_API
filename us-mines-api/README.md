@@ -37,6 +37,7 @@ Others:
 http://us-mines-api.herokuapp.com/mines/sand+and+gravel/@-87.5,30.23,40
 http://us-mines-api.herokuapp.com/mines/sand/@-145.5,60.23,100
 http://us-mines-api.herokuapp.com/mines/limestone/@-70.5,45.23,100
+http://us-mines-api.herokuapp.com/mines/crushed,+broken+limestone+nec/@-120,50,200
 
 Tip:
-Lat-long coorditates for cities in United States are in range: Latitude from 19.50139 to 64.85694 and longitude from -161.75583 to -68.01197.
+Lat-long coorditates for cities in United States are in range: Latitude from 19.50139 to 64.85694 and longitude from -161.75583 to -68.01197. To catch more miles, simply increase the radius
