@@ -17,7 +17,7 @@ minesRouter.get(
 		radius = parseFloat(radius)
 		//replace all non-character with a space, then split on space and filter out space and empty string before joining them
 		material = material
-			.replace(/[^a-zA-Z]/g, ' ')
+			.replace(/[^a-zA-Z,]/g, ' ')
 			.split(' ')
 			.filter((char) => char.indexOf(' ') === -1 && char.length > 0)
 			.join(' ')
