@@ -25,9 +25,12 @@ def check_if_colnames_in_saved_list(col):
     # or it has the same name as the standardised name (key),
     # return the corresponding standardised col name.
     for k in mine_schema:
-        if col in mine_schema[k] or col is k:
+        if col in mine_schema[k] or col == k:
             return {"result": True, "colname": k}
     # if the column name is not in the dict, return False to ask for user input
+    print(
+        f"'{col.upper()}' has not been processed before. Please help me Dear Good User!\n"
+    )
     return {"result": False}
 
 
@@ -37,7 +40,7 @@ def choose_dropped_columns(df):
     for col in df.columns:
         check_result = check_if_colnames_in_saved_list(col)
         if check_result["result"] == True:
-            if check_result["colname"] is not None:
+            if check_result["colname"] != None:
                 new_name = check_result["colname"]
                 if new_name != col:
                     print(f"Renaming {col} to {new_name}")
@@ -58,11 +61,14 @@ def choose_dropped_columns(df):
                 dropped_cols.append(col)
             else:
                 new_name = show_standardized_colnames(col)
-                if new_name != col:
+                if new_name != col and new_name != "keep_it_as_it_is":
                     print(f"Renaming {col} to {new_name}")
                 else:
                     print(f"Keeping {col} as it is.")
                 df.rename(columns={col: new_name}, inplace=True)
+    # updating the list of dropped columns
+    for col in dropped_cols:
+        mine_schema["dropped_cols"].append(col)
     return df.drop(columns=dropped_cols)
 
 
@@ -116,7 +122,7 @@ def clear_screen():
 
 if __name__ == "__main__":
     # TODO: need to turn this into a file-drop or select file_path (GUI?)
-    file_path = "../ETL_pipeline/data/TX/msw-facilities-texas.xls"
+    file_path = "../ETL_pipeline/data/filtered_mine_data.csv"
     extractor = Extract()
     loader = Load()
     df = extractor.to_df(file_path)

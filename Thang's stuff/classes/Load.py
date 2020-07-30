@@ -5,7 +5,7 @@ import dns
 # THESE should be stored in a .env (hidden) file though
 MONGODB_URI = "mongodb+srv://thangpham7793:p7b6D7Y9KhUBCsU@usminesdatabase.jke71.mongodb.net/usminesdb?retryWrites=true&w=majority"
 DB_NAME = "us-mines-locations"
-DB_COLLECTION = "texas"
+DB_COLLECTION = "msha_v2"
 
 
 class Load:
