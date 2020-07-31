@@ -1,4 +1,6 @@
 var allMaterials = {};
+const map = L.map("map").setView([40, -100], 5.4);
+var searchRadiusCircle;
 
 // Prevent PHP submitting and reloading the page on signup form submission
 $(document).ready(function() {
@@ -62,6 +64,19 @@ function searchForSupplier() {
   var material = $("#inputMaterial").val();
   var searchRadius = $("#sliderSearchRadius").val();
 
+  if(searchRadiusCircle != undefined) {
+    map.removeLayer(searchRadiusCircle);
+  }
+
+
+  var addressCoords = address.split(',');
+  searchRadiusCircle = L.circle([addressCoords[1], addressCoords[0]], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.2,
+    radius: 500
+  }).addTo(map);
+
   material = material.split(' ').join('+');
 
   // Check that inputs aren't empty
@@ -92,6 +107,11 @@ function searchForSupplier() {
 
           //Add div to sidebar
           $(".sidebar").append(searchResultBox);
+
+          // Add marker to map
+          var coord = item['location']['coordinates'];
+          var marker = L.marker([coord[1], coord[0]]).addTo(map);
+          marker.bindPopup("Operator: " + item['current_operator_name'] + "<br>Material:" + item['primary_sic'] + " & " + item['primary_canvass']);
         });
       }
     });
@@ -114,7 +134,7 @@ window.onload = init;
 const ACCESS_TOKEN =
   "pk.eyJ1IjoidGhhbmdwaGFtNzc5MyIsImEiOiJja2Jwb3VjangyYmE2MnJwZnhhbHR0aGUyIn0.nX_zeCSrkktjc3k148oQCA";
 
-const map = L.map("map").setView([40, -100], 5.4);
+
 
 L.tileLayer(
   `https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=${ACCESS_TOKEN}`,

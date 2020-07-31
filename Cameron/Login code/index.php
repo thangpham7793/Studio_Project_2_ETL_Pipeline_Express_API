@@ -5,7 +5,7 @@
  <main>
     <div class="map-container" id="map"></div>
     <div class="sidebar">
-      <input class="sidebar_input" id="inputAddress" type="text" placeholder="Delivery address...">
+      <input class="sidebar_input" id="inputAddress" type="text" value="-70.5,45.23" placeholder="Delivery address...">
       <input class="sidebar_input" id="inputMaterial"l type="text" list="materialList" placeholder="Material...">
       <datalist id="materialList"></datalist>
       <label for="formControlRange">Search radius (miles):</label>
