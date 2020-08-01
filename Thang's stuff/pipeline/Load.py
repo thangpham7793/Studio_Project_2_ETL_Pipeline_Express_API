@@ -1,10 +1,13 @@
 from pymongo import MongoClient
 import pandas as pd
 import dns
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # URI string for connecting to the cloud MongoDB
-# THESE should be stored in a .env (hidden) file though
-MONGODB_URI = "mongodb+srv://thangpham7793:p7b6D7Y9KhUBCsU@usminesdatabase.jke71.mongodb.net/usminesdb?retryWrites=true&w=majority"
+MONGODB_URI = os.getenv("MONGODB_URI")
 DB_NAME = "us-mines-locations"
 DB_COLLECTION = "msha_v2"
 
