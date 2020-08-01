@@ -1,6 +1,24 @@
 import sys
 import os
 from os import system, name
+from string import Template
+import pandas as pd
+
+
+def pipe_and_apply(next_input, steps_list):
+    while len(steps_list) != 0:
+        resources = steps_list.pop(0)
+        step = resources["step"]
+        function = resources["function"]
+        print(f"{step} started!\n")
+        output = function(next_input)
+        if isinstance(output, pd.DataFrame):
+            print(f"{step} completed!\n")
+            print(output.head(5), "\n", "=" * 120)
+            pipe_and_apply(output, steps_list)
+        else:
+            print(f"\nCould not finish {step} step: {sys.exc_info()}")
+            return
 
 
 class Util:
@@ -17,13 +35,21 @@ class Util:
                 if os.path.isfile(file_path):
                     try:
                         func(file_path)
-                    except:
+                    except AttributeError:
                         print(f"Could not process file: {sys.exc_info()}")
                 # continue to open other folders inside and do the same thing
                 elif os.path.isdir(file_path):
                     customized_func(file_path)
 
         return customized_func
+
+    # higher order function that returns a ready-to-run pipeline
+    @staticmethod
+    def make_pipeline_stage(next_input, stage_name, steps_list):
+        def run_pipeline_stage():
+            pipe_and_apply(next_input, steps_list)
+
+        return run_pipeline_stage
 
     @staticmethod
     # https://www.geeksforgeeks.org/clear-screen-python/
@@ -32,3 +58,10 @@ class Util:
             _ = system("cls")
         else:
             _ = system("clear")
+
+    @staticmethod
+    def update_schema():
+        f = open("schema.py", "w")
+        f.write(f"mine_schema = {mine_schema}")
+        f.close()
+
