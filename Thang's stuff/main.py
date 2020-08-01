@@ -1,31 +1,6 @@
-from schema import mine_schema
-from pipeline.Extract import Extract
-from pipeline.Load import Load
-from pipeline.Transform_Columns import Transform_Columns
-from pipeline.Filter import Filter
+from pipeline.extract_stage import extract_steps
 from pipeline.Util import Util
 
-import pandas as pd
-
-# Eric would have to manually enter this
-FILE_PATH = "../ETL_pipeline/data/filtered_mine_data.csv"
-
-# initialize each class in the pipeline
-extractor = Extract()
-columns_transformer = Transform_Columns()
-filterer = Filter()
-# rows_transformer = Transform_Rows()
-loader = Load()
-
-
-def main(df):
-    df = extractor.to_df(FILE_PATH)
-    df = columns_transformer.choose_dropped_columns(df)
-    Util.update_schema()
-    pd.DataFrame.to_csv(df, "./test.csv", index=False)
-    return df
-
-
-if __name__ == "__main__":
-    main()
-
+file_path = "../ETL_pipeline/data/TX/msw-facilities-texas.xls"
+run_extract_stage = Util.make_pipeline_stage(file_path, "EXTRACT", extract_steps)
+res = run_extract_stage()

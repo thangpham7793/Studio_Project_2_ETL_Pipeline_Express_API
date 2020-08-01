@@ -2,25 +2,23 @@ import sys
 import os
 from os import system, name
 from string import Template
+import pandas as pd
 
 
-def pipe_and_apply(next_input, stages_list):
-    print(f"Starting the next stage!\n")
-    while len(stages_list) != 0:
-        tools = stages_list.pop(0)
-        stage = tools["stage"]
-        function = tools["function"]
-
-        try:
-            print(f"{stage} started!\n")
-            output = function(next_input)
-            print(f"{stage} completed!\n")
-            pipe_and_apply(next_input, stages_list)
-        except:
-            print(f"Could not finish {stage} stage: {sys.exc_info()}")
+def pipe_and_apply(next_input, steps_list):
+    while len(steps_list) != 0:
+        resources = steps_list.pop(0)
+        step = resources["step"]
+        function = resources["function"]
+        print(f"{step} started!\n")
+        output = function(next_input)
+        if isinstance(output, pd.DataFrame):
+            print(f"{step} completed!\n")
+            print(output.head(5), "\n", "=" * 120)
+            pipe_and_apply(output, steps_list)
+        else:
+            print(f"\nCould not finish {step} step: {sys.exc_info()}")
             return
-
-    print("Finished the whole process!")
 
 
 class Util:
@@ -47,11 +45,11 @@ class Util:
 
     # higher order function that returns a ready-to-run pipeline
     @staticmethod
-    def connect_pipeline(next_input, stages_list):
-        def run_pipeline():
-            pipe_and_apply(next_input, stages_list)
+    def make_pipeline_stage(next_input, stage_name, steps_list):
+        def run_pipeline_stage():
+            pipe_and_apply(next_input, steps_list)
 
-        return run_pipeline
+        return run_pipeline_stage
 
     @staticmethod
     # https://www.geeksforgeeks.org/clear-screen-python/
@@ -67,35 +65,3 @@ class Util:
         f.write(f"mine_schema = {mine_schema}")
         f.close()
 
-
-def generate_function_documentation(definition_dict):
-    function_task_template = Template("This function ${task}\n")
-    param_definition_template = Template("@param ${name}: ${type}\n")
-    return_value_definition_template = Template("@return '${name}': ${type}\n")
-
-    description = ""
-    try:
-        for k in definition_dict:
-            if k == "task":
-                description += function_task_template.substitute(
-                    task=definition_dict["task"]
-                )
-            elif k == "return":
-                description += return_value_definition_template.substitute(
-                    name=k, type=definition_dict[k]
-                )
-            else:
-                description += param_definition_template.substitute(
-                    name=k, type=definition_dict[k]
-                )
-
-        print(description)
-    except TypeError as e:
-        print("Please supply a dictionary for the definition")
-
-
-def get_documentation(definition_dict):
-    def print_definition():
-        generate_function_documentation(definition_dict)
-
-    return print_definition

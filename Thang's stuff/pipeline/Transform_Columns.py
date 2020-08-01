@@ -1,5 +1,5 @@
 from schema import mine_schema
-from pipeline.Util import Util
+from Util import Util
 import pandas as pd
 
 
