@@ -1,6 +1,7 @@
 import sys
 import os
 from os import system, name
+from string import Template
 
 
 def pipe_and_apply(next_input, stages_list):
@@ -66,3 +67,35 @@ class Util:
         f.write(f"mine_schema = {mine_schema}")
         f.close()
 
+
+def generate_function_documentation(definition_dict):
+    function_task_template = Template("This function ${task}\n")
+    param_definition_template = Template("@param ${name}: ${type}\n")
+    return_value_definition_template = Template("@return '${name}': ${type}\n")
+
+    description = ""
+    try:
+        for k in definition_dict:
+            if k == "task":
+                description += function_task_template.substitute(
+                    task=definition_dict["task"]
+                )
+            elif k == "return":
+                description += return_value_definition_template.substitute(
+                    name=k, type=definition_dict[k]
+                )
+            else:
+                description += param_definition_template.substitute(
+                    name=k, type=definition_dict[k]
+                )
+
+        print(description)
+    except TypeError as e:
+        print("Please supply a dictionary for the definition")
+
+
+def get_documentation(definition_dict):
+    def print_definition():
+        generate_function_documentation(definition_dict)
+
+    return print_definition
