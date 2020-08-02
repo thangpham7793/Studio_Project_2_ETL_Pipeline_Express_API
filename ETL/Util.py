@@ -1,6 +1,5 @@
 import sys
 import os
-from os import system, name
 import pandas as pd
 
 

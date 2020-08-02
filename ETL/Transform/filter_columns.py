@@ -1,6 +1,6 @@
 from schema import mine_schema
 import pandas as pd
-
+from os import system, name
 
 # https://www.geeksforgeeks.org/clear-screen-python/
 def clear_screen():
@@ -70,9 +70,23 @@ def show_standardized_colnames(col):
             return chosen_colname
 
 
+def add_coverage_column(df):
+    is_msha = input("Is this the MSHA dataset? Y/N\n\n")
+    while is_msha.lower() not in ["yes", "y", "ye", "n", "no"]:
+        print("Invalid answer. Please type in your answer again.\n\n")
+        is_msha = input("Is this data set MSHA? Y/N")
+    if is_msha.lower() in ["yes", "y", "ye"]:
+        df["coverage"] = "msha"
+    else:
+        df["coverage"] = "non-msha"
+    return df
+
+
 def filter_columns(df):
     dropped_cols = []
-    filter_dict = {}
+    df = add_coverage_column(df)
+    clear_screen()
+
     for col in df.columns:
         check_result = check_if_colnames_in_saved_list(col)
         if check_result["result"] == True:
@@ -90,9 +104,14 @@ def filter_columns(df):
             # TODO: can carry out filtering right here (especially for columns with only a few values)
             # TODO: can remember invalid choices as well
             user_input = input(
-                f"Would you like to keep column {col.upper()}? Type Y/N\n"
+                f"Would you like to keep column {col.upper()}? Type Y/N\n\n"
             )
             clear_screen()
+            while user_input.lower() not in ["yes", "y", "ye", "n", "no"]:
+                print("Invalid answer. Please type in your answer again.\n\n")
+                is_msha = input(
+                    f"Would you like to keep column {col.upper()}? Type Y/N\n"
+                )
             if user_input.lower() not in ["yes", "y", "ye"]:
                 dropped_cols.append(col)
             else:
