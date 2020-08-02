@@ -1,7 +1,6 @@
 import sys
 import os
 from os import system, name
-from string import Template
 import pandas as pd
 
 
@@ -50,18 +49,4 @@ class Util:
             pipe_and_apply(next_input, steps_list)
 
         return run_pipeline_stage
-
-    @staticmethod
-    # https://www.geeksforgeeks.org/clear-screen-python/
-    def clear_screen():
-        if name == "nt":
-            _ = system("cls")
-        else:
-            _ = system("clear")
-
-    @staticmethod
-    def update_schema():
-        f = open("schema.py", "w")
-        f.write(f"mine_schema = {mine_schema}")
-        f.close()
 
