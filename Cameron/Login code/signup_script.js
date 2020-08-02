@@ -122,6 +122,10 @@ function searchForSupplier() {
 function init() {
   // Retrieve material list on load
   getMaterials();
+
+  map.on('click', function(e) {
+    $("#inputAddress").val(e.latlng.lng + "," + e.latlng.lat);
+  } );
 }
 
 // Initialise everything that's needed on page load
