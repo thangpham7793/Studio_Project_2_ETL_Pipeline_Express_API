@@ -47,7 +47,7 @@ def turn_df_into_json_docs(df):
     # remove all empty keys in each document in the dictionary
     for k in json_documents:
         remove_empty_entry(json_documents[k])
-    # HERE THE RETURNED VALUE IS A DICTIONARY OF JSON DOCS, NOT A DF. THIS IS PROBABLY THE LAST FUNCTION IN TRANSFORM CHAIN
+
     return json_documents
 
 
