@@ -1,3 +1,13 @@
+import pandas as pd
+
+switcher = {
+    "xls": pd.read_excel,
+    "xlsx": pd.read_excel,
+    "csv": pd.read_csv,
+    "txt": pd.read_csv,
+}
+
+
 def get_extension(file_path):
     """Return the extension from the supplied file path
     
@@ -45,6 +55,24 @@ def get_extension(file_path):
         else:
             ext = file_path.split(".")[-1]
             return ext
+
+
+def read_file(file_path):
+    """ Use the appropriate pandas function to read a file based on its extension
+    
+    Should return KeyError when the file path contains an unknown extension
+    >>> read_file('file.pdf')
+    Unknown Extension. Please pick a file of type txt, xlxs, csv, or xls
+    """
+    ext = get_extension(file_path)
+    try:
+        if ext == "txt":
+            df = switcher[ext](file_path, sep="|", encoding="unicode_escape")
+        else:
+            df = switcher[ext](file_path)
+        return df
+    except KeyError:
+        print("Unknown Extension. Please pick a file of type txt, xlxs, csv, or xls")
 
 
 if __name__ == "__main__":
