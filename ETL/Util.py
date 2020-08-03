@@ -10,7 +10,7 @@ def pipe_and_apply(next_input, steps_list):
         function = resources["function"]
         print(f"{step} started!\n")
         output = function(next_input)
-        if isinstance(output, pd.DataFrame):
+        if isinstance(output, pd.DataFrame) and output.empty == False:
             print(f"{step} completed!\n")
             print(output.head(5), "\n", "=" * 120)
             pipe_and_apply(output, steps_list)

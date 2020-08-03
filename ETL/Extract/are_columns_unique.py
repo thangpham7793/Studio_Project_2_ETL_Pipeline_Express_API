@@ -27,10 +27,10 @@ def are_columns_unique(colnames):
     try:
         if len(colnames) == 0:
             print("Column list must not be empty")
-
+            return
     except TypeError:
         print("Error getting the length of column list")
-
+        return
     else:
         no_of_colnames = len(colnames)
         no_of_distinct_colnames = len(set(list(colnames)))

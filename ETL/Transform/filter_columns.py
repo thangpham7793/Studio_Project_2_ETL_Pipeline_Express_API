@@ -1,4 +1,8 @@
-from schema import mine_schema
+if __name__ == "__main__":
+    from schema import mine_schema
+else:
+    from .schema import mine_schema
+
 import pandas as pd
 from os import system, name
 

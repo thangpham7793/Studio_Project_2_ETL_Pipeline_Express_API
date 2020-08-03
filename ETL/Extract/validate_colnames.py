@@ -15,7 +15,8 @@ def is_valid_colnames(colnames):
 
 def validate_colnames(df):
     # check if the existing colnames is valid first:
-    if is_valid_colnames(df.columns):
+    colnames = list(df.columns)
+    if is_valid_colnames(colnames):
         return df
     else:
         # if not, start checking the row from top to bottom (usally row 0 or 1 is the correct column names)
