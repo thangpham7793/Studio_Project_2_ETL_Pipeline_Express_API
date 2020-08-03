@@ -18,7 +18,7 @@ invalidRouteApp.get(routeRegex.minesByMaterialAndLatLng, function (req, res) {
 	res.status(404).json({ error: 'unknown endpoint' })
 })
 
-describe('Unit Test: Search Mines Params', function () {
+describe('Integration Test: Search Mines Params', function () {
 	describe('GET /:material/@:lng,:lat,:radius', function () {
 		it('should contain an object with the correct parameters from the mock request URL', function () {
 			mockGetRequest(validRouteApp)

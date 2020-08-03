@@ -2,7 +2,7 @@ const assert = require('assert')
 const pattern = require('../../server/routeRegex').mineById
 const parsePath = require('./testUtils')
 
-describe.only('Unit Test: GET Mine by Id Regex Path', () => {
+describe('Unit Test: GET Mine by Id Regex Path', () => {
 	it('should return the id string when there are 25 letters or numbers in total including the backslash', () => {
 		const validPaths = [
 			'/5f1d249e0e492f317de09918',
