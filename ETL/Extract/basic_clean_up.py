@@ -2,15 +2,15 @@ import re
 import pandas as pd
 
 
-def remove_non_char_from_colnames(colnames):
+def remove_non_char(values):
     """Remove non-characters from each column names and substitude whitespace with underscore
     
-    Should return colnames with only characters and numbers. 
+    Should return value with only characters and numbers. 
     
     The list should also be of the same length
     
     >>> input = ['a1,;:', '"b" $%#12', 'c ?\;])de', '']
-    >>> new_list = remove_non_char_from_colnames(input)
+    >>> new_list = remove_non_char(input)
     >>> new_list
     ['a1', 'b_12', 'c_de', '']
     >>> len(new_list) == len(input)
@@ -18,12 +18,10 @@ def remove_non_char_from_colnames(colnames):
     """
     non_char_regex = re.compile("[^A-Za-z0-9 ]")
     # replace all non-characters with empty string
-    new_columns = list(map(lambda colname: non_char_regex.sub("", colname), colnames))
+    new_values = list(map(lambda value: non_char_regex.sub("", value), values))
     # replace white space with underscore
-    new_columns = list(
-        map(lambda colname: re.compile(" ").sub("_", colname), new_columns)
-    )
-    return new_columns
+    new_values = list(map(lambda value: re.compile(" ").sub("_", value), new_values))
+    return new_values
 
 
 def basic_clean_up(df):
@@ -40,7 +38,7 @@ def basic_clean_up(df):
     df = df.drop_duplicates()
 
     # remove white space
-    df.columns = remove_non_char_from_colnames(df.columns)
+    df.columns = remove_non_char(df.columns)
     return df
 
 

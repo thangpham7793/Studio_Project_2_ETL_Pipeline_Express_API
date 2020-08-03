@@ -27,7 +27,7 @@ valid_status = [
 ]
 
 
-def filter_status(dataframe):
+def filter_rows(dataframe):
 
     df = dataframe
 

@@ -65,14 +65,23 @@ def read_file(file_path):
     Unknown Extension. Please pick a file of type txt, xlxs, csv, or xls
     """
     ext = get_extension(file_path)
+
+    # look up the appropriate pandas read file function
     try:
-        if ext == "txt":
-            df = switcher[ext](file_path, sep="|", encoding="unicode_escape")
-        else:
-            df = switcher[ext](file_path)
-        return df
+        file_reader = switcher[ext]
     except KeyError:
         print("Unknown Extension. Please pick a file of type txt, xlxs, csv, or xls")
+
+    # parse file into a dataframe
+    try:
+        if ext == "txt":
+            df = file_reader(file_path, sep="|", encoding="unicode_escape")
+        else:
+            df = file_reader(file_path)
+        return df
+    except FileNotFoundError:
+        print("File not found!")
+        return
 
 
 if __name__ == "__main__":

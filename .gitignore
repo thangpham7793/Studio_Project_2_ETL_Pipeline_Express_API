@@ -10,3 +10,4 @@ us_mines_api/.secret
 us-mines-api/.git
 env/data/
 env/
+test.csv

@@ -18,7 +18,7 @@ def remove_empty_entry(doc):
         if k == "location" and type(doc["location"]) is dict:
             continue
         # if there's a value missing, add the key to the list above
-        elif doc[k].lower() in ["", "nan", "unknown"]:
+        elif doc[k].lower() in ["", "nan", "unknown", "no record"]:
             empty_key += [k]
     # if the list's empty, do nothing since there's no missing value
     if len(empty_key) == 0:
@@ -28,16 +28,6 @@ def remove_empty_entry(doc):
         for i in empty_key:
             del doc[i]
         # this function operates on each document, so we don't have to return anything
-
-
-def stringify_all_but_location(df):
-    # this should probably go to the TRANSFORM class
-    # turn all values into string (this should not be in this class though...)
-    for col in df.columns:
-        if col not in ["location"]:
-            # maybe clean it up a bit more here (remove punctuations, etc.)
-            df[col] = df[col].apply(lambda x: str(x).lower().strip())
-    return df
 
 
 def turn_df_into_json_docs(df):
