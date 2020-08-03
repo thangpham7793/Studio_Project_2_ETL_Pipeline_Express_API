@@ -43,9 +43,9 @@ class Util:
 
     # higher order function that returns a ready-to-run pipeline
     @staticmethod
-    def make_pipeline_stage(next_input, stage_name, steps_list):
-        def run_pipeline_stage():
+    def make_pipeline(next_input, steps_list):
+        def run_pipeline():
             pipe_and_apply(next_input, steps_list)
 
-        return run_pipeline_stage
+        return run_pipeline
 

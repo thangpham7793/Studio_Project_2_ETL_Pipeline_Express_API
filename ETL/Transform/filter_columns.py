@@ -88,8 +88,6 @@ def add_coverage_column(df):
 
 def filter_columns(df):
     dropped_cols = []
-    df = add_coverage_column(df)
-    clear_screen()
 
     for col in df.columns:
         check_result = check_if_colnames_in_saved_list(col)
@@ -129,4 +127,7 @@ def filter_columns(df):
     for col in dropped_cols:
         if col not in mine_schema["dropped_cols"]:
             mine_schema["dropped_cols"].append(col)
+    df = add_coverage_column(df)
+    clear_screen()
+
     return df.drop(columns=dropped_cols)
