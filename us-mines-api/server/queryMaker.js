@@ -1,6 +1,6 @@
 const METERS_PER_MILE = 1609.34
 
-const findNearByMinesWithin = ({ lat, lng, material, radius }) => {
+const findNearByMinesWithin = ({ lat, lng, material }) => {
 	console.log(
 		`Finding ${material} mines around ${lat} latitude and ${lng} longitude within 50 miles`
 	)
@@ -17,7 +17,7 @@ const findNearByMinesWithin = ({ lat, lng, material, radius }) => {
 					type: 'Point',
 					coordinates: [lng, lat],
 				},
-				$maxDistance: radius * METERS_PER_MILE,
+				$maxDistance: 200 * METERS_PER_MILE,
 			},
 		},
 	}
