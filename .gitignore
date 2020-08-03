@@ -1,8 +1,17 @@
 venv/
 __pycache__/
 *.vscode/
+__pycache__/
+venv/
+*__pycache__/*
+__pycache__
+*.vscode/
+Thang/.vscode/us-mines-api/
 us_mines_api/node_modules/
 us_mines_api/.env
 us_mines_api/.secret
 us-mines-api/.git
 venv/
+env/data/
+env/
+test.csv
