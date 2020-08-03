@@ -5,3 +5,4 @@ us_mines_api/node_modules/
 us_mines_api/.env
 us_mines_api/.secret
 us-mines-api/.git
+venv/

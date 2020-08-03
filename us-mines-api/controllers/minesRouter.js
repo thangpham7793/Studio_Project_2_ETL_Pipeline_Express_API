@@ -1,20 +1,19 @@
 const express = require('express')
 const minesRouter = express.Router()
 const routeHandlers = require('../server/routeHandlers')
-const routeRegex = require('../utils/routeRegex')
+const routeRegex = require('../server/routeRegex')
 
 require('express-async-errors')
-//  TODO: how to throttle requests?
 
+// GET MINES BY LATLONG IN 200 MILES RADIUS
 minesRouter.get(
 	routeRegex.minesByMaterialAndLatLng,
 	async (request, response) => {
 		console.log(request.params)
-		let { lng, lat, material, radius } = request.params
+		let { lng, lat, material } = request.params
 
 		lng = parseFloat(lng)
 		lat = parseFloat(lat)
-		radius = parseFloat(radius)
 		//replace all non-character with a space, then split on space and filter out space and empty string before joining them
 		material = material
 			.replace(/[^a-zA-Z,]/g, ' ')
@@ -24,24 +23,31 @@ minesRouter.get(
 
 		if (lng < -180 || lng > 180 || lat < -90 || lat > 90) {
 			response.status(400).send({
-				message: 'Invalid latitude or longitude!',
+				error: 'Invalid latitude or longitude!',
 			})
-		} else if (radius <= 0) {
-			response.status(400).send({ message: 'Radius must be bigger than 0' })
 		} else {
 			const params = {
 				lat,
 				lng,
 				material,
-				radius,
 			}
-			const result = await routeHandlers.findNearByMinesWithinRadius(params)
+			const result = await routeHandlers.findMilesByMaterialAndLatLng(params)
 			result.length > 0
 				? response.status(200).json(result)
-				: response.status(200).json({ message: 'No mine found' })
+				: response.status(404).json({ message: 'No mine found' })
 		}
 	}
 )
+
+// GET ONE MINE BY ID
+
+minesRouter.get(routeRegex.mineById, async (request, response) => {
+	let id = request.params.id
+	const result = await routeHandlers.findMineById(id)
+	result !== null
+		? response.status(200).json(result)
+		: response.status(404).json({ message: 'No mine found' })
+})
 
 minesRouter.get('/', (request, response) => {
 	response.status(200).json({
@@ -51,7 +57,9 @@ minesRouter.get('/', (request, response) => {
 
 minesRouter.get('/materials', async (request, response) => {
 	const allMaterials = await routeHandlers.getAllMaterials()
-	response.status(200).json({ materials: allMaterials })
+	allMaterials.length !== 0
+		? response.status(200).json({ materials: allMaterials })
+		: response.status(404).json({ message: 'No material found' })
 })
 
 // Lat-long coorditates for cities in United States are in range: Latitude from 19.50139 to 64.85694 and longitude from -161.75583 to -68.01197. (so longitude must be negative)
