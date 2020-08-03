@@ -41,7 +41,6 @@ describe('Unit Test: GET Mines by Material and LatLng Path Regex', () => {
 		it('should return a decimal when a decimal is used', () => {
 			const path = '/@-123.85'
 			const res = parsePath(longitudePattern, path)
-			console.log(res)
 			assert.equal(true, res.includes(path))
 		})
 	})
@@ -59,7 +58,7 @@ describe('Unit Test: GET Mines by Material and LatLng Path Regex', () => {
 			]
 			materials.forEach((material) => {
 				const res = parsePath(materialPattern, material)
-				console.log('The result is ' + res + '\n')
+				//console.log('The result is ' + res + '\n')
 				assert.equal(true, res.includes(material))
 			})
 		})
@@ -74,7 +73,7 @@ describe('Unit Test: GET Mines by Material and LatLng Path Regex', () => {
 			]
 			materials.forEach((material) => {
 				const res = parsePath(materialPattern, material)
-				console.log('The result is ' + res + '\n')
+				//console.log('The result is ' + res + '\n')
 				assert.equal(null, res)
 			})
 		})
@@ -85,7 +84,7 @@ describe('Unit Test: GET Mines by Material and LatLng Path Regex', () => {
 			const paths = [
 				'/sand/@-123.234,30.5',
 				'/sandAndGravel/@-123,30.54',
-				'/Dimension-Stone/@-123.34,301',
+				'/Dimension-Stone/@-123.34,30',
 				'/DimensionStone/@-123.452,30.54646923942',
 				'/Dimension_Stone/@-123.435329424932,30.54683249329',
 				'/Dimension+Stone/@-123,30',
@@ -93,7 +92,6 @@ describe('Unit Test: GET Mines by Material and LatLng Path Regex', () => {
 			]
 			paths.forEach((path) => {
 				const res = parsePath(fullPattern, path)
-				console.log(res)
 				assert.equal(true, res.includes(path))
 			})
 		})

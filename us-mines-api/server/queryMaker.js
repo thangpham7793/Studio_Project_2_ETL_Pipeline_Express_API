@@ -1,11 +1,10 @@
 const METERS_PER_MILE = 1609.34
 
-const findNearByMinesWithin = ({ lat, lng, material }) => {
-	console.log(
-		`Finding ${material} mines around ${lat} latitude and ${lng} longitude within 50 miles`
-	)
+const findNearByMinesWithin = ({ lat, lng, material, radius }) => {
 	//NOTE: MONGODB uses implicit AND. So the below query is:
 	// Find all mines with material as primary or secondary AND near a particular point within a fixed radius
+	const inputRadius = radius || 200
+	console.log('The radius is ' + inputRadius)
 	return {
 		$or: [
 			{ primary_sic: { $regex: `${material}`, $options: 'gi' } },
@@ -17,23 +16,22 @@ const findNearByMinesWithin = ({ lat, lng, material }) => {
 					type: 'Point',
 					coordinates: [lng, lat],
 				},
-				$maxDistance: 200 * METERS_PER_MILE,
+				$maxDistance: inputRadius * METERS_PER_MILE,
 			},
 		},
 	}
 }
 
-const projectionMaker = (fieldsArr) => {
-	projectionObject = fieldsArr.reduce(
-		(projectionObject, field) => {
-			return {
-				...projectionObject,
-				[field]: 1,
-			}
-		},
-		{ _id: 0 }
-	)
-	return projectionObject
+//include and exclude fields in results (1 is include and 0 is exclude)
+const projectionMaker = (fieldsArray) => {
+	targetFieldsObject = fieldsArray.reduce((projectionObject, field) => {
+		return {
+			...projectionObject,
+			[field]: 1,
+		}
+	}, {})
+
+	return targetFieldsObject
 }
 
 module.exports = {

@@ -16,7 +16,7 @@ The general format is:
 
 https://us-mines-api.herokuapp.com/mines/{material}/@{longitude},{latitude},{radius}
 
-Results will be sorted based on distance, from nearest to furthest.
+Results will be sorted based on distance, from nearest to furthest. Radius is optional and the default is 200 miles.
 
 Validation:
 
@@ -30,12 +30,12 @@ Longitude and latitude should also be in their acceptable range (-180 to 180, -9
 
 Examples:
 
-Get sand and gravel mines around point -82 longitude, 30 latitude (the default search radius is 200 miles)
-https://us-mines-api.herokuapp.com/mines/sand+and+gravel/@-87,30
+Get sand and gravel mines around point -82 longitude, 30 latitude (the default search radius is 200 miles) within 80 miles
+https://us-mines-api.herokuapp.com/mines/sand+and+gravel/@-87,30,80
 
 Others:
-http://us-mines-api.herokuapp.com/mines/sand+and+gravel/@-87.5,30.23
-http://us-mines-api.herokuapp.com/mines/sand/@-145.5,60.23
+http://us-mines-api.herokuapp.com/mines/sand+and+gravel/@-87.5,30.23,120
+http://us-mines-api.herokuapp.com/mines/sand/@-145.5,60.23,50
 http://us-mines-api.herokuapp.com/mines/limestone/@-70.5,45.23
 http://us-mines-api.herokuapp.com/mines/crushed,+broken+limestone+nec/@-120,50
 
