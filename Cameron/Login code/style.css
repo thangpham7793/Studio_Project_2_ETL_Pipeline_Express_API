@@ -102,14 +102,22 @@ body {
   margin-top: 10px;
 }
 
+#loadingSpinner {
+  width: 10%;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
 #map {
   flex-grow: 1;
 }
 
 .searchResult {
   border-top: 1.5px solid black;
+  margin-bottom: -10px;
   padding-top: 20px;
   padding-left: 10px;
+  cursor: pointer;
 }
 
 .searchResult:hover {

@@ -1,6 +1,7 @@
 var allMaterials = {};
 const map = L.map("map").setView([40, -100], 5.4);
 var searchRadiusCircle;
+var markers = new Array();
 
 // Prevent PHP submitting and reloading the page on signup form submission
 $(document).ready(function() {
@@ -31,6 +32,12 @@ $(document).ready(function() {
 // Handler for slider to update text field showing search radius
 function updateRangeValue(val) {
   $("#searchRadiusDisplay").html(val);
+
+  var address = $("#inputAddress").val();
+
+  if(address != "") {
+    updateSearchCircle(address);
+  }
 }
 
 // Retrieve list of all materials and add it to datalist. Makes it searchable
@@ -51,36 +58,33 @@ function getMaterials() {
         // Add to datalist
         document.getElementById('materialList').appendChild(option);
       });
-
     }
   });
 }
 
 /* AJAX call to API to query for suppliers of given material */
 function searchForSupplier() {
-  $( ".searchResult" ).remove();
 
   var address = $("#inputAddress").val();
   var material = $("#inputMaterial").val();
   var searchRadius = $("#sliderSearchRadius").val();
 
-  if(searchRadiusCircle != undefined) {
-    map.removeLayer(searchRadiusCircle);
-  }
-
-
-  var addressCoords = address.split(',');
-  searchRadiusCircle = L.circle([addressCoords[1], addressCoords[0]], {
-    color: 'red',
-    fillColor: '#f03',
-    fillOpacity: 0.2,
-    radius: 500
-  }).addTo(map);
-
-  material = material.split(' ').join('+');
-
   // Check that inputs aren't empty
   if(address != "" && material != "") {
+    // Inputs are correct, remove any highlights
+    $("#inputAddress").removeClass("input-error");
+    $("#inputMaterial").removeClass("input-error");
+
+    // Remove old search results
+    $(".searchResult").remove();
+    removeMarkers();
+    updateSearchCircle(address);
+
+    // Add spinner to show user that something has happened after clicking search button
+    $(".sidebar").append('<div id="loadingSpinner" class="spinner-border text-primary" role="status"> <span class="sr-only">Loading...</span> </div>');
+
+    material = material.split(' ').join('+');
+
     // AJAX call to API to get list of suppliers
     $.ajax({
       type: 'GET',                                //Material/@lng,lat,search radius(miles)
@@ -93,11 +97,13 @@ function searchForSupplier() {
         }
       },
       success: function (data) {
+        // Remove spinner to show search has finished
+        $("#loadingSpinner").remove();
+
         // Loop over data(supplier info)
         data.forEach((item, i) => {
           // Create a div with class searchResult to display individual search results in
           var searchResultBox = $("<div></div>").addClass("searchResult");
-
           // Text that goes inside div
           var searchText = $("<p></p>").html("Supplier: " + item['current_mine_name'] + "<br>Operator name: " +
           item['current_operator_name'] + "<br>Location: " + item['location']['coordinates']);
@@ -110,12 +116,61 @@ function searchForSupplier() {
 
           // Add marker to map
           var coord = item['location']['coordinates'];
-          var marker = L.marker([coord[1], coord[0]]).addTo(map);
-          marker.bindPopup("Operator: " + item['current_operator_name'] + "<br>Material:" + item['primary_sic'] + " & " + item['primary_canvass']);
+          var marker = L.marker([coord[1], coord[0]]);
+          marker.bindPopup("Supplier: " + item['current_mine_name'] + "<br>Operator: " + item['current_operator_name'] + "<br>Material: " + item['primary_sic'] + " & " + item['primary_canvass']);
+          markers.push(marker);
+
+          map.addLayer(marker);
+
+          // Add onClick function to search result in side bar to zoom in on correlated marker
+          searchResultBox.click(function() {
+            var markerPos = markers[i].getLatLng();
+            markers[i].openPopup();
+            map.setView(markerPos, 10);
+          })
         });
       }
     });
   }
+  else { // Inputs are empty, highlight them to user
+    if(address == "") {
+      $("#inputAddress").addClass("input-error");
+    }
+    if(material == "") {
+      $("#inputMaterial").addClass("input-error");
+    }
+  }
+}
+
+function removeMarkers() {
+  // Loop over markers and remove them from map
+  for (var i = 0; i < markers.length; i++) {
+    map.removeLayer(markers[i]);
+  }
+  // Clear marker list
+  markers = new Array();
+}
+
+function updateSearchCircle(address) {
+  var searchRadius = $("#sliderSearchRadius").val();
+
+  // Remove search radius from map
+  if(searchRadiusCircle != undefined) {
+    map.removeLayer(searchRadiusCircle);
+  }
+
+  // Add circle to the map to show search radius
+  var addressCoords = address.split(',');
+
+  // 1609.34 meters to a mile
+  var convertedMilesToMeters = searchRadius * 1609.34;
+
+  searchRadiusCircle = L.circle([addressCoords[1], addressCoords[0]], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.1,
+    radius: convertedMilesToMeters // Search radius in meters
+  }).addTo(map);
 }
 
 
@@ -125,6 +180,7 @@ function init() {
 
   map.on('click', function(e) {
     $("#inputAddress").val(e.latlng.lng + "," + e.latlng.lat);
+    updateSearchCircle($("#inputAddress").val());
   } );
 }
 
