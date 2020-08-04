@@ -4,7 +4,7 @@ const app = express()
 const bodyParser = require('body-parser')
 
 const middleware = require('./utils/middleware')
-const minesRouter = require('./controllers/minesRouter')
+const minesRouter = require('./server/minesRouter')
 
 //get methods from bodyParser
 const { urlencoded, json } = bodyParser

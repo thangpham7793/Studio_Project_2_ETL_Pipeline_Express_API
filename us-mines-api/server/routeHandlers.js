@@ -1,18 +1,19 @@
-const queryHandlers = require('./queryHandlers')
+const queryHandlers = require('../mongodb/queryHandlers')
 
 //FIXME: combine all the routes into one handler?
-const getMinesByMaterialAndLatLng = async (request, response) => {
+const getMines = async (request, response) => {
 	let { lng, lat, material, radius } = request.params
 
 	lng = parseFloat(lng)
 	lat = parseFloat(lat)
 	radius = parseFloat(radius)
 	//replace all non-character with a space, then split on space and filter out space and empty string before joining them
-	material = material
-		.replace(/[^a-zA-Z,]/g, ' ')
-		.split(' ')
-		.filter((char) => char.indexOf(' ') === -1 && char.length > 0)
-		.join(' ')
+	if (material != undefined)
+		material = material
+			.replace(/[^a-zA-Z,]/g, ' ')
+			.split(' ')
+			.filter((char) => char.indexOf(' ') === -1 && char.length > 0)
+			.join(' ')
 
 	if (lng < -180 || lng > 180 || lat < -90 || lat > 90) {
 		response.status(400).send({
@@ -30,7 +31,7 @@ const getMinesByMaterialAndLatLng = async (request, response) => {
 			material,
 			radius,
 		}
-		const result = await queryHandlers.findMilesByMaterialAndLatLng(params)
+		const result = await queryHandlers.findMinesByMaterialLatLngRadius(params)
 		result.length > 0
 			? response.status(200).json(result)
 			: response.status(404).json({ message: 'No mine found' })
@@ -52,38 +53,8 @@ const getOneMineById = async (request, response) => {
 		: response.status(404).json({ message: 'No mine found' })
 }
 
-const getAllMinesByLatLng = async (request, response) => {
-	let { lng, lat, radius } = request.params
-
-	lng = parseFloat(lng)
-	lat = parseFloat(lat)
-	radius = parseFloat(radius)
-
-	if (lng < -180 || lng > 180 || lat < -90 || lat > 90) {
-		response.status(400).send({
-			error:
-				'Longitude must be between -180 and 180. Latitude must be between -90 and 90!',
-		})
-	} else if (radius <= 0) {
-		response.status(400).send({
-			error: 'Radius must be bigger than 0!',
-		})
-	} else {
-		const params = {
-			lat,
-			lng,
-			radius,
-		}
-		const result = await queryHandlers.findMilesByLatLng(params)
-		result.length > 0
-			? response.status(200).json(result)
-			: response.status(404).json({ message: 'No mine found' })
-	}
-}
-
 module.exports = {
-	getMinesByMaterialAndLatLng,
+	getMines,
 	getMaterials,
 	getOneMineById,
-	getAllMinesByLatLng,
 }
