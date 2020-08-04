@@ -20,7 +20,7 @@ def stringify_rows(df):
     # this should probably go to the TRANSFORM class
     # turn all values into string (this should not be in this class though...)
     for col in df.columns:
-        if col not in ["location"]:
-            # maybe clean it up a bit more here (remove punctuations, etc.)
-            df[col] = df[col].apply(lambda x: remove_non_char(str(x).lower().strip()))
+        if col not in ["location", "latitude", "longitude"]:
+            new_col = df[col].apply(lambda x: remove_non_char(str(x).lower().strip()))
+            df[col] = new_col
     return df

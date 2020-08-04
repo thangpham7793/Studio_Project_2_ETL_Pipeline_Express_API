@@ -1,11 +1,6 @@
 import pandas as pd
 
 
-# path = "C:/Users/chick/Desktop/add_location_test.csv"
-# df = pd.read_csv(path)
-# df.columns = df.columns.str.strip().str.lower().str.replace(' ', '_').str.replace('(', '').str.replace(')', '')
-
-
 def check_longitude(longitude):
     if type(longitude) == str:
         return longitude
@@ -21,9 +16,6 @@ def check_latitude(latitude):
 
 
 def add_location(df):
-    # fill all NA values as string
-    # df.fillna("", inplace=True)
-    # this should probably go to the TRANSFORM class
     # if there's no long lat then pass and return df
     if ("longitude" not in list(df.columns)) or ("latitude" not in list(df.columns)):
         print("Skip Location!")
@@ -38,11 +30,14 @@ def add_location(df):
     # iterate through each row to make a nested location dictionary
     for i in df.index:
         row = df.loc[i]
-        # if latlng is not a number, add an emptry string as the value
+        # if latlng is 0 or a string, append an empty string as the location field
+        # FIXME: need to account for other ways of representing latlong, like S/W, or in minutes...
         if type(row["longitude"]) == str or type(row["latitude"]) == str:
             location_list.append("")
+        elif int(row["longitude"]) == 0 or int(row["latitude"]) == 0:
+            location_list.append("")
         else:
-            # this is based on MongoDB's specification
+            # this is based on MongoDB's specification to create geo indexes
             # { type: "Point", coordinates: [ 40, 5 ] }
             # https://docs.mongodb.com/manual/reference/geojson/#
             new_location = {
@@ -52,10 +47,5 @@ def add_location(df):
             location_list.append(new_location)
         # assign the new list as a new column
     df["location"] = location_list
-
-    # drop the lat long cols (keep lat long as part of the composite key)
-    # df.drop(columns=["latitude", "longitude"], inplace=True)
+    # keep lat long as part of the composite key
     return df
-
-
-# print(add_location(df))

@@ -242,5 +242,3 @@ target_canvasses = ["Stone", "Nonmetal", "SandAndGravel"]
 all_types = ["Surface", "Underground", "Facility"]
 target_types = ["Surface", "Facility"]
 
-# TODO: should organise this into a class
-

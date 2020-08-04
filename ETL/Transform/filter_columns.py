@@ -4,7 +4,8 @@ else:
     from .schema import mine_schema
 
 import pandas as pd
-from os import system, name
+from os import system, name, path
+
 
 # https://www.geeksforgeeks.org/clear-screen-python/
 def clear_screen():
@@ -15,7 +16,8 @@ def clear_screen():
 
 
 def update_schema():
-    f = open("schema.py", "w")
+    schema_path = path.abspath("schema.py")
+    f = open(schema_path, "w")
     f.write(f"mine_schema = {mine_schema}")
     f.close()
 
@@ -63,6 +65,8 @@ def show_standardized_colnames(col):
     elif int(user_input) < 0 or int(user_input) > len(mine_schema) - 1:
         user_input = input(f"Please type in a number within 0 and {len(mine_schema)-1}")
     else:
+        # FIXME: need to remove chosen choices to avoid having duplicate columns
+        # which causes error later!
         user_input = round(int(user_input), 0)
         if user_input == len(mine_schema) - 1:
             # TODO: could remember columns that are skipped (especially latitude and longitude since they get handled later)
@@ -74,7 +78,8 @@ def show_standardized_colnames(col):
             return chosen_colname
 
 
-def add_coverage_column(df):
+def add_coverage_column(dataframe):
+    df = dataframe.copy()
     is_msha = input("Is this the MSHA dataset? Y/N\n\n")
     while is_msha.lower() not in ["yes", "y", "ye", "n", "no"]:
         print("Invalid answer. Please type in your answer again.\n\n")
@@ -86,9 +91,9 @@ def add_coverage_column(df):
     return df
 
 
-def filter_columns(df):
+def filter_columns(dataframe):
     dropped_cols = []
-
+    df = dataframe.copy()
     for col in df.columns:
         check_result = check_if_colnames_in_saved_list(col)
         if check_result["result"] == True:
@@ -96,6 +101,7 @@ def filter_columns(df):
                 new_name = check_result["colname"]
                 if new_name != col:
                     print(f"Renaming {col} to {new_name}")
+                    df.rename(columns={col: new_name}, inplace=True)
                 else:
                     print(f"Keeping {col} as it is.")
             else:
@@ -118,11 +124,12 @@ def filter_columns(df):
                 dropped_cols.append(col)
             else:
                 new_name = show_standardized_colnames(col)
+                print("Changing name!")
                 if new_name != col and new_name != "keep_it_as_it_is":
                     print(f"Renaming {col} to {new_name}")
+                    df.rename(columns={col: new_name}, inplace=True)
                 else:
                     print(f"Keeping {col} as it is.")
-                df.rename(columns={col: new_name}, inplace=True)
     # updating the list of dropped columns
     for col in dropped_cols:
         if col not in mine_schema["dropped_cols"]:

@@ -29,6 +29,8 @@ valid_legal_status = [
     "acknowledged",
 ]
 
+valid_mine_types = ["Surface", "Facility"]
+
 
 def filter_rows_by_col(df, colname, valid_values):
 
@@ -45,7 +47,8 @@ def filter_rows(df):
     filtered_df_2 = filter_rows_by_col(
         filtered_df_1, "legal_status", valid_legal_status
     )
-    return filtered_df_2
+    filtered_df_3 = filter_rows_by_col(filtered_df_2, "mine_type", valid_mine_types)
+    return filtered_df_3
 
 
 # filtered_df = filter_status(df)
