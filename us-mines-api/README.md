@@ -10,7 +10,14 @@ The Domain is https://us-mines-api.herokuapp.com
 
 https://us-mines-api.herokuapp.com/mines/materials
 
-2. Get mines by material and gps coordinates within a particular radius
+2. Get all mines regardless of materials (default radius is 200 miles):
+
+https://us-mines-api.herokuapp.com/mines/@{longitude},{latitude}
+
+Example:
+http://us-mines-api.herokuapp.com/mines/@-87.5,30.23
+
+3. Get mines by material and gps coordinates within a particular radius
 
 The general format is:
 
@@ -42,7 +49,7 @@ http://us-mines-api.herokuapp.com/mines/crushed,+broken+limestone+nec/@-120,50
 Tip:
 Lat-long coorditates for cities in United States are in range: Latitude from 19.50139 to 64.85694 and longitude from -161.75583 to -68.01197.
 
-3. Get One Mine by Id
+4. Get One Mine by Id
 
 https://us-mines-api.herokuapp.com/mines/{id}
 

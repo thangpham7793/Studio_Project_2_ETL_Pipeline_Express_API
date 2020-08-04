@@ -69,7 +69,7 @@ const findMineById = async (id) => {
 	}
 }
 
-const getAllMaterials = async () => {
+const findAllMaterials = async () => {
 	let primarySic, secondarySic, allMaterials
 	try {
 		primarySic = await collection.distinct('primary_sic')
@@ -83,8 +83,39 @@ const getAllMaterials = async () => {
 	}
 }
 
+const findMilesByLatLng = async (userInputObject) => {
+	const filter = queryMaker.allMinesByLatLng(userInputObject)
+
+	//NOTE: business logic here (what to show)
+	//alternative syntax collection.find({}).project({a:1})
+	const targetFieldsObject = queryMaker.projectionMaker([
+		'_id',
+		'current_mine_name',
+		'primary_sic',
+		'primary_canvass',
+		'secondary_sic',
+		'current_controller_name',
+		'current_operator_name',
+		'directions_to_mine',
+		'nearest_town',
+		'location',
+	])
+	let result
+	try {
+		result = await collection
+			.find(filter, {
+				projection: targetFieldsObject,
+			})
+			.toArray()
+		return result
+	} catch (error) {
+		logger.error(error)
+	}
+}
+
 module.exports = {
+	findMilesByLatLng,
 	findMilesByMaterialAndLatLng,
 	findMineById,
-	getAllMaterials,
+	findAllMaterials,
 }

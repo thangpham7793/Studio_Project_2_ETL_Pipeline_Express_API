@@ -1,6 +1,7 @@
 const queryHandlers = require('./queryHandlers')
 
-const getMinesHandler = async (request, response) => {
+//FIXME: combine all the routes into one handler?
+const getMinesByMaterialAndLatLng = async (request, response) => {
 	let { lng, lat, material, radius } = request.params
 
 	lng = parseFloat(lng)
@@ -36,14 +37,14 @@ const getMinesHandler = async (request, response) => {
 	}
 }
 
-const getMaterialsHandler = async (request, response) => {
-	const allMaterials = await queryHandlers.getAllMaterials()
+const getMaterials = async (request, response) => {
+	const allMaterials = await queryHandlers.findAllMaterials()
 	allMaterials.length !== 0
 		? response.status(200).json({ materials: allMaterials })
 		: response.status(404).json({ message: 'No material found' })
 }
 
-const getOneMineHandler = async (request, response) => {
+const getOneMineById = async (request, response) => {
 	let id = request.params.id
 	const result = await queryHandlers.findMineById(id)
 	result !== null
@@ -51,8 +52,38 @@ const getOneMineHandler = async (request, response) => {
 		: response.status(404).json({ message: 'No mine found' })
 }
 
+const getAllMinesByLatLng = async (request, response) => {
+	let { lng, lat, radius } = request.params
+
+	lng = parseFloat(lng)
+	lat = parseFloat(lat)
+	radius = parseFloat(radius)
+
+	if (lng < -180 || lng > 180 || lat < -90 || lat > 90) {
+		response.status(400).send({
+			error:
+				'Longitude must be between -180 and 180. Latitude must be between -90 and 90!',
+		})
+	} else if (radius <= 0) {
+		response.status(400).send({
+			error: 'Radius must be bigger than 0!',
+		})
+	} else {
+		const params = {
+			lat,
+			lng,
+			radius,
+		}
+		const result = await queryHandlers.findMilesByLatLng(params)
+		result.length > 0
+			? response.status(200).json(result)
+			: response.status(404).json({ message: 'No mine found' })
+	}
+}
+
 module.exports = {
-	getMinesHandler,
-	getMaterialsHandler,
-	getOneMineHandler,
+	getMinesByMaterialAndLatLng,
+	getMaterials,
+	getOneMineById,
+	getAllMinesByLatLng,
 }

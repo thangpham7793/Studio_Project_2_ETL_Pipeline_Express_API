@@ -34,7 +34,24 @@ const projectionMaker = (fieldsArray) => {
 	return targetFieldsObject
 }
 
+const allMinesByLatLng = ({ lat, lng, radius }) => {
+	const inputRadius = radius || 200
+	console.log('The radius is ' + inputRadius)
+	return {
+		location: {
+			$near: {
+				$geometry: {
+					type: 'Point',
+					coordinates: [lng, lat],
+				},
+				$maxDistance: inputRadius * METERS_PER_MILE,
+			},
+		},
+	}
+}
+
 module.exports = {
+	allMinesByLatLng,
 	findNearByMinesWithin,
 	projectionMaker,
 }
