@@ -123,3 +123,17 @@ body {
 .searchResult:hover {
   background-color: #ebedf0;
 }
+
+.requestPriceContainer {
+  width: 100%;
+}
+
+.btnRequestPrice {
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
+.leaflet-popup-content {
+  font-size: 14px;
+}
