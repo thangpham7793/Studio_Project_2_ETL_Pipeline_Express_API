@@ -1,3 +1,3 @@
-const connectToDBAndStartServer = require('./server/connect')
+const connectToDBAndStartServer = require('./mongodb/connect')
 
 connectToDBAndStartServer()
