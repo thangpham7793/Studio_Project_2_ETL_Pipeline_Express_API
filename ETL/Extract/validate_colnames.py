@@ -75,18 +75,33 @@ def no_unnamed_columns(colnames):
             return True
 
 
+def check_columns_length(colnames):
+    for col in colnames:
+        if len(str(col)) >= 50:
+            return False
+    return True
+
+
 # combine both conditions:
 def is_valid_colnames(colnames):
-    return no_unnamed_columns(colnames) and are_columns_unique(colnames)
+    return (
+        no_unnamed_columns(colnames)
+        and are_columns_unique(colnames)
+        and check_columns_length(colnames)
+    )
 
 
 def validate_colnames(df):
     # check if the existing colnames is valid first:
     colnames = list(df.columns)
+    dropped_row_index = []
     if is_valid_colnames(colnames):
+        print("Existing col is valid!")
         return df
     else:
         # if not, start checking the row from top to bottom (usally row 0 or 1 is the correct column names)
+
+        print("Existing col is invalid!")
         for i in df.index:
             # print("Start checking row", i)
             r = df.iloc[i]
@@ -94,11 +109,16 @@ def validate_colnames(df):
             if is_valid_colnames(r):
                 # use this row as the column names
                 df.columns = list(r)
-                # drop the row before returning the df
-                return df.drop(i)
+                dropped_row_index.append(i)
+                break
+            else:
+                dropped_row_index.append(i)
         # still return the df in case no valid row is found,
         # but this is extremely unlikely
-        return df
+        print(f"Dropping the following rows: {dropped_row_index}")
+
+        # IMPORTANT: must reset index to avoid indexing error later
+        return df.drop(dropped_row_index).reset_index()
 
 
 if __name__ == "__main__":

@@ -4,10 +4,14 @@ import pandas as pd
 # df = pd.read_csv(path)
 # df.columns = df.columns.str.strip().str.lower().str.replace(' ', '_').str.replace('(', '').str.replace(')', '')
 
-valid_status = [
+valid_physical_status = [
     "active",
     "new mine",
     "intermittent",
+    "active mining",
+]
+
+valid_legal_status = [
     "effective",
     "admin continued",
     "6 - permit coverage granted",
@@ -19,7 +23,6 @@ valid_status = [
     "released",
     "issued",
     "current",
-    "active mining",
     "newly permitted",
     "reissuance",
     "issued",
@@ -27,19 +30,22 @@ valid_status = [
 ]
 
 
-def filter_rows(dataframe):
+def filter_rows_by_col(df, colname, valid_values):
 
-    df = dataframe
-
-    for col in df.columns:
-        if col == "physical_site_status":
-            condition = df["physical_site_status"].apply(
-                lambda status: status.lower().strip() in valid_status
-            )
-            df = df.loc[condition]
-            return df
-
+    if colname in df.columns:
+        condition = df[colname].apply(
+            lambda val: str(val).lower().strip() in valid_values
+        )
+        return df.loc[condition]
     return df
+
+
+def filter_rows(df):
+    filtered_df_1 = filter_rows_by_col(df, "physical_status", valid_physical_status)
+    filtered_df_2 = filter_rows_by_col(
+        filtered_df_1, "legal_status", valid_legal_status
+    )
+    return filtered_df_2
 
 
 # filtered_df = filter_status(df)

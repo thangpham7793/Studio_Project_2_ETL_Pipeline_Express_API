@@ -30,8 +30,8 @@ def add_location(df):
         return df
 
         # this should probably go to the TRANSFORM ROW class
-    df["latitude"] = df["latitude"].apply(lambda x: check_latitude(x))
-    df["longitude"] = df["longitude"].apply(lambda x: check_longitude(x))
+    df.loc[:, "latitude"] = df["latitude"].apply(lambda x: check_latitude(x))
+    df.loc[:, "longitude"] = df["longitude"].apply(lambda x: check_longitude(x))
 
     # make a new list to store the locations
     location_list = []
@@ -53,8 +53,8 @@ def add_location(df):
         # assign the new list as a new column
     df["location"] = location_list
 
-    # drop the lat long cols
-    df.drop(columns=["latitude", "longitude"], inplace=True)
+    # drop the lat long cols (keep lat long as part of the composite key)
+    # df.drop(columns=["latitude", "longitude"], inplace=True)
     return df
 
 

@@ -129,5 +129,5 @@ def filter_columns(df):
             mine_schema["dropped_cols"].append(col)
     df = add_coverage_column(df)
     clear_screen()
-
+    update_schema()
     return df.drop(columns=dropped_cols)

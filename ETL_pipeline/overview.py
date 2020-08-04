@@ -77,23 +77,6 @@ def write_colnames(cols):
     f.close()
 
 
-# delete all files with unwanted extension recursively in a folder
-def clean_up(dir):
-    ext_list = []
-    for f in os.listdir(dir):
-        f_path = os.path.join(dir, f)
-        ext = f_path.split(".")[-1]
-        kept = ["csv", "txt", "xlsx", "xls"]
-        if os.path.isfile(f_path) and ext not in kept:
-            print("Deleting", f_path)
-            os.remove(f_path)
-        elif os.path.isdir(f_path):
-            if len(os.listdir(dir)) == 0:
-                print("Deleting empty dir", dir)
-                os.rmdir(dir)
-            clean_up(f_path)
-
-
 """
     SECOND VERSION STARTS HERE (RESULT BEING AN HTML FILE)
 """
