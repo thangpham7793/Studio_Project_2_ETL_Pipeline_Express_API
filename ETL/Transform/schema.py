@@ -1,8 +1,11 @@
 mine_schema = {
     "location": {"type": "Point", "coordinates": []},
-    "mine_name": ["site_name"],
-    "longitude": [],
-    "latitude": [],
+    "site_name": [
+        "mine_name"
+    ],  # should this be site_name as there are landfills as well?
+    "mine_type": [],
+    "longitude": ["long", "lng", "gps longitude", "gps long", "gps lng"],
+    "latitude": ["lat", "gps latitude", "gps lat"],
     "state": ["phys_addr_state"],
     "city": ["phys_addr_city"],
     "street_address": ["phys_addr_line_1"],
@@ -28,7 +31,15 @@ mine_schema = {
     "phone": [],
     "office_address": [],
     "website_URL": [],
-    "keep_it_as_it_is": [],
-    "dropped_cols": [],
+    "keep_it_as_it_is": [
+        "program",
+        "physical_type",
+        "legal_status_date",
+        "region",
+        "phys_addr_line_2",
+        "phys_addr_zip4",
+        "near_phys_loc_zip",
+    ],
+    "dropped_cols": ["additional_id", "rn", "near_phys_loc_state"],
 }
 

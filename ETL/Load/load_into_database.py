@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+from pymongo.errors import BulkWriteError, OperationFailure
 import pandas as pd
 import dns
 
@@ -8,6 +9,8 @@ MONGODB_URI = "mongodb+srv://thangpham7793:p7b6D7Y9KhUBCsU@usminesdatabase.jke71
 DB_NAME = "us-mines-locations"
 DB_COLLECTION = "test"
 
+# FIXME: there should be a separate collection for landfills
+
 
 def remove_empty_entry(doc):
     # store any key with empty value in an array to delete later
@@ -16,6 +19,8 @@ def remove_empty_entry(doc):
     for k in doc:
         # check if the location field is a dict or not. If not, it needs to be deleted
         if k == "location" and type(doc["location"]) is dict:
+            continue
+        elif k in ["latitude", "longitude"]:
             continue
         # if there's a value missing, add the key to the list above
         elif doc[k].lower() in ["", "nan", "unknown", "no record"]:
@@ -53,21 +58,33 @@ def initialize_collection():
     return db[DB_COLLECTION]
 
 
-def update_collection(json_documents):
+def update_collection(collection, json_documents):
     for doc in json_documents:
         # use a composite primary key as filter (can enforce this in the schema as well)
+        # but don't set it in the database. Looking up doc by site_name is needed
+        # because there are many sites with missing longitude and latitude
         query = {
             "site_name": doc["site_name"],
             "longitude": doc["longitude"],
             "latitude": doc["latitude"],
         }
 
+        # update every field that is present in the new record. Existing fields that
+        # do not appear here will still be kept in the database
+
+        # # must remove location, longitude and latitude before inserting because they are unique indexes
+        # new_data = doc.copy()
+        # del new_data["longitude"]
+        # del new_data["latitude"]
+        # del new_data["location"]
         update = {"$set": doc}
 
         try:
+            # set upsert = True to insert a new doc
+            # if the query returns no matching doc
             collection.update_one(query, update, upsert=True)
-        except:
-            print(f"Could not insert document {doc}\n")
+        except (OperationFailure, NameError) as e:
+            print(f"Could not insert document {new_data}: {e}\n")
             continue
 
 
@@ -79,12 +96,29 @@ def load_into_database(df):
     collection = initialize_collection()
 
     print(json_documents[0])
-    # collection.insert_many(list(json_documents.values())) this should only be used if this is a completely new data set... update_one is slow but is safe.
-    try:
-        update_collection(json_documents)
-    except (KeyError, AttributeError) as e:
-        print(f"There was an error inserting records into the database: {e}")
 
+    invalid_input = True
+    is_new_data = ""
+    while invalid_input:
+        is_new_data = input(
+            "\nIs this the first time this data set is stored in the database? Y/N\n\n"
+        )
+        if is_new_data.lower() in ["y", "ye", "yes", "n", "no"]:
+            invalid_input = False
+        else:
+            print("Please enter yes or no!")
+    # if new, use insert_many
+    if is_new_data in ["y", "ye", "yes"]:
+        try:
+            collection.insert_many(json_documents)
+        except (BulkWriteError, OperationFailure) as e:
+            print(f"Could not insert documents: {e}\n")
+    else:
+        try:
+            update_collection(collection, json_documents)
+        except (KeyError, AttributeError, NameError) as e:
+            print(f"There was an error inserting records into the database: {e}")
+    # return the final dataframe for checking
     return df
 
 
@@ -98,3 +132,6 @@ def load_into_database(df):
 
 # alright so you should use db.collection.update({query}, {$set: {new record}})
 # but query should contain a unique compound index for each record (mine_name ? company name? + location?) This would only update fields and keep new fields that have been added
+
+# FIXME: what happens if there are multiple duplicates 2dspere indexes
+
