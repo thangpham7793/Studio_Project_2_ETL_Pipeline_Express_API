@@ -19,7 +19,8 @@ steps = [
     # {"step": "FILTER_COLUMNS", "function": filter_columns},
     {"step": "ADD_LOCATION", "function": add_location},
     {"step": "STRINGIFY_ROWS", "function": stringify_rows},
-    # {"step": "LOAD_INTO_DATABASE", "function": load_into_database},
+    {"step": "FILTER_ROWS", "function": filter_rows},
+    {"step": "LOAD_INTO_DATABASE", "function": load_into_database},
 ]
 
 
@@ -28,5 +29,10 @@ def main(file_path):
     return run_pipeline()
 
 
+file_path = "/home/amaterrapper/projects/alliance-truck-project/Signal_Studio_Project2/ETL/data/TX/msw-facilities-texas.xls"
+
+main(file_path)
+
 # FIXME: need to refine filter_rows and make smart lists for filter_columns
 # FIXME: fix load class to be able to update records or create new records
+

@@ -28,7 +28,15 @@ mine_schema = {
     "phone": [],
     "office_address": [],
     "website_URL": [],
-    "keep_it_as_it_is": [],
-    "dropped_cols": [],
+    "keep_it_as_it_is": [
+        "program",
+        "physical_type",
+        "legal_status_date",
+        "region",
+        "phys_addr_line_2",
+        "phys_addr_zip4",
+        "near_phys_loc_state",
+    ],
+    "dropped_cols": ["additional_id", "rn", "near_phys_loc_zip"],
 }
 

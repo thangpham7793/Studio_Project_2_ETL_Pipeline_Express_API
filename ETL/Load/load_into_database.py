@@ -38,7 +38,7 @@ def turn_df_into_json_docs(df):
     for k in json_documents:
         remove_empty_entry(json_documents[k])
 
-    return json_documents
+    return list(json_documents.values())
 
 
 # HERE'S PROBABLY WHERE THE LOAD CLASS ACTUALLY BEGINS
@@ -53,6 +53,24 @@ def initialize_collection():
     return db[DB_COLLECTION]
 
 
+def update_collection(json_documents):
+    for doc in json_documents:
+        # use a composite primary key as filter (can enforce this in the schema as well)
+        query = {
+            "site_name": doc["site_name"],
+            "longitude": doc["longitude"],
+            "latitude": doc["latitude"],
+        }
+
+        update = {"$set": doc}
+
+        try:
+            collection.update_one(query, update, upsert=True)
+        except:
+            print(f"Could not insert document {doc}\n")
+            continue
+
+
 def load_into_database(df):
     # transform df into a dictionary of json documents
     json_documents = turn_df_into_json_docs(df)
@@ -60,8 +78,23 @@ def load_into_database(df):
     # initialize the collection that receives these documents
     collection = initialize_collection()
 
-    # TODO: which insert method should be used? (upsert, insert, etc.)
-    # get the docs from the dictionary and turn them into a list
-    # and then insert them into the collection
-    collection.insert_many(list(json_documents.values()))
+    print(json_documents[0])
+    # collection.insert_many(list(json_documents.values())) this should only be used if this is a completely new data set... update_one is slow but is safe.
+    try:
+        update_collection(json_documents)
+    except (KeyError, AttributeError) as e:
+        print(f"There was an error inserting records into the database: {e}")
+
     return df
+
+
+# https://stackoverflow.com/questions/21076460/how-to-convert-a-string-to-objectid-in-nodejs-mongodb-native-driver/21076589#21076589
+
+# https://docs.mongodb.com/manual/reference/method/db.collection.update/ upsert?
+
+# this would allow new records to be added, but what about old ones? Update retains the id though.
+
+# what you want is to use the primary key within each document. Maybe ID and Name? What are the chances of duplicates?
+
+# alright so you should use db.collection.update({query}, {$set: {new record}})
+# but query should contain a unique compound index for each record (mine_name ? company name? + location?) This would only update fields and keep new fields that have been added

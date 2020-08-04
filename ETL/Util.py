@@ -19,7 +19,7 @@ def pipe_and_apply(next_input, steps_list):
             print(output.head(5), "\n", "=" * 120)
             pipe_and_apply(output, steps_list)
         else:
-            print(f"\nCould not finish {step} step: {sys.exc_info()}")
+            print(f"\nCould not finish {step} step. Invalid input: \n\n {output}")
             return
     return result
 
@@ -54,4 +54,25 @@ def make_pipeline(next_input, steps_list):
         return pipe_and_apply(next_input, steps_list)
 
     return run_pipeline
+
+
+# delete all files with unwanted extension recursively in a folder
+def clean_up(dir):
+    ext_list = []
+    for f in os.listdir(dir):
+        f_path = os.path.join(dir, f)
+        ext = f_path.split(".")[-1]
+        kept = ["csv", "txt", "xlsx", "xls"]
+        if os.path.isfile(f_path) and ext not in kept:
+            print("Deleting", f_path)
+            os.remove(f_path)
+        elif os.path.isdir(f_path):
+            if len(os.listdir(dir)) == 0:
+                print("Deleting empty dir", dir)
+                os.rmdir(dir)
+            clean_up(f_path)
+
+
+def reset_schema(schema_path):
+    f = open(schema_path, "r")
 

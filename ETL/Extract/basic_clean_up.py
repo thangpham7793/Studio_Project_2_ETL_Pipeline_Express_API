@@ -25,9 +25,8 @@ def remove_non_char(values):
 
 
 def basic_clean_up(df):
-
     # make colnames lowercase, remove whitespace
-    df.columns = list(map(lambda colname: colname.strip().lower(), df.columns))
+    df.columns = list(map(lambda colname: str(colname).strip().lower(), df.columns))
 
     # fill all na values with empty string
     df = df.fillna("")
