@@ -17,7 +17,9 @@ def remove_non_char(values):
     True
     """
     non_char_regex = re.compile("[^A-Za-z0-9 _#]")
-    # replace all non-characters with empty string
+    # replace most non-characters in col names with empty string
+    # # means number
+    # _ is for delimiter
     new_values = list(map(lambda value: non_char_regex.sub("", value), values))
     # replace white space with underscore
     new_values = list(map(lambda value: re.compile(" ").sub("_", value), new_values))
