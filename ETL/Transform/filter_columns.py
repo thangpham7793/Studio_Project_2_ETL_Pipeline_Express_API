@@ -78,16 +78,16 @@ def show_standardized_colnames(col):
             return chosen_colname
 
 
-def add_coverage_column(dataframe):
+def add_source_column(dataframe):
     df = dataframe.copy()
     is_msha = input("Is this the MSHA dataset? Y/N\n\n")
     while is_msha.lower() not in ["yes", "y", "ye", "n", "no"]:
         print("Invalid answer. Please type in your answer again.\n\n")
         is_msha = input("Is this data set MSHA? Y/N")
     if is_msha.lower() in ["yes", "y", "ye"]:
-        df["coverage"] = "msha"
+        df["source"] = "msha"
     else:
-        df["coverage"] = "non-msha"
+        df["source"] = "other"
     return df
 
 
@@ -133,7 +133,7 @@ def filter_columns(dataframe):
     for col in dropped_cols:
         if col not in mine_schema["dropped_cols"]:
             mine_schema["dropped_cols"].append(col)
-    df = add_coverage_column(df)
+    df = add_source_column(df)
     clear_screen()
     update_schema()
     return df.drop(columns=dropped_cols)

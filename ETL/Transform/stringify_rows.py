@@ -9,9 +9,20 @@ import re
 
 
 def remove_non_char(value):
-    # regex for finding non-char character
-    non_char_regex = re.compile("[^A-Za-z0-9 ]")
-    # replace all non-characters with empty string
+    """
+    >>> remove_non_char('email@domain.com')
+    'email@domain.com'
+    >>> remove_non_char('word-with-hyphen')
+    'word-with-hyphen'
+    """
+    # regex for finding non-characters
+    non_char_regex = re.compile("[^A-Za-z0-9 \-#\.@]")
+    # some are kept because
+    # @ and . are for emails
+    # # means number
+    # - is for delimiter
+
+    # replace most non-characters with empty string
     new_value = non_char_regex.sub("", value)
     return new_value
 
@@ -24,3 +35,9 @@ def stringify_rows(df):
             new_col = df[col].apply(lambda x: remove_non_char(str(x).lower().strip()))
             df[col] = new_col
     return df
+
+
+if __name__ == "__main__":
+    import doctest
+
+    doctest.testmod(verbose=True)
