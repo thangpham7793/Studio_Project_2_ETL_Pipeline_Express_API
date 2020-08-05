@@ -30,11 +30,19 @@ def add_location(df):
     # iterate through each row to make a nested location dictionary
     for i in df.index:
         row = df.loc[i]
-        # if latlng is 0 or a string, append an empty string as the location field
+        # append an empty string as the location field
         # FIXME: need to account for other ways of representing latlong, like S/W, or in minutes...
+        # if latlng is 0, a string, or out of range
         if type(row["longitude"]) == str or type(row["latitude"]) == str:
             location_list.append("")
         elif int(row["longitude"]) == 0 or int(row["latitude"]) == 0:
+            location_list.append("")
+        elif (
+            row["longitude"] < -180
+            or row["longitude"] > 180
+            or row["latitude"] > 90
+            or row["latitude"] < -90
+        ):
             location_list.append("")
         else:
             # this is based on MongoDB's specification to create geo indexes

@@ -9,14 +9,14 @@ def remove_non_char(values):
     
     The list should also be of the same length
     
-    >>> input = ['a1,;:', '"b" $%#12', 'c ?\;])de', '']
+    >>> input = ['a1,;:', '"b" $%12', 'c ?\;])de', 'mine_name', 'permit #']
     >>> new_list = remove_non_char(input)
     >>> new_list
-    ['a1', 'b_12', 'c_de', '']
+    ['a1', 'b_12', 'c_de', 'mine_name', 'permit_#']
     >>> len(new_list) == len(input)
     True
     """
-    non_char_regex = re.compile("[^A-Za-z0-9 ]")
+    non_char_regex = re.compile("[^A-Za-z0-9 _#]")
     # replace all non-characters with empty string
     new_values = list(map(lambda value: non_char_regex.sub("", value), values))
     # replace white space with underscore
