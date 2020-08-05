@@ -16,8 +16,9 @@ def clear_screen():
 
 
 def update_schema():
-    schema_path = path.abspath("schema.py")
-    f = open(schema_path, "w")
+    folder_path = path.abspath("Transform")
+    print(folder_path)
+    f = open(f"{folder_path}/schema.py", "w")
     f.write(f"mine_schema = {mine_schema}")
     f.close()
 
@@ -69,7 +70,6 @@ def show_standardized_colnames(col):
         # which causes error later!
         user_input = round(int(user_input), 0)
         if user_input == len(mine_schema) - 1:
-            # TODO: could remember columns that are skipped (especially latitude and longitude since they get handled later)
             mine_schema["keep_it_as_it_is"].append(col)
             return col
         else:
@@ -109,8 +109,7 @@ def filter_columns(dataframe):
         else:
             sample_values = list(df[col].unique())[0:5]
             print(f"Column '{col.upper()}' has some values like {sample_values}\n")
-            # TODO: can carry out filtering right here (especially for columns with only a few values)
-            # TODO: can remember invalid choices as well
+
             user_input = input(
                 f"Would you like to keep column {col.upper()}? Type Y/N\n\n"
             )

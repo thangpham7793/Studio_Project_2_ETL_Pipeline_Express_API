@@ -5,9 +5,9 @@ import dns
 
 
 # URI string for connecting to the cloud MongoDB
-MONGODB_URI = "mongodb+srv://thangpham7793:p7b6D7Y9KhUBCsU@usminesdatabase.jke71.mongodb.net/usminesdb?retryWrites=true&w=majority"
-DB_NAME = "us-mines-locations"
-DB_COLLECTION = "test"
+MONGODB_URI = "mongodb+srv://us-mines-database:us-mines-database@usminesdatabase.leaav.mongodb.net/us-mines-database?retryWrites=true&w=majority"
+DB_NAME = "us-mines-database"
+DB_COLLECTION = "locations"
 
 # FIXME: there should be a separate collection for landfills
 
@@ -60,7 +60,7 @@ def initialize_collection():
 
 def update_collection(collection, json_documents):
     for doc in json_documents:
-        # use a composite primary key as filter (can enforce this in the schema as well)
+        # use a composite primary key as filter
         # but don't set it in the database. Looking up doc by site_name is needed
         # because there are many sites with missing longitude and latitude
         query = {
@@ -72,11 +72,8 @@ def update_collection(collection, json_documents):
         # update every field that is present in the new record. Existing fields that
         # do not appear here will still be kept in the database
 
-        # # must remove location, longitude and latitude before inserting because they are unique indexes
-        # new_data = doc.copy()
-        # del new_data["longitude"]
-        # del new_data["latitude"]
-        # del new_data["location"]
+        # FIXME: an old record with a new coordinates will still create a duplicate record!
+
         update = {"$set": doc}
 
         try:
@@ -97,23 +94,23 @@ def load_into_database(df):
 
     print(json_documents[0])
 
-    invalid_input = True
-    is_new_data = ""
-    while invalid_input:
-        is_new_data = input(
-            "\nIs this the first time this data set is stored in the database? Y/N\n\n"
-        )
-        if is_new_data.lower() in ["y", "ye", "yes", "n", "no"]:
-            invalid_input = False
-        else:
-            print("Please enter yes or no!")
+    # invalid_input = True
+    # is_new_data = ""
+    # while invalid_input:
+    #     is_new_data = input(
+    #         "\nIs this the first time this data set is stored in the database? Y/N\n\n"
+    #     )
+    #     if is_new_data.lower() in ["y", "ye", "yes", "n", "no"]:
+    #         invalid_input = False
+    #     else:
+    #         print("Please enter yes or no!")
     # if new, use insert_many
-    if is_new_data in ["y", "ye", "yes"]:
-        try:
-            collection.insert_many(json_documents)
-        except (BulkWriteError, OperationFailure) as e:
-            print(f"Could not insert documents: {e}\n")
-    else:
+    # if is_new_data in ["y", "ye", "yes"]:
+    print(f"\nInserting Data. Do not close this window.\n")
+    try:
+        collection.insert_many(json_documents)
+    except (BulkWriteError, OperationFailure) as e:
+        print(f"Cannot bulk-write. Trying update_one instead.\n")
         try:
             update_collection(collection, json_documents)
         except (KeyError, AttributeError, NameError) as e:
@@ -124,14 +121,4 @@ def load_into_database(df):
 
 # https://stackoverflow.com/questions/21076460/how-to-convert-a-string-to-objectid-in-nodejs-mongodb-native-driver/21076589#21076589
 
-# https://docs.mongodb.com/manual/reference/method/db.collection.update/ upsert?
-
-# this would allow new records to be added, but what about old ones? Update retains the id though.
-
-# what you want is to use the primary key within each document. Maybe ID and Name? What are the chances of duplicates?
-
-# alright so you should use db.collection.update({query}, {$set: {new record}})
-# but query should contain a unique compound index for each record (mine_name ? company name? + location?) This would only update fields and keep new fields that have been added
-
-# FIXME: what happens if there are multiple duplicates 2dspere indexes
-
+# https://docs.mongodb.com/manual/reference/method/db.collection.update/
