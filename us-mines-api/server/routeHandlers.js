@@ -1,6 +1,5 @@
 const queryHandlers = require('../mongodb/queryHandlers')
 
-//FIXME: combine all the routes into one handler?
 const getMines = async (request, response) => {
 	let { lng, lat, material, radius } = request.params
 

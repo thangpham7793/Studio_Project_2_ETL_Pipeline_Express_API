@@ -1,7 +1,8 @@
 //global collection to share through each handler
 const client = require('./client')
-const db = client.db('us-mines-locations')
-const collection = db.collection('msha')
+const config = require('../utils/config')
+const db = client.db(config.MONGODB_NAME)
+const collection = db.collection(config.MONGODB_COLLECTION)
 
 //optional callbacks to process returned json documents
 const callbacks = require('./callbacks')
@@ -40,16 +41,17 @@ const findMineById = async (id) => {
 
 const findAllMaterials = async () => {
 	let primarySic, secondarySic, allMaterials
-	try {
-		primarySic = await collection.distinct('primary_sic')
-		secondarySic = await collection.distinct('secondary_sic')
-		allMaterials = [...primarySic, ...secondarySic]
-		const distinctMaterials = Array.from(new Set(allMaterials))
-		//FIXME: secondary_sic contains some unwanted materials though
-		return distinctMaterials
-	} catch (error) {
-		console.log(error)
-	}
+	if (cachedResponse)
+		try {
+			primarySic = await collection.distinct('primary_sic')
+			secondarySic = await collection.distinct('secondary_sic')
+			allMaterials = [...primarySic, ...secondarySic]
+			const distinctMaterials = Array.from(new Set(allMaterials))
+			//FIXME: secondary_sic contains some unwanted materials though
+			return distinctMaterials
+		} catch (error) {
+			console.log(error)
+		}
 }
 
 //can have a look up table depending on the method use as well
