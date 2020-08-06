@@ -27,6 +27,38 @@ valid_legal_status = [
 
 valid_mine_types = ["surface", "facility"]
 
+valid_sic = [
+    "cement",
+    "clay ceramic refractory mnls.",
+    "common clays nec",
+    "common shale",
+    "construction sand and gravel",
+    "crushed broken basalt",
+    "crushed broken granite",
+    "crushed broken limestone nec",
+    "crushed broken marble",
+    "crushed broken mica",
+    "crushed broken quartzite",
+    "crushed broken sandstone",
+    "crushed broken slate",
+    "crushed broken stone nec",
+    "crushed broken traprock",
+    "dimension basalt",
+    "dimension granite",
+    "dimension limestone",
+    "dimension marble",
+    "dimension mica",
+    "dimension quartzite",
+    "dimension sandstone",
+    "dimension slate",
+    "dimension stone nec",
+    "dimension traprock",
+    "lime",
+    "nonmetal",
+    "sand common",
+    "sand industrial nec",
+]
+
 
 def filter_rows_by_col(df, colname, valid_values):
     try:
@@ -52,3 +84,9 @@ def filter_rows(df):
     )
     filtered_df_3 = filter_rows_by_col(filtered_df_2, "mine_type", valid_mine_types)
     return reset_index(filtered_df_3)
+
+
+if __name__ == "__main__":
+    import doctest
+
+    doctest.testmod(verbose=True)
