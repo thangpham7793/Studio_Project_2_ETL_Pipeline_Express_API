@@ -10,6 +10,12 @@ const queryMakers = require('./queryMakers')
 const logger = require('../utils/logger')
 const ObjectID = require('mongodb').ObjectID
 
+/**
+ * The below functions executes queries against the database and return results
+ * as either an array or object that will be processed by their route handlers.
+ * @param {*}
+ */
+
 const findMineById = async (id) => {
 	const o_id = new ObjectID(id)
 
@@ -43,19 +49,23 @@ const findAllMaterials = async () => {
 	let primarySic, secondarySic, allMaterials
 	if (cachedResponse)
 		try {
+			//get all distinct materials from primary-sic and secondary-sic fields
 			primarySic = await collection.distinct('primary_sic')
 			secondarySic = await collection.distinct('secondary_sic')
 			allMaterials = [...primarySic, ...secondarySic]
+
+			//remove duplicates by creating a set
 			const distinctMaterials = Array.from(new Set(allMaterials))
-			//FIXME: secondary_sic contains some unwanted materials though
+
+			//FIXME: secondary_sic contains some unwanted materials
 			return distinctMaterials
 		} catch (error) {
 			console.log(error)
 		}
 }
 
-//can have a look up table depending on the method use as well
 const findMinesByMaterialLatLngRadius = async (userInputObject) => {
+	//construct filter based on user search params
 	const filter = queryMakers.minesByLatLngMaterialRadius(userInputObject)
 
 	//NOTE: business logic here (what to show)

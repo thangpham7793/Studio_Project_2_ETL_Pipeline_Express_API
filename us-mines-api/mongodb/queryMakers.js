@@ -1,6 +1,13 @@
 const METERS_PER_MILE = 1609.34
 
-// MAKE QUERY STRING TO FIND MINES BASED ON LATLNG AND/OR MATERIAL + RADIUS
+/**
+ * The below functions construct MongoDB Queries For Each Requests
+ * from the search queries in the params.body
+ * @param {params.body}
+ *
+ * For geo-related queries in MongoDB: https://docs.mongodb.com/manual/reference/operator/query/near/#op._S_near
+ */
+
 const minesByLatLngMaterialRadius = ({ lat, lng, material, radius }) => {
 	const inputRadius = radius || 200
 	if (material != undefined) {
@@ -46,6 +53,7 @@ const projectionMaker = (fieldsArray) => {
 	return targetFieldsObject
 }
 
+//find all mines regardless of materials
 const allMinesByLatLng = ({ lat, lng, radius }) => {
 	const inputRadius = radius || 200
 	return {

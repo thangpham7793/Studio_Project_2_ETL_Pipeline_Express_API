@@ -1,5 +1,11 @@
 const queryHandlers = require('../mongodb/queryHandlers')
 
+/**
+ * Route each GET request to its suitable query handler
+ * @param {*} request
+ * @param {*} response
+ */
+
 const getMines = async (request, response) => {
 	let { lng, lat, material, radius } = request.params
 

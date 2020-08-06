@@ -1,6 +1,4 @@
-const logger = require('./logger')
-
-//unknown endpoint err
+//unknown endpoint err handler
 const unknownEndpoint = (request, response) => {
 	response.status(404).json({ error: 'unknown endpoint' })
 }

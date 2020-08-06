@@ -13,10 +13,12 @@ const { urlencoded, json } = bodyParser
 app.use(json())
 app.use(urlencoded({ extended: false }))
 
+//welcome message for index page
 app.get('/', (request, response) =>
 	response.status(200).send({ message: 'Welcome to the US Mines API Service' })
 )
 
+//direct mines-related queries to its dedicated mini-app
 app.use('/mines', minesRouter)
 
 //handle errors

@@ -1,5 +1,9 @@
 require('dotenv').config()
 
+/**
+ * Load ENV variables from .env
+ */
+
 module.exports = {
 	PORT: process.env.PORT || 3000,
 	MONGODB_URI: process.env.MONGODB_APP_URI,
