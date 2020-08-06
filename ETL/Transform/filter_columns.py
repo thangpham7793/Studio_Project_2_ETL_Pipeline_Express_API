@@ -16,9 +16,19 @@ def clear_screen():
 
 
 def update_schema():
-    folder_path = path.abspath("Transform")
+    # for google colab
+    folder_path = "/content/drive/My Drive/ETL/Transform/schema.py"
+    try:
+        f = open(folder_path, "w")
+    except FileNotFoundError:
+        # on local machine
+        try:
+            folder_path = path.abspath("Transform")
+            f = open(f"{folder_path}/schema.py", "w")
+        except FileNotFoundError:
+            print("Could not update schema!")
+            return
     print(folder_path)
-    f = open(f"{folder_path}/schema.py", "w")
     f.write(f"mine_schema = {mine_schema}")
     f.close()
 
