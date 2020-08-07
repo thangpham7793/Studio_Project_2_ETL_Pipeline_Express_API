@@ -12,7 +12,11 @@ def pipe_and_apply(next_input, steps_list):
         step = resources["step"]
         function = resources["function"]
         print(f"{step} in progress...\n")
-        output = function(next_input)
+
+        try:
+            output = function(next_input)
+        except (AttributeError, ValueError, TypeError, IndexError, KeyError) as e:
+            print(f"Could not complete step {step}: {e}")
         result = output
         if isinstance(output, pd.DataFrame) and output.empty == False:
             print(f"{step} completed!\n")
