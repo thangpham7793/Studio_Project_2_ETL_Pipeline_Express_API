@@ -5,6 +5,10 @@ from schema import mine_schema
 file_path = "C:/Users/chick/Desktop/col_name_test.xlsx"
 df = pd.read_excel(file_path)
 
+
+
+
+
 #This function will rename columns if matching values in key with column name
 #produces a score greater than 80
 #There could be a risk that some columns with duplicate key words
