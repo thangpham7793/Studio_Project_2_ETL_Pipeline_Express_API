@@ -14,12 +14,12 @@ import dns
 # URI string for connecting to the cloud MongoDB
 MONGODB_URI = "mongodb+srv://us-mines-database:us-mines-database@usminesdatabase.leaav.mongodb.net/us-mines-database?retryWrites=true&w=majority"
 DB_NAME = "us-mines-database"
-DB_COLLECTION = "test"
+DB_COLLECTION = "locations"
 
 # FIXME: there should be a separate collection for landfills
 
 
-def remove_empty_entry(doc):
+def remove_empty_entry(doc: dict):
     # store any key with empty value in an array to delete later
     # can't delete inside the loop because that would change the number of the keys
     if isinstance(doc, dict) == True:
@@ -47,7 +47,7 @@ def remove_empty_entry(doc):
 
 
 def turn_df_into_json_docs(df):
-    if (isinstance(df, pd.DataFrame) and df.empty() == False) == True:
+    if (isinstance(df, pd.DataFrame) and df.empty == False) == True:
         try:
             # flip the df before turning each column (which is essentially a row before the flip) into a dictionary (json)
             json_documents = df.T.to_dict()
@@ -65,7 +65,6 @@ def turn_df_into_json_docs(df):
         return df
 
 
-# HERE'S PROBABLY WHERE THE LOAD CLASS ACTUALLY BEGINS
 def initialize_collection(uri, db_name, db_collection):
     # connect to MongoDB
     client = MongoClient(uri)
@@ -77,35 +76,46 @@ def initialize_collection(uri, db_name, db_collection):
     return db[db_collection]
 
 
+def define_primary_keys_for_query(doc: dict):
+    query = {}
+    valid_pks = ["longitude", "latitude", "site_name", "controller", "operator"]
+
+    # create composite pks to find a match in the database
+    for k in valid_pks:
+        if k in doc.keys():
+            query[k] = doc[k]
+    return query
+
+
 def update_collection(collection, json_documents):
     for doc in json_documents:
-        # use a composite primary key as filter
-        # but don't set it in the database. Looking up doc by site_name is needed
-        # because there are many sites with missing longitude and latitude
-        query = {
-            "site_name": doc["site_name"],
-            "longitude": doc["longitude"],
-            "latitude": doc["latitude"],
-        }
-
-        # update every field that is present in the new record. Existing fields that
-        # do not appear here will still be kept in the database
+        try:
+            query = define_primary_keys_for_query(doc)
+        except TypeError as e:
+            print(f"Failed to create query: {e}")
 
         # FIXME: an old record with a new coordinates will still create a duplicate record!
+        # FIXME: probably need a separate module for reading data from Mongo
+        # into Python to deal with duplicates.
 
         update = {"$set": doc}
 
         try:
             # set upsert = True to insert a new doc
             # if the query returns no matching doc
-            collection.update_one(query, update, upsert=True)
+
+            # update every field that is present in the new record.
+            # Existing fields that do not appear here
+            # will still be kept in the database
+            res = collection.update_one(query, update, upsert=True).raw_result
+            print(res)
         except (OperationFailure, NameError) as e:
             print(f"Could not insert document {new_data}: {e}\n")
             continue
 
 
 def check_2dsphere_index(collection):
-    """ check if 2dsphere index exists and creates one if not
+    """ Check if 2dsphere index exists and creates one if not
     
     ### Initialize database connection
     >>> col = initialize_collection(MONGODB_URI, DB_NAME, 'test_col')
@@ -172,6 +182,7 @@ def load_into_database(df):
     try:
         # NOTE: must use update_one to avoid inserting duplicates
         update_collection(collection, json_documents)
+        # collection.insert_many(json_documents)
     except (KeyError, AttributeError, NameError) as e:
         print(f"There was an error inserting records into the database: {e}")
 

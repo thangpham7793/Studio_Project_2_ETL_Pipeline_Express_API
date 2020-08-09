@@ -71,10 +71,12 @@ def read_file(file_path):
         file_reader = switcher[ext]
     except KeyError:
         print("Unknown Extension. Please pick a file of type txt, xlxs, csv, or xls")
+        return
 
     # parse file into a dataframe
     try:
         if ext == "txt":
+            # FIXME: a text file can have other types of delimiter
             df = file_reader(file_path, sep="|", encoding="unicode_escape")
         else:
             df = file_reader(file_path)
