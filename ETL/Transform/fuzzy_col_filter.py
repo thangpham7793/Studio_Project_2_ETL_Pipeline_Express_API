@@ -204,6 +204,23 @@ def add_source_column(dataframe):
     return df
 
 
+def add_site_type_column(dataframe):
+    df = dataframe.copy()
+    is_mine = input("Is this dataset about mine? Y/N\n\n")
+    invalid_input = True
+    while invalid_input:
+        if is_mine.lower() in ["yes", "y", "ye", "n", "no"]:
+            invalid_input = False
+        else:
+            print("Invalid answer. Please type in your answer again.\n\n")
+            is_mine = input("Is this dataset about mine? Y/N\n\n")
+    if is_mine.lower() in ["yes", "y", "ye"]:
+        df["site_type"] = "mine"
+    else:
+        df["site_type"] = "other"
+    return df
+
+
 # update schema as the last step
 def update_schema(mine_schema: Schema):
     # for google colab
@@ -267,8 +284,11 @@ def fuzzy_col_filter(dataframe):
             # also update the schema accordingly
             mine_schema[new_name].append(col)
 
-    # ask users if this is msha or not
+    # ask users if this is msha data-set
     df = add_source_column(df)
+
+    # ask users if it's about mines or other types (like landfills)
+    df = add_site_type_column(df)
     clear_screen()
 
     # write the updated schema to file

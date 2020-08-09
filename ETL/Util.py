@@ -2,6 +2,7 @@ import sys
 import os
 import pandas as pd
 
+
 result = ""
 
 
@@ -21,12 +22,11 @@ def pipe_and_apply(next_input, steps_list):
         result = output
         if isinstance(output, pd.DataFrame) and output.empty == False:
             print(f"{step} completed!\n")
-            # print(output.head(2), "\n", "=" * 120)
+            print(output.head(2), "\n", "=" * 120)
             pipe_and_apply(output, steps_list)
         else:
             print(f"\nCould not finish {step} step. Invalid input: \n\n {output}")
             return
-    return result
 
 
 # a higher-order function that returns a customized function that recursively
@@ -34,19 +34,40 @@ def pipe_and_apply(next_input, steps_list):
 
 
 def apply_on_all_files(func):
-    def customized_func(folder_path):
-        if folder_path.endswith("/") == False:
-            folder_path = folder_path + "/"
-        for file in os.listdir(folder_path):
-            file_path = os.path.join(folder_path, file)
-            if os.path.isfile(file_path):
-                try:
-                    func(file_path)
-                except AttributeError:
-                    print(f"Could not process file: {sys.exc_info()}")
-            # continue to open other folders inside and do the same thing
-            elif os.path.isdir(file_path):
-                customized_func(file_path)
+    def customized_func(path):
+        # FIXME: this won't work on Window
+
+        # check if the path is a file or folder
+        if os.path.isdir(path) == False:
+            try:
+                func(path)
+                # log processed file
+                f = open("processed_files.txt", "a")
+                f.write(f"{path}\n\n")
+                f.close()
+                return
+            except:
+                print(f"Could not process file: {sys.exc_info()}")
+                return
+        if path.endswith("/") == False:
+            path = path + "/"
+        try:
+            for file in os.listdir(path):
+                file_path = os.path.join(path, file)
+                if os.path.isfile(file_path):
+                    try:
+                        func(file_path)
+                        # log processed file
+                        f = open("processed_files.txt", "a")
+                        f.write(f"{file_path}\n\n")
+                        f.close()
+                    except:
+                        print(f"Could not process file: {sys.exc_info()}")
+                # continue to open other folders inside and do the same thing
+                elif os.path.isdir(file_path):
+                    customized_func(file_path)
+        except FileNotFoundError as e:
+            print(e)
 
     return customized_func
 

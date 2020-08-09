@@ -17,24 +17,23 @@ steps = [
     {"step": "VALIDATE_COLNAMES", "function": validate_colnames},
     {"step": "BASIC_CLEAN_UP", "function": basic_clean_up},
     {"step": "FUZZY_COL_FILTER", "function": fuzzy_col_filter},
-    # {"step": "FUZZY_ROW_FILTER", "function": fuzzy_row_filter},
+    {"step": "FUZZY_ROW_FILTER", "function": fuzzy_row_filter},
     # filter_columns must go first
-    # to allow users (if needed)/ the program to pick out the latlng columns
-    # # filter rows reduce the number of modifications later
-    # {"step": "ADD_LOCATION", "function": add_location},
-    # {"step": "STRINGIFY_ROWS", "function": stringify_rows},
-    # {"step": "LOAD_INTO_DATABASE", "function": load_into_database},
+    # to allow user or the program to pick out the latlng columns
+    # filter rows reduce the number of modifications later
+    {"step": "ADD_LOCATION", "function": add_location},
+    {"step": "STRINGIFY_ROWS", "function": stringify_rows},
+    {"step": "LOAD_INTO_DATABASE", "function": load_into_database},
 ]
 
 
-def main(file_path):
-    run_pipeline = Util.make_pipeline(file_path, steps)
+def build_pipeline_and_run(file_path):
+    # need to copy the steps since the recursive pipeline
+    # will consume each step one by one
+    pipeline_steps = steps.copy()
+    run_pipeline = Util.make_pipeline(file_path, pipeline_steps)
     return run_pipeline()
 
 
-file_path = "/home/amaterrapper/projects/alliance-truck-project/Signal_Studio_Project2/ETL/data/Pit-Dump Locations/00 MSHA - nationwide/2020.5.22. Eric Dance Request -  TX MNM Mines, source MSHA.xlsx"
-test = "/home/amaterrapper/projects/alliance-truck-project/Signal_Studio_Project2/ETL/test_df.csv"
-file = "/home/amaterrapper/projects/alliance-truck-project/Signal_Studio_Project2/ETL/data/Pit-Dump Locations/AZ/All Mines 12.19.xlsx"
-test2 = "/home/amaterrapper/projects/alliance-truck-project/Signal_Studio_Project2/ETL/data/filtered_mine_data.csv"
-msha = "/home/amaterrapper/projects/alliance-truck-project/Signal_Studio_Project2/ETL/data/Mines.txt"
-df = main(test2)
+main = Util.apply_on_all_files(build_pipeline_and_run)
+
