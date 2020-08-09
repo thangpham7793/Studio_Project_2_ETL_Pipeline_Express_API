@@ -7,16 +7,17 @@ result = ""
 
 def pipe_and_apply(next_input, steps_list):
     global result
+    output: pd.DataFrame = ""
     while len(steps_list) != 0:
         resources = steps_list.pop(0)
         step = resources["step"]
         function = resources["function"]
         print(f"{step} in progress...\n")
-
         try:
             output = function(next_input)
         except (AttributeError, ValueError, TypeError, IndexError, KeyError) as e:
             print(f"Could not complete step {step}: {e}")
+            break
         result = output
         if isinstance(output, pd.DataFrame) and output.empty == False:
             print(f"{step} completed!\n")

@@ -229,7 +229,7 @@ def reset_index(df):
         return df
 
 
-def fuzzy_row_filters(df):
+def fuzzy_row_filter(df):
     print(len(df))
     filtered_df_1 = filter_rows_by_valid_vals(
         df, "physical_status", valid_physical_statuses
