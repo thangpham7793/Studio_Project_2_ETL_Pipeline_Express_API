@@ -1,4 +1,5 @@
 import pandas as pd
+from typing import Union
 
 switcher = {
     "xls": pd.read_excel,
@@ -8,13 +9,8 @@ switcher = {
 }
 
 
-def get_extension(file_path):
+def get_extension(file_path: str) -> Union[str, None]:
     """Return the extension from the supplied file path
-    
-    @param file_path: String
-    @return ext: String
-    
-    Tests:
     
     Should return the correct extension when input is valid
     
@@ -49,15 +45,17 @@ def get_extension(file_path):
     # user may forget to surround file path with quotes
     except NameError:
         print("File Path Must Be in Quotes")
+        return
     else:
         if has_dot_in_file_path == False:
             print("File Path Must Have an Extension Followed by A Dot")
+            return
         else:
             ext = file_path.split(".")[-1]
             return ext
 
 
-def read_file(file_path):
+def read_file(file_path: str) -> Union[pd.DataFrame, None]:
     """ Use the appropriate pandas function to read a file based on its extension
     
     Should return KeyError when the file path contains an unknown extension

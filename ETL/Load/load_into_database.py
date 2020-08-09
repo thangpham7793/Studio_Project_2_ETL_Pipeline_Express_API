@@ -1,3 +1,4 @@
+import pymongo
 from pymongo import MongoClient
 from pymongo.errors import (
     BulkWriteError,
@@ -9,7 +10,7 @@ from pymongo.errors import (
 )
 import pandas as pd
 import dns
-
+from typing import List, Union
 
 # URI string for connecting to the cloud MongoDB
 MONGODB_URI = "mongodb+srv://us-mines-database:us-mines-database@usminesdatabase.leaav.mongodb.net/us-mines-database?retryWrites=true&w=majority"
@@ -19,7 +20,7 @@ DB_COLLECTION = "locations"
 # FIXME: there should be a separate collection for landfills
 
 
-def remove_empty_entry(doc: dict):
+def remove_empty_entry(doc: dict) -> None:
     # store any key with empty value in an array to delete later
     # can't delete inside the loop because that would change the number of the keys
     if isinstance(doc, dict) == True:
@@ -46,7 +47,7 @@ def remove_empty_entry(doc: dict):
         return
 
 
-def turn_df_into_json_docs(df):
+def turn_df_into_json_docs(df: pd.DataFrame) -> Union[List[dict], pd.DataFrame]:
     if (isinstance(df, pd.DataFrame) and df.empty == False) == True:
         try:
             # flip the df before turning each column (which is essentially a row before the flip) into a dictionary (json)
@@ -65,7 +66,9 @@ def turn_df_into_json_docs(df):
         return df
 
 
-def initialize_collection(uri, db_name, db_collection):
+def initialize_collection(
+    uri: str, db_name: str, db_collection: str
+) -> pymongo.collection:
     # connect to MongoDB
     client = MongoClient(uri)
 
@@ -76,7 +79,7 @@ def initialize_collection(uri, db_name, db_collection):
     return db[db_collection]
 
 
-def define_primary_keys_for_query(doc: dict):
+def define_primary_keys_for_query(doc: dict) -> dict:
     query = {}
     valid_pks = ["longitude", "latitude", "site_name", "controller", "operator"]
 
@@ -87,7 +90,9 @@ def define_primary_keys_for_query(doc: dict):
     return query
 
 
-def update_collection(collection, json_documents):
+def update_collection(
+    collection: pymongo.collection, json_documents: List[dict]
+) -> None:
     for doc in json_documents:
         try:
             query = define_primary_keys_for_query(doc)
@@ -108,13 +113,13 @@ def update_collection(collection, json_documents):
             # Existing fields that do not appear here
             # will still be kept in the database
             res = collection.update_one(query, update, upsert=True).raw_result
-            print(res)
+            # print(res)
         except (OperationFailure, NameError) as e:
             print(f"Could not insert document {new_data}: {e}\n")
             continue
 
 
-def check_2dsphere_index(collection):
+def check_2dsphere_index(collection: pymongo.collection) -> None:
     """ Check if 2dsphere index exists and creates one if not
     
     ### Initialize database connection
@@ -144,6 +149,7 @@ def check_2dsphere_index(collection):
         print(
             "Cannot access indexes! Please check them using Mongo Atlas, Shell or Compass!"
         )
+        return
     # check if 2dsphere index exists
     if "location_2dsphere" in indexes.keys():
         print(f"2dsphere index already exists on field location")
@@ -155,9 +161,10 @@ def check_2dsphere_index(collection):
             print(f"Error creating 2dsphere index: {e}")
             return
         print(f"Created 2dsphere index on field location")
+        return
 
 
-def load_into_database(df):
+def load_into_database(df: pd.DataFrame) -> pd.DataFrame:
 
     # initialize empty placeholders
     json_documents = ""

@@ -1,11 +1,9 @@
+from typing import List, Union
+import pandas as pd
+
 # check for duplicates
-def are_columns_unique(colnames):
+def are_columns_unique(colnames: List[str]) -> Union[bool, None]:
     """Check if all or most of the columns are unique
-    
-    @param colnames: list of string
-    @return: boolean
-    
-    Tests
 
     >>> valid_list = ['A', 'B', 'C']
     >>> valid_list_2 = ['A', 'A', 'B', 'C']
@@ -38,18 +36,16 @@ def are_columns_unique(colnames):
         return no_of_colnames <= no_of_distinct_colnames + 2
 
 
-def no_unnamed_columns(colnames):
+def no_unnamed_columns(colnames: List[str]) -> Union[bool, None]:
     """Check whether a list of column name only has 0 or a few unnamed columns
-    
-    @param colnames: list of string
-    @return: boolean
-    
-    Tests:
+    Set up tests
     
     >>> valid_list = ['Unnamed', 'A', 'B', 'C', 'D']
     >>> invalid_list = ['Unnamed', 'Unnamed', 'Unnamed']
     >>> none_list = None
     >>> empty_list = []
+    
+    Expected
     >>> no_unnamed_columns(valid_list)
     True
     >>> no_unnamed_columns(invalid_list)
@@ -67,6 +63,7 @@ def no_unnamed_columns(colnames):
                 no_of_unnamed += 1
     except TypeError as err:
         print("Invalid type: Colnames must be a list")
+        return
     else:
         # if there are too many unnamed columns, probably all col names are unnamed!
         if no_of_unnamed >= len(colnames) / 2:
@@ -75,7 +72,7 @@ def no_unnamed_columns(colnames):
             return True
 
 
-def check_columns_length(colnames):
+def check_columns_length(colnames: List[str]) -> bool:
     for col in colnames:
         if len(str(col)) >= 50:
             return False
@@ -83,7 +80,7 @@ def check_columns_length(colnames):
 
 
 # combine both conditions:
-def is_valid_colnames(colnames):
+def is_valid_colnames(colnames: List[str]) -> bool:
     return (
         no_unnamed_columns(colnames)
         and are_columns_unique(colnames)
@@ -91,7 +88,7 @@ def is_valid_colnames(colnames):
     )
 
 
-def validate_colnames(df):
+def validate_colnames(df: pd.DataFrame) -> pd.DataFrame:
     # check if the existing colnames is valid first:
     colnames = list(df.columns)
     dropped_row_index = []

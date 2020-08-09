@@ -1,10 +1,11 @@
 import pandas as pd
 import re
+from typing import List, Union
 
 # TODO: should the latlng be rounded to a certain length?
 # FIXME: would break if comma is the delimiter
 # check if latlng is in degree-min-sec form
-def is_degree_min_sec(val):
+def is_degree_min_sec(val: str) -> Union[bool, None]:
     """
     >>> is_degree_min_sec('"-23.5')
     False
@@ -23,7 +24,7 @@ def is_degree_min_sec(val):
         return
 
 
-def parse_degree_min_sec(val):
+def parse_degree_min_sec(val: str) -> Union[List[float], str]:
     """parse latlng in degree-min-sec form
     >>> parse_degree_min_sec("33*23'11''")
     [33.0, 23.0, 11.0]
@@ -51,11 +52,11 @@ def parse_degree_min_sec(val):
 
 
 # https://stackoverflow.com/questions/21298772/how-to-convert-latitude-longitude-to-decimal-in-python
-def convert(val_list):
+def convert(val_list: List[float]) -> float:
     return sum(float(x) / 60 ** n for n, x in enumerate(val_list))
 
 
-def remove_non_digit(val):
+def remove_non_digit(val: Union[str, float]) -> Union[str, float]:
     """remove non-char from value
     >>> remove_non_digit('-123a')
     '123'
@@ -65,6 +66,8 @@ def remove_non_digit(val):
     '0.00'
     >>> remove_non_digit('')
     ''
+    >>> remove_non_digit(-123)
+    -123
     """
     # match all char except for digits, dots, and commas
     non_digit = re.compile("[^\d.,]")
@@ -76,7 +79,7 @@ def remove_non_digit(val):
         return val
 
 
-def check_longitude(longitude):
+def check_longitude(longitude: Union[str, float]) -> float:
     """parse longitude from a possible string and make sure longitude is negative
     >>> check_longitude('111.25')
     -111.25
@@ -120,7 +123,7 @@ def check_longitude(longitude):
             return longitude
 
 
-def check_latitude(latitude):
+def check_latitude(latitude: Union[str, float]) -> float:
     """parse latitude from a possible string and make sure latitude is positive
     >>> check_latitude('35.54')
     35.54
@@ -164,7 +167,7 @@ def check_latitude(latitude):
             return latitude
 
 
-def add_location(df):
+def add_location(df: pd.DataFrame) -> pd.DataFrame:
     # if there's no long lat then pass and return df
     if ("longitude" not in list(df.columns)) or ("latitude" not in list(df.columns)):
         print("Skip Location!")

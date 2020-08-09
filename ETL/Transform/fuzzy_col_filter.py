@@ -60,7 +60,7 @@ def check_if_colnames_in_saved_list(colname: str, mine_schema: Schema) -> dict:
 # make a dict with options indexed from 1 based on all the standard colnames
 
 # remove standard colnames that have been chosen by the user to avoid duplicate colnames
-def trim_options(option_dict: Options, picked_names: List[str]):
+def trim_options(option_dict: Options, picked_names: List[str]) -> Options:
     if len(picked_names) == 0:
         return option_dict
     to_remove_indexes = []
@@ -75,6 +75,7 @@ def trim_options(option_dict: Options, picked_names: List[str]):
 
 
 def make_full_option_dict(mine_schema: Schema, picked_names: List[str]) -> Options:
+
     option_dict = {}
     counter = 1
     for key in mine_schema:
@@ -86,6 +87,7 @@ def make_full_option_dict(mine_schema: Schema, picked_names: List[str]) -> Optio
 def make_fuzzy_match_option_dict(
     colname: str, mine_schema: Schema, picked_names: List[str]
 ) -> Options:
+
     fuzzy_match_option_dict = {}
     counter = 1
 
@@ -98,7 +100,6 @@ def make_fuzzy_match_option_dict(
         fuzz.partial_token_set_ratio,
     ]
     # try all methods from the strictest
-
     for key in mine_schema:
         for m in methods:
             score = m(colname, key)
@@ -106,6 +107,7 @@ def make_fuzzy_match_option_dict(
                 fuzzy_match_option_dict[counter] = key
                 counter += 1
                 break
+
     fuzzy_match_option_dict[len(fuzzy_match_option_dict) + 1] = "show_all_choices"
     fuzzy_match_option_dict[len(fuzzy_match_option_dict) + 1] = "dropped_cols"
     return fuzzy_match_option_dict
@@ -140,7 +142,7 @@ def print_options(option_dict: Options) -> None:
 
 
 # Get user choice
-def get_user_choice(colname: str, option_dict: Options):
+def get_user_choice(colname: str, option_dict: Options) -> str:
     print(f"\nAvailable Options for {colname.upper()}:\n")
     print_options(option_dict)
     col_choice: str
@@ -188,7 +190,7 @@ def get_new_name(
         return user_choice
 
 
-def add_source_column(dataframe):
+def add_source_column(dataframe: pd.DataFrame) -> pd.DataFrame:
     df = dataframe.copy()
     is_msha = input("Is this the MSHA dataset? Y/N\n\n")
     while is_msha.lower() not in ["yes", "y", "ye", "n", "no"]:
@@ -201,7 +203,7 @@ def add_source_column(dataframe):
     return df
 
 
-def add_site_type_column(dataframe):
+def add_site_type_column(dataframe: pd.DataFrame) -> pd.DataFrame:
     df = dataframe.copy()
     print(df.head(10))
     is_mine = input("\nIs this dataset about mine? Y/N\n\n")
@@ -220,7 +222,7 @@ def add_site_type_column(dataframe):
 
 
 # update schema as the last step
-def update_schema(mine_schema: Schema):
+def update_schema(mine_schema: Schema) -> None:
     # for google colab
     folder_path = "/content/drive/My Drive/ETL/Transform/schema.py"
     try:
@@ -239,7 +241,7 @@ def update_schema(mine_schema: Schema):
 
 
 # MAIN FUNCTION
-def fuzzy_col_filter(dataframe):
+def fuzzy_col_filter(dataframe: pd.DataFrame) -> pd.DataFrame:
     dropped_cols = []
     # store standard colnames that have been picked to avoid duplicates
     picked_names = []
