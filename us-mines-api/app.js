@@ -15,7 +15,9 @@ app.use(urlencoded({ extended: false }))
 
 //welcome message for index page
 app.get('/', (request, response) =>
-	response.status(200).send({ message: 'Welcome to the US Mines API Service' })
+	response
+		.status(200)
+		.send({ message: 'Welcome to the US Mines & Landfills API Service' })
 )
 
 //direct mines-related queries to its dedicated mini-app
@@ -23,5 +25,6 @@ app.use('/mines', minesRouter)
 
 //handle errors
 app.use(middleware.unknownEndpoint)
+app.use(middleware.errorHandler)
 
 module.exports = app
