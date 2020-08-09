@@ -36,4 +36,3 @@ def build_pipeline_and_run(file_path):
 
 
 main = Util.apply_on_all_files(build_pipeline_and_run)
-

@@ -1,3 +1,0 @@
-/home/amaterrapper/projects/alliance-truck-project/Signal_Studio_Project2/ETL/data/Pit-Dump Locations/00 MSHA - nationwide/2020.5.22. Eric Dance Request -  TX MNM Mines, source MSHA.xlsx
-
-/home/amaterrapper/projects/alliance-truck-project/Signal_Studio_Project2/ETL/data/Pit-Dump Locations/00 MSHA - nationwide/filtered_msha.csv

@@ -107,6 +107,7 @@ def make_fuzzy_match_option_dict(
                 counter += 1
                 break
     fuzzy_match_option_dict[len(fuzzy_match_option_dict) + 1] = "show_all_choices"
+    fuzzy_match_option_dict[len(fuzzy_match_option_dict) + 1] = "dropped_cols"
     return fuzzy_match_option_dict
 
 
@@ -147,11 +148,7 @@ def get_user_choice(colname: str, option_dict: Options):
     while invalid_input:
         col_choice = input(f"\n")
         # validate user input
-        if (
-            col_choice.isnumeric()
-            and int(col_choice) >= 1
-            and int(col_choice) <= len(option_dict)
-        ):
+        if col_choice.isnumeric() and int(col_choice) in option_dict.keys():
             invalid_input = False
             print(f"Choose fuzzy match {col_choice}")
             break
@@ -176,7 +173,7 @@ def get_new_name(
     # make a fuzzy option dict
     option_dict = make_option_dict(colname, mine_schema, picked_names, fuzzy=True,)
     # if there's no fuzzy match, present all choices
-    if len(option_dict) == 1:
+    if len(option_dict) == 2:
         print("No fuzzy matches found, showing all choices")
         option_dict = make_option_dict(colname, mine_schema, picked_names, fuzzy=False)
         return get_user_choice(colname, option_dict)
@@ -206,7 +203,8 @@ def add_source_column(dataframe):
 
 def add_site_type_column(dataframe):
     df = dataframe.copy()
-    is_mine = input("Is this dataset about mine? Y/N\n\n")
+    print(df.head(10))
+    is_mine = input("\nIs this dataset about mine? Y/N\n\n")
     invalid_input = True
     while invalid_input:
         if is_mine.lower() in ["yes", "y", "ye", "n", "no"]:

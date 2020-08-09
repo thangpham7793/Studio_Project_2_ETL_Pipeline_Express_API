@@ -76,19 +76,23 @@ def initialize_collection(uri, db_name, db_collection):
     return db[db_collection]
 
 
+def define_primary_keys_for_query(doc: dict):
+    query = {}
+    valid_pks = ["longitude", "latitude", "site_name", "controller", "operator"]
+
+    # create composite pks to find a match in the database
+    for k in valid_pks:
+        if k in doc.keys():
+            query[k] = doc[k]
+    return query
+
+
 def update_collection(collection, json_documents):
     for doc in json_documents:
-        # use a composite primary key as filter
-        # but don't set it in the database. Looking up doc by site_name is needed
-        # because there are many sites with missing longitude and latitude
-        query = {
-            "site_name": doc["site_name"],
-            "longitude": doc["longitude"],
-            "latitude": doc["latitude"],
-        }
-
-        # update every field that is present in the new record. Existing fields that
-        # do not appear here will still be kept in the database
+        try:
+            query = define_primary_keys_for_query(doc)
+        except TypeError as e:
+            print(f"Failed to create query: {e}")
 
         # FIXME: an old record with a new coordinates will still create a duplicate record!
         # FIXME: probably need a separate module for reading data from Mongo
@@ -99,6 +103,10 @@ def update_collection(collection, json_documents):
         try:
             # set upsert = True to insert a new doc
             # if the query returns no matching doc
+
+            # update every field that is present in the new record.
+            # Existing fields that do not appear here
+            # will still be kept in the database
             res = collection.update_one(query, update, upsert=True).raw_result
             print(res)
         except (OperationFailure, NameError) as e:
