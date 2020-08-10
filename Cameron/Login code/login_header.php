@@ -9,18 +9,6 @@ session_start();
          <meta charset="utf-8">
          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-         <script
-          src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-          integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-          crossorigin=""
-        ></script>
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-          crossorigin=""
-        />
-
          <!-- Bootstrap CSS -->
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
          <link rel="stylesheet" type="text/css" href="style.css">
@@ -38,31 +26,7 @@ session_start();
 
             <div class="collapse navbar-collapse allign_right" id="navbarSupportedContent">
               <?php
-                // Check if user is already logged in, display logout button if so
-                if (isset($_SESSION['userID'])) {
-                  echo '
-                  <p class="welcome">Hello '.$_SESSION['firstName'].'</p>
-                  <form class="form-inline" action="includes/logout.inc.php" method="post"">
-                    <button type="submit" name="logout-submit" class="btn btn-primary mb-2">Logout</button>
-                  </form>';
-                }
-                else {
-                  // Not logged in, show signup button and login form
-                  echo '
-                  <form class="form-inline" action="includes/login.inc.php" method="post">
-                    <label class="sr-only" for="inlineFormInputName2">Name</label>
-                    <input type="text" name="email" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Email...">
-
-                    <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
-                    <div class="input-group mb-2 mr-sm-2">
-                      <input type="password" name="pwd" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Password...">
-                    </div>
-                    <button type="submit" name="login-submit" class="btn btn-primary mb-2">Login</button>
-                  </form>
-                  <button type="button" class="btn btn-primary mb-2 signup" data-toggle="modal" data-target="#modal_signup">
-                    Sign up
-                  </button>';
-                }
+                require "includes/login_inputs.inc.php";
                ?>
             </div>
           </nav>

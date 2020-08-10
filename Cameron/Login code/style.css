@@ -68,8 +68,8 @@ body {
   border: 0.25px solid #26a69a;
   border-radius: 1%;
   max-height: 80%;
-  margin-top: 1%;
-  margin-left: 45px;
+  margin-left: 0.5%;
+  margin-top: 0.5%;
   width: max-content;
   display: flex;
   flex-direction: column;

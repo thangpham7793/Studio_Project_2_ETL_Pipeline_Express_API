@@ -1,9 +1,10 @@
+var map;
 var allMaterials = {};
-const map = L.map("map").setView([40, -100], 5.4);
 var searchRadiusCircle;
 var markers = new Array();
 var searchResults = new Array();
 var materialsAtLocation = new Array();
+var activeInfoWindow;
 
 /* Handler for range slider
  * Updates the search radius shown to user on map and updates the shown data
@@ -140,7 +141,6 @@ function searchForSupplier() {
                 materialsAtLocation.push(item['secondary_sic']);
               }
             }
-
             displayValidSearchResult(item);
           }
         });
@@ -155,23 +155,25 @@ function searchForSupplier() {
   }
 }
 
+//TODO check that this still works
 // Removes all markers from the map
 function removeMarkers() {
   // Loop over markers and remove them from map
   for (var i = 0; i < markers.length; i++) {
-    map.removeLayer(markers[i]);
+    markers[i].setMap(null);
   }
   // Clear marker list
   markers = new Array();
 }
 
+// TODO circle
 // Remove existing search radius circle from map and create a new up to date one
 function updateSearchCircle(addressCoords) {
   var searchRadius = $("#sliderSearchRadius").val();
 
   // Remove search radius from map
   if(searchRadiusCircle != undefined) {
-    map.removeLayer(searchRadiusCircle);
+    searchRadiusCircle.setMap(null);
   }
 
   // Add circle to the map to show search radius
@@ -179,26 +181,30 @@ function updateSearchCircle(addressCoords) {
   // 1609.34 meters to a mile
   var convertedMilesToMeters = searchRadius * 1609.34;
 
-  searchRadiusCircle = L.circle([addressCoords[0], addressCoords[1]], {
-    color: 'red',
-    fillColor: '#f03',
-    fillOpacity: 0.1,
-    radius: convertedMilesToMeters // Search radius in meters
-  }).addTo(map);
+  var latLngObject = new google.maps.LatLng(addressCoords[0], addressCoords[1])
+  // Add the circle for this city to the map.
+  searchRadiusCircle = new google.maps.Circle({
+    strokeColor: "#fcfc03",
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: "#fcfc03",
+    fillOpacity: 0.15,
+    map,
+    center: latLngObject,
+    radius: convertedMilesToMeters
+  });
 }
 
 // Returns the distance between 2 points in miles
 function getDistance(p1, p2) {
-  var marker1 = L.marker(p1).getLatLng();
-  var marker2 = L.marker(p2).getLatLng();
+  var R = 3958.8; // Radius of the Earth in miles
+  var rlat1 = p1[0] * (Math.PI/180); // Convert degrees to radians
+  var rlat2 = p2[0] * (Math.PI/180); // Convert degrees to radians
+  var difflat = rlat2-rlat1; // Radian difference (latitudes)
+  var difflon = (p2[1]-p1[1]) * (Math.PI/180); // Radian difference (longitudes)
 
-  // Distance in meters
-  var distance = marker1.distanceTo(marker2);
-
-  // 1609.34 meters to a mile
-  var convertedMetersToMiles = distance / 1609.34;
-
-  return convertedMetersToMiles;
+  var distanceMiles = 2 * R * Math.asin(Math.sqrt(Math.sin(difflat/2)*Math.sin(difflat/2)+Math.cos(rlat1)*Math.cos(rlat2)*Math.sin(difflon/2)*Math.sin(difflon/2)));
+  return distanceMiles;
 }
 
 /* Loops over all stored search results and checks them against current
@@ -231,6 +237,7 @@ function updateSearchData(address, searchRadius) {
 }
 
 
+// TODO
 /* Checks the item given through parameter against the search criteria and returns
  * true if it meets all of the search criteria (material, address set,
  *distance from address => search radius), else return false */
@@ -330,38 +337,65 @@ function displayValidSearchResult(item) {
   // Add marker to map
   // coord ends up being 0-lng, 1-lat
   var coord = item['location']['coordinates'];
-  var marker = L.marker([coord[1], coord[0]]);
+  var latlngObject = new google.maps.LatLng(coord[1], coord[0])
+  const marker = new google.maps.Marker({
+    position: latlngObject,
+    map: map
+  });
+  markers.push(marker);
 
   // Set marker popup menu
-  marker.bindPopup("<b>Supplier:</b> " + item['current_mine_name'] + "<br><b>Operator:</b> " + item['current_operator_name'] + "<br><b>Material:</b> " + item['primary_sic'] + " & " + item['secondary_sic'] + requestPriceHTML);
+  const infowindow = new google.maps.InfoWindow({
+    content: "<b>Supplier:</b> " + item['current_mine_name'] + "<br><b>Operator:</b> " + item['current_operator_name'] + "<br><b>Material:</b> " + item['primary_sic'] + " & " + item['secondary_sic'] + requestPriceHTML
+  });
+
+  marker.addListener("click", () => {
+    if(activeInfoWindow != undefined) {
+      activeInfoWindow.close();
+    }
+    activeInfoWindow = infowindow;
+    infowindow.open(map, marker);
+  });
 
   //Add marker to array so it can be deleted later
   markers.push(marker);
 
-  // Add marker to map
-  map.addLayer(marker);
-
   // Add onClick function to search result in side bar to zoom in on correlated marker
   searchResultBox.click(function() {
-    var markerPos = marker.getLatLng();
-    marker.openPopup();
-    map.setView(markerPos, 10);
+    if(activeInfoWindow != undefined) {
+      activeInfoWindow.close();
+    }
+    activeInfoWindow = infowindow;
+
+    map.setZoom(15);
+    map.panTo(marker.getPosition());
+    infowindow.open(map, marker);
   })
 }
 
 function init() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 40, lng: -100 },
+    zoom: 4.5,
+    mapTypeId: google.maps.MapTypeId.HYBRID,
+    disableDefaultUI: true,
+    zoomControl: true
+  });
   // Retrieve material list on load
   getMaterials();
 
   // Map onclick event, get clicked lat/lng and put it in address input box, update any currently searched items
-  map.on('click', function(e) {
+  map.addListener('click', function(mapsMouseEvent) {
     // Reset button to work again
     enableSearch();
 
-    $("#inputAddress").val(e.latlng.lat + "," + e.latlng.lng);
-    updateSearchCircle([e.latlng.lat, e.latlng.lng]);
+    var lat = mapsMouseEvent.latLng.lat();
+    var lng = mapsMouseEvent.latLng.lng() ;
+
+    $("#inputAddress").val(lat + "," + lng);
+    updateSearchCircle([lat, lng]);
     updateSearch();
-  } );
+  });
 }
 
 // Initialise everything that's needed on page load
@@ -392,39 +426,3 @@ $(document).ready(function() {
     });
   });
 });
-
-
-/*
-  Leaflet code
-*/
-const ACCESS_TOKEN =
-  "pk.eyJ1IjoidGhhbmdwaGFtNzc5MyIsImEiOiJja2Jwb3VjangyYmE2MnJwZnhhbHR0aGUyIn0.nX_zeCSrkktjc3k148oQCA";
-
-
-
-L.tileLayer(
-  `https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=${ACCESS_TOKEN}`,
-  {
-    attribution: `Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>`,
-    maxZoom: 18,
-    id: "mapbox/streets-v11",
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: ACCESS_TOKEN,
-  }
-).addTo(map);
-
-
-var osm = L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"),
-    mqi = L.tileLayer("http://{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.png", {subdomains: ['otile1','otile2','otile3','otile4']});
-
-var baseMaps = {
-    "OpenStreetMap": osm,
-    "MapQuestImagery": mqi
-};
-
-var overlays =  {//add any overlays here
-
-    };
-
-L.control.layers(baseMaps,overlays, {position: 'bottomleft'}).addTo(map);
