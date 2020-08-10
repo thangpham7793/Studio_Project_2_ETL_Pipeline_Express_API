@@ -3,6 +3,7 @@ const map = L.map("map").setView([40, -100], 5.4);
 var searchRadiusCircle;
 var markers = new Array();
 var searchResults = new Array();
+var materialsAtLocation = new Array();
 
 /* Handler for range slider
  * Updates the search radius shown to user on map and updates the shown data
@@ -15,6 +16,7 @@ function updateRangeValue(val) {
     var addressCoords = address.split(',');
     updateSearchCircle(addressCoords);
     updateSearchData(addressCoords, val);
+    displayAvailableMaterials();
   }
 }
 
@@ -38,18 +40,42 @@ function getMaterials() {
     url: 'https://us-mines-api.herokuapp.com/mines/materials',
     success: function (data) {
       allMaterials = data['materials'];
-
-      // Loop over all materials
-      allMaterials.forEach((item, i) => {
-        // Setup datalist option
-        var option = document.createElement('option');
-        option.setAttribute('value', item);
-
-        // Add to datalist
-        document.getElementById('materialList').appendChild(option);
-      });
+      displayAllMaterials();
     }
   });
+}
+
+function displayAllMaterials() {
+  // Loop over all materials
+  allMaterials.forEach((item, i) => {
+    // Setup datalist option
+    var option = document.createElement('option');
+    option.setAttribute('value', item);
+
+    // Add to datalist
+    document.getElementById('materialList').appendChild(option);
+  });
+}
+
+/* Removes all material from material search input and puts in only materials
+ * that exist within the search radius and location */
+function displayAvailableMaterials() {
+  $("#materialList").empty();
+
+  // Keep a list of all materials until a search has been done
+  if(searchResults.length == 0) {
+    displayAllMaterials();
+  }
+  else {
+    materialsAtLocation.forEach((item, i) => {
+      // Setup datalist option
+      var option = document.createElement('option');
+      option.setAttribute('value', item);
+
+      // Add to datalist
+      document.getElementById('materialList').appendChild(option);
+    });
+  }
 }
 
 // Enables the search button again
@@ -78,6 +104,7 @@ function searchForSupplier() {
     // Remove old search results
     $(".searchResult").remove();
     removeMarkers();
+    materialsAtLocation = new Array();
     updateSearchCircle(addressCoords);
 
     // Add spinner to show user that something has happened after clicking search button
@@ -105,9 +132,19 @@ function searchForSupplier() {
         // Loop over data(supplier info)
         data.forEach((item, i) => {
           if(itemMeetsSearchCriteria(item)) {
+            if(!materialsAtLocation.includes(item['primary_sic'])) {
+              materialsAtLocation.push(item['primary_sic']);
+            }
+            if(item['secondary_sic'] != undefined) {
+              if(!materialsAtLocation.includes(item['secondary_sic'])) {
+                materialsAtLocation.push(item['secondary_sic']);
+              }
+            }
+
             displayValidSearchResult(item);
           }
         });
+        displayAvailableMaterials();
       }
     });
   }
@@ -169,6 +206,7 @@ function getDistance(p1, p2) {
 function updateSearchData(address, searchRadius) {
   // Remove old search results
   $(".searchResult").remove();
+  materialsAtLocation = new Array();
   removeMarkers();
 
   var material = $("#inputMaterial").val();
@@ -177,9 +215,19 @@ function updateSearchData(address, searchRadius) {
   searchResults.forEach((item, i) => {
     // If they meet the search criteria display the item to the user
     if(itemMeetsSearchCriteria(item)) {
+      if(!materialsAtLocation.includes(item['primary_sic'])) {
+        materialsAtLocation.push(item['primary_sic']);
+      }
+      if(item['secondary_sic'] != undefined) {
+        if(!materialsAtLocation.includes(item['secondary_sic'])) {
+          materialsAtLocation.push(item['secondary_sic']);
+        }
+      }
+
       displayValidSearchResult(item);
     }
   });
+  displayAvailableMaterials();
 }
 
 
@@ -253,9 +301,17 @@ function displayValidSearchResult(item) {
   // Create a div with class searchResult to display individual search results in
   var searchResultBox = $("<div></div>").addClass("searchResult");
 
-  // Text that goes inside div
-  var searchText = $("<p></p>").html("Supplier: " + item['current_mine_name'] + "<br>Operator name: " +
-  item['current_operator_name'] + "<br>Material: " + item['primary_sic'] + " & " + item['secondary_sic']);
+  if(item['secondary_sic'] != undefined) {
+    // Text that goes inside div
+    var searchText = $("<p></p>").html("Supplier: " + item['current_mine_name'] + "<br>Operator name: " +
+    item['current_operator_name'] + "<br>Material: " + item['primary_sic'] + " & " + item['secondary_sic']);
+  }
+  else {
+    // Text that goes inside div
+    var searchText = $("<p></p>").html("Supplier: " + item['current_mine_name'] + "<br>Operator name: " +
+    item['current_operator_name'] + "<br>Material: " + item['primary_sic']);
+  }
+
 
   // Add text to div
   searchResultBox.append(searchText);
