@@ -8,12 +8,15 @@ import re
 # function needs to occur after values have been turned into a string
 
 
-def remove_non_char(value):
-    """
+def remove_non_char(value: str) -> str:
+    """ Remove most non-char from string except for "@", ".", "#", " " and "-"
+    
     >>> remove_non_char('email@domain.com')
     'email@domain.com'
     >>> remove_non_char('word-with-hyphen')
     'word-with-hyphen'
+    >>> remove_non_char('permittee #')
+    'permittee #'
     """
     # regex for finding non-characters
     non_char_regex = re.compile("[^A-Za-z0-9 \-#\.@]")
@@ -27,13 +30,15 @@ def remove_non_char(value):
     return new_value
 
 
-def stringify_rows(df):
-    # this should probably go to the TRANSFORM class
-    # turn all values into string (this should not be in this class though...)
-    for col in df.columns:
+def stringify_rows(df: pd.DataFrame) -> pd.DataFrame:
+    for col in set(df.columns):
         if col not in ["location", "latitude", "longitude"]:
             new_col = df[col].apply(lambda x: remove_non_char(str(x).lower().strip()))
-            df[col] = new_col
+            # just in case there are duplicate colnames
+            try:
+                df[col] = new_col
+            except:
+                continue
     return df
 
 

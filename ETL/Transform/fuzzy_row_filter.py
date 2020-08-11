@@ -1,5 +1,6 @@
 from fuzzywuzzy import fuzz
 import pandas as pd
+from typing import List, Union
 
 # valid physical statuses
 valid_physical_statuses = [
@@ -29,8 +30,7 @@ valid_legal_statuses = [
     "acknowledged",
 ]
 
-# FIXME: valid mine type (not using this since there are too many valid options). It's better to use filter
-# based on a list of invalid values.
+# REMINDER: It's better to filter based on a list of invalid values since there are too many valid options
 valid_mine_types = ["surface", "facility"]
 invalid_mine_types = ["underground"]
 
@@ -83,7 +83,7 @@ invalid_sic = [
 ]
 
 
-def is_in_target_list(val, values):
+def is_in_target_list(val: str, values: List[str]) -> bool:
     """Decide if a value is valid based on partial matching
     
     ### Should return true when the matches are exact    
@@ -173,7 +173,9 @@ def is_in_target_list(val, values):
     return False
 
 
-def filter_rows_by_invalid_vals(df, colname, invalid_values):
+def filter_rows_by_invalid_vals(
+    df: pd.DataFrame, colname: str, invalid_values: List[str]
+) -> pd.DataFrame:
     try:
         if colname in df.columns:
             condition = df[colname].apply(
@@ -184,9 +186,12 @@ def filter_rows_by_invalid_vals(df, colname, invalid_values):
             return df
     except AttributeError as e:
         print(f"There was an error filtering rows: {e}")
+        return df
 
 
-def filter_rows_by_valid_vals(df, colname, valid_values):
+def filter_rows_by_valid_vals(
+    df: pd.DataFrame, colname: str, valid_values: List[str]
+) -> pd.DataFrame:
     try:
         if colname in df.columns:
             condition = df[colname].apply(
@@ -197,11 +202,14 @@ def filter_rows_by_valid_vals(df, colname, valid_values):
             return df
     except AttributeError as e:
         print(f"There was an error filtering rows: {e}")
+        return df
 
 
 # for cases where a valid column could be in mutliple columns.
 # Like a sic could be in either primary_sic or secondary_sic
-def filter_rows_by_many_cols(df, colnames, valid_values):
+def filter_rows_by_many_cols(
+    df: pd.DataFrame, colnames: List[str], valid_values: List[str]
+) -> pd.DataFrame:
     conditions = []
     try:
         for col in colnames:
@@ -211,8 +219,7 @@ def filter_rows_by_many_cols(df, colnames, valid_values):
                 )
                 conditions.append(condition)
     except AttributeError as e:
-        print(f"There was an error filtering rows: {e}")
-
+        print(f"There was an error filtering rows {colnames}: {e}")
     if len(conditions) == 1:
         return df[conditions[0]]
     elif len(conditions) == 2:
@@ -221,7 +228,7 @@ def filter_rows_by_many_cols(df, colnames, valid_values):
         return df
 
 
-def reset_index(df):
+def reset_index(df: pd.DataFrame) -> pd.DataFrame:
     try:
         return df.reset_index().drop(columns=["index"])
     except AttributeError as e:
@@ -229,27 +236,24 @@ def reset_index(df):
         return df
 
 
-def fuzzy_row_filter(df):
+def fuzzy_row_filter(df: pd.DataFrame) -> pd.DataFrame:
     print(len(df))
     filtered_df_1 = filter_rows_by_valid_vals(
         df, "physical_status", valid_physical_statuses
     )
-    print(f"Down to {len(filtered_df_1)}")
+    print(f"Down to {len(filtered_df_1)} rows")
     filtered_df_2 = filter_rows_by_valid_vals(
         filtered_df_1, "legal_status", valid_legal_statuses
     )
-    print(f"Down to {len(filtered_df_2)}")
+    print(f"Down to {len(filtered_df_2)} rows")
     filtered_df_3 = filter_rows_by_invalid_vals(
         filtered_df_2, "mine_type", invalid_mine_types
     )
-    print(f"Down to {len(filtered_df_3)}")
-    # filtered_df_4 = filter_rows_by_valid_vals(filtered_df_3, "primary_sic", valid_sic)
-    # filtered_df_5 = filter_rows_by_valid_vals(filtered_df_4, "secondary_sic", valid_sic)
-    # print(f"Down to {len(filtered_df_5)}")
+    print(f"Down to {len(filtered_df_3)} rows")
     filtered_df_4 = filter_rows_by_many_cols(
         filtered_df_3, ["primary_sic", "secondary_sic"], valid_sic
     )
-    print(f"Down to {len(filtered_df_4)}")
+    print(f"Down to {len(filtered_df_4)} rows")
     return reset_index(filtered_df_4)
 
 

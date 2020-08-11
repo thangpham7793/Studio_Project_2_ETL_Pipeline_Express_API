@@ -22,11 +22,12 @@ def pipe_and_apply(next_input, steps_list):
         result = output
         if isinstance(output, pd.DataFrame) and output.empty == False:
             print(f"{step} completed!\n")
-            print(output.head(2), "\n", "=" * 120)
+            # print(output.head(2), "\n", "=" * 120)
             pipe_and_apply(output, steps_list)
         else:
             print(f"\nCould not finish {step} step. Invalid input: \n\n {output}")
             return
+    return result
 
 
 # a higher-order function that returns a customized function that recursively

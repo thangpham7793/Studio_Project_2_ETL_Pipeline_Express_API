@@ -1,7 +1,7 @@
 if __name__ == "__main__":
-    from schema import mine_schema
+    from schema import schema
 else:
-    from .schema import mine_schema
+    from .schema import schema
 
 import pandas as pd
 from os import system, name, path
@@ -20,7 +20,7 @@ def clear_screen():
         _ = system("clear")
 
 
-def update_schema(mine_schema: Schema):
+def update_schema(schema: Schema):
     # for google colab
     folder_path = "/content/drive/My Drive/ETL/Transform/schema.py"
     try:
@@ -34,23 +34,23 @@ def update_schema(mine_schema: Schema):
             print("Could not update schema!")
             return
     print(folder_path)
-    f.write(f"mine_schema = {mine_schema}")
+    f.write(f"schema = {schema}")
     f.close()
 
 
 # check if colname has been processed before
-def check_if_colnames_in_saved_list(colname: str, mine_schema: Schema) -> dict:
+def check_if_colnames_in_saved_list(colname: str, schema: Schema) -> dict:
     # if the colname is in the list of unchanged columns, simply return it
-    if colname in mine_schema["keep_it_as_it_is"]:
+    if colname in schema["keep_it_as_it_is"]:
         return {"result": True, "colname": colname}
     # if the colname is in the list of dropped columns, return None to drop it
-    if colname in mine_schema["dropped_cols"]:
+    if colname in schema["dropped_cols"]:
         return {"result": True, "colname": "dropped"}
     # if colname is in the list of colname names that have been changed
     # or it has the same name as the standardised name (key),
     # return the corresponding standardised colname name.
-    for k in mine_schema:
-        if colname in mine_schema[k] or colname == k:
+    for k in schema:
+        if colname in schema[k] or colname == k:
             return {"result": True, "colname": k}
 
     # if the column name is not in the dict, return False to ask for user input
@@ -60,7 +60,7 @@ def check_if_colnames_in_saved_list(colname: str, mine_schema: Schema) -> dict:
 # make a dict with options indexed from 1 based on all the standard colnames
 
 # remove standard colnames that have been chosen by the user to avoid duplicate colnames
-def trim_options(option_dict: Options, picked_names: List[str]):
+def trim_options(option_dict: Options, picked_names: List[str]) -> Options:
     if len(picked_names) == 0:
         return option_dict
     to_remove_indexes = []
@@ -74,18 +74,20 @@ def trim_options(option_dict: Options, picked_names: List[str]):
         return option_dict
 
 
-def make_full_option_dict(mine_schema: Schema, picked_names: List[str]) -> Options:
+def make_full_option_dict(schema: Schema, picked_names: List[str]) -> Options:
+
     option_dict = {}
     counter = 1
-    for key in mine_schema:
+    for key in schema:
         option_dict[counter] = key
         counter += 1
     return trim_options(option_dict, picked_names)
 
 
 def make_fuzzy_match_option_dict(
-    colname: str, mine_schema: Schema, picked_names: List[str]
+    colname: str, schema: Schema, picked_names: List[str]
 ) -> Options:
+
     fuzzy_match_option_dict = {}
     counter = 1
 
@@ -98,26 +100,26 @@ def make_fuzzy_match_option_dict(
         fuzz.partial_token_set_ratio,
     ]
     # try all methods from the strictest
-
-    for key in mine_schema:
+    for key in schema:
         for m in methods:
             score = m(colname, key)
             if score > 70:
                 fuzzy_match_option_dict[counter] = key
                 counter += 1
                 break
+
     fuzzy_match_option_dict[len(fuzzy_match_option_dict) + 1] = "show_all_choices"
     fuzzy_match_option_dict[len(fuzzy_match_option_dict) + 1] = "dropped_cols"
     return fuzzy_match_option_dict
 
 
 def make_option_dict(
-    colname: str, mine_schema: Schema, picked_names: List[str], fuzzy: bool = True
+    colname: str, schema: Schema, picked_names: List[str], fuzzy: bool = True
 ) -> Options:
     if fuzzy:
-        option_dict = make_fuzzy_match_option_dict(colname, mine_schema, picked_names)
+        option_dict = make_fuzzy_match_option_dict(colname, schema, picked_names)
     else:
-        option_dict = make_full_option_dict(mine_schema, picked_names)
+        option_dict = make_full_option_dict(schema, picked_names)
     return option_dict
 
 
@@ -140,7 +142,7 @@ def print_options(option_dict: Options) -> None:
 
 
 # Get user choice
-def get_user_choice(colname: str, option_dict: Options):
+def get_user_choice(colname: str, option_dict: Options) -> str:
     print(f"\nAvailable Options for {colname.upper()}:\n")
     print_options(option_dict)
     col_choice: str
@@ -163,7 +165,7 @@ def get_user_choice(colname: str, option_dict: Options):
 
 
 def get_new_name(
-    df: pd.DataFrame, colname: str, mine_schema: Schema, picked_names: List[str]
+    df: pd.DataFrame, colname: str, schema: Schema, picked_names: List[str]
 ) -> str:
     clear_screen()
     sample_values = list(df[colname].unique())[0:5]
@@ -171,24 +173,24 @@ def get_new_name(
         f"\nColumn '{colname.upper()}' has some values like {sample_values}\nType in a number to choose a column name to rename {colname.upper()} to, keep it as it is or drop the column from the table\n"
     )
     # make a fuzzy option dict
-    option_dict = make_option_dict(colname, mine_schema, picked_names, fuzzy=True,)
+    option_dict = make_option_dict(colname, schema, picked_names, fuzzy=True,)
     # if there's no fuzzy match, present all choices
     if len(option_dict) == 2:
         print("No fuzzy matches found, showing all choices")
-        option_dict = make_option_dict(colname, mine_schema, picked_names, fuzzy=False)
+        option_dict = make_option_dict(colname, schema, picked_names, fuzzy=False)
         return get_user_choice(colname, option_dict)
     # if user's not happy with the fuzzy match
     user_choice = get_user_choice(colname, option_dict)
     if user_choice == "show_all_choices":
         clear_screen()
-        option_dict = make_option_dict(colname, mine_schema, picked_names, fuzzy=False)
+        option_dict = make_option_dict(colname, schema, picked_names, fuzzy=False)
         return get_user_choice(colname, option_dict)
     # if user picks one of the fuzzy matches
     else:
         return user_choice
 
 
-def add_source_column(dataframe):
+def add_source_column(dataframe: pd.DataFrame) -> pd.DataFrame:
     df = dataframe.copy()
     is_msha = input("Is this the MSHA dataset? Y/N\n\n")
     while is_msha.lower() not in ["yes", "y", "ye", "n", "no"]:
@@ -201,26 +203,57 @@ def add_source_column(dataframe):
     return df
 
 
-def add_site_type_column(dataframe):
+def add_site_type_column(dataframe: pd.DataFrame) -> pd.DataFrame:
     df = dataframe.copy()
     print(df.head(10))
-    is_mine = input("\nIs this dataset about mine? Y/N\n\n")
+    which_type = input(
+        "\nWhat is this dataset about? 1. Mines\t2. Landfill\t 3. Others\n\n"
+    )
     invalid_input = True
     while invalid_input:
-        if is_mine.lower() in ["yes", "y", "ye", "n", "no"]:
+        if which_type in ["1", "2", "3"]:
             invalid_input = False
         else:
-            print("Invalid answer. Please type in your answer again.\n\n")
-            is_mine = input("Is this dataset about mine? Y/N\n\n")
-    if is_mine.lower() in ["yes", "y", "ye"]:
+            print("Invalid answer. Please type in 1 , 2  or 3.\n\n")
+            which_type = input(
+                "\nWhat is this dataset about? 1. Mines\t2. Landfill\t 3. Others\n\n"
+            )
+    if which_type == "1":
         df["site_type"] = "mine"
+    elif which_type == "2":
+        df["site_type"] = "landfill"
     else:
-        df["site_type"] = "other"
+        df["site_type"] = "others"
+    return df
+
+
+def add_dataset_name_col(dataframe: pd.DataFrame) -> pd.DataFrame:
+    df = dataframe.copy()
+    print(df.head(10))
+    dataset_name = input("\nPlease type in the name of this dataset.\n\n")
+    not_confirmed = True
+    while not_confirmed:
+        confirm = input(
+            "\nAre you sure you want to name the dataset as "
+            + dataset_name.upper()
+            + "? Y/N\n\n"
+        )
+        if confirm.lower() in ["y", "ye", "yes"]:
+            not_confirmed = False
+
+        elif confirm.lower() in ["n", "no"]:
+            dataset_name = input("\nPlease type in the name of this dataset.\n\n")
+
+        else:
+            print("Invalid answer please type in y or n")
+
+    df["dataset_name"] = dataset_name
+
     return df
 
 
 # update schema as the last step
-def update_schema(mine_schema: Schema):
+def update_schema(schema: Schema) -> None:
     # for google colab
     folder_path = "/content/drive/My Drive/ETL/Transform/schema.py"
     try:
@@ -234,18 +267,18 @@ def update_schema(mine_schema: Schema):
             print("Could not update schema!")
             return
     print(folder_path)
-    f.write(f"mine_schema = {mine_schema}")
+    f.write(f"schema = {schema}")
     f.close()
 
 
 # MAIN FUNCTION
-def fuzzy_col_filter(dataframe):
+def fuzzy_col_filter(dataframe: pd.DataFrame) -> pd.DataFrame:
     dropped_cols = []
     # store standard colnames that have been picked to avoid duplicates
     picked_names = []
     df = dataframe.copy()
     for col in df.columns:
-        check_result = check_if_colnames_in_saved_list(col, mine_schema)
+        check_result = check_if_colnames_in_saved_list(col, schema)
         # check if the colname has been processed before
         if check_result["result"] == True:
             # if yes, check if the colname has been kept or dropped
@@ -265,7 +298,7 @@ def fuzzy_col_filter(dataframe):
                 dropped_cols.append(col)
         # if it's a new colname, show users some sample values, and then ask for input
         else:
-            new_name = get_new_name(df, col, mine_schema, picked_names=picked_names)
+            new_name = get_new_name(df, col, schema, picked_names=picked_names)
             # add col to drop list if user says no
             if new_name == "dropped_cols":
                 print(f"Dropping {col.upper()}.\n")
@@ -280,7 +313,7 @@ def fuzzy_col_filter(dataframe):
                     # add the colname to the keep it as it is list
                     print(f"Keeping {col.upper()} as it is.\n")
             # also update the schema accordingly
-            mine_schema[new_name].append(col)
+            schema[new_name].append(col)
 
     # ask users if this is msha data-set
     df = add_source_column(df)
@@ -288,7 +321,10 @@ def fuzzy_col_filter(dataframe):
     # ask users if it's about mines or other types (like landfills)
     df = add_site_type_column(df)
     clear_screen()
+    # gets the name of the dataset
+    # TODO: Come up with a standardised naming system
+    df = add_dataset_name_col(df)
 
     # write the updated schema to file
-    update_schema(mine_schema)
+    update_schema(schema)
     return df.drop(columns=dropped_cols)

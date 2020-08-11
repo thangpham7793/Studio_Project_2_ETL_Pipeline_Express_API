@@ -26,7 +26,8 @@ steps = [
     {"step": "LOAD_INTO_DATABASE", "function": load_into_database},
 ]
 
-
+# this function is useful for debugging as it returns the output dataframe
+# from the last step that was executed. However, it can only process one file at a time.
 def build_pipeline_and_run(file_path):
     # need to copy the steps since the recursive pipeline
     # will consume each step one by one
@@ -35,4 +36,7 @@ def build_pipeline_and_run(file_path):
     return run_pipeline()
 
 
-main = Util.apply_on_all_files(build_pipeline_and_run)
+# this function doesn't return the dataframe as the result of each step
+# and should be used to process an entire directory recursively.
+local_main = Util.apply_on_all_files(build_pipeline_and_run)
+
