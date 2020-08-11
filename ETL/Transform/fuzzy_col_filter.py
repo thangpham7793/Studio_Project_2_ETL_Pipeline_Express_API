@@ -206,18 +206,40 @@ def add_source_column(dataframe: pd.DataFrame) -> pd.DataFrame:
 def add_site_type_column(dataframe: pd.DataFrame) -> pd.DataFrame:
     df = dataframe.copy()
     print(df.head(10))
-    is_mine = input("\nIs this dataset about mine? Y/N\n\n")
+    which_type = input("\nWhat is this dataset about? 1. Mines\t2. Landfill\t 3. Others\n\n")
     invalid_input = True
     while invalid_input:
-        if is_mine.lower() in ["yes", "y", "ye", "n", "no"]:
+        if which_type in ["1", "2", "3"]:
             invalid_input = False
         else:
-            print("Invalid answer. Please type in your answer again.\n\n")
-            is_mine = input("Is this dataset about mine? Y/N\n\n")
-    if is_mine.lower() in ["yes", "y", "ye"]:
+            print("Invalid answer. Please type in 1 , 2  or 3.\n\n")
+            which_type = input("\nWhat is this dataset about? 1. Mines\t2. Landfill\t 3. Others\n\n")
+    if which_type == "1":
         df["site_type"] = "mine"
+    elif which_type == "2":
+        df["site_type"] = "landfill"
     else:
-        df["site_type"] = "other"
+        df["site_type"] = "others"
+    return df
+
+def add_dataset_name_col(dataframe: pd.DataFrame) -> pd.DataFrame:
+    df = dataframe.copy()
+    print(df.head(10))
+    dataset_name = input("\nPlease type in the name of this dataset.\n\n")
+    not_confirmed = True
+    while not_confirmed:
+        confirm = input("\nAre you sure you want to name the dataset as " + dataset_name.upper() + "? Y/N\n\n")
+        if confirm.lower() in ["y","ye","yes"]:
+            not_confirmed = False
+
+        elif confirm.lower() in ["n","no"]:
+            dataset_name = input("\nPlease type in the name of this dataset.\n\n")
+            
+        else:
+            print("Invalid answer please type in y or n")
+            
+    df["dataset_name"] = dataset_name
+ 
     return df
 
 
@@ -290,6 +312,9 @@ def fuzzy_col_filter(dataframe: pd.DataFrame) -> pd.DataFrame:
     # ask users if it's about mines or other types (like landfills)
     df = add_site_type_column(df)
     clear_screen()
+    # gets the name of the dataset
+    # TODO: Come up with a standardised naming system 
+    df = add_dataset_name_col(df) 
 
     # write the updated schema to file
     update_schema(mine_schema)
