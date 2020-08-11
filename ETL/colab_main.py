@@ -1,15 +1,21 @@
 # THE BELOW FUNCTIONS ARE USED INSIDE GOOGLE COLAB
 
-# !python -m pip install fuzzywuzzy python-Levenshtein pymongo[srv]
-# the above line should be copied into the 1st cell to import missing packages
-
-# import python libs
+"""
+!python -m pip install fuzzywuzzy python-Levenshtein pymongo[srv]
 import sys
-import os
 
 # add parser to path so that main.ipynb can find it
 parser_path = "/content/drive/My Drive/ETL"
 sys.path.append(f"{parser_path}")
+
+# import the main program
+from colab_main import menu
+"""
+# the above lines should be copied into the 1st cell to import missing packages
+
+# import python libs
+import sys
+import os
 
 # The packages below are used for file uploading
 from google.colab import files

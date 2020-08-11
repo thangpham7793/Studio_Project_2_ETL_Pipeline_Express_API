@@ -30,8 +30,7 @@ valid_legal_statuses = [
     "acknowledged",
 ]
 
-# FIXME: valid mine type (not using this since there are too many valid options). It's better to use filter
-# based on a list of invalid values.
+# REMINDER: It's better to filter based on a list of invalid values since there are too many valid options
 valid_mine_types = ["surface", "facility"]
 invalid_mine_types = ["underground"]
 
@@ -242,22 +241,19 @@ def fuzzy_row_filter(df: pd.DataFrame) -> pd.DataFrame:
     filtered_df_1 = filter_rows_by_valid_vals(
         df, "physical_status", valid_physical_statuses
     )
-    print(f"Down to {len(filtered_df_1)}")
+    print(f"Down to {len(filtered_df_1)} rows")
     filtered_df_2 = filter_rows_by_valid_vals(
         filtered_df_1, "legal_status", valid_legal_statuses
     )
-    print(f"Down to {len(filtered_df_2)}")
+    print(f"Down to {len(filtered_df_2)} rows")
     filtered_df_3 = filter_rows_by_invalid_vals(
         filtered_df_2, "mine_type", invalid_mine_types
     )
-    print(f"Down to {len(filtered_df_3)}")
-    # filtered_df_4 = filter_rows_by_valid_vals(filtered_df_3, "primary_sic", valid_sic)
-    # filtered_df_5 = filter_rows_by_valid_vals(filtered_df_4, "secondary_sic", valid_sic)
-    # print(f"Down to {len(filtered_df_5)}")
+    print(f"Down to {len(filtered_df_3)} rows")
     filtered_df_4 = filter_rows_by_many_cols(
         filtered_df_3, ["primary_sic", "secondary_sic"], valid_sic
     )
-    print(f"Down to {len(filtered_df_4)}")
+    print(f"Down to {len(filtered_df_4)} rows")
     return reset_index(filtered_df_4)
 
 
