@@ -5,6 +5,7 @@ const unknownEndpoint = (request, response) => {
 
 const errorHandler = (error, request, response, next) => {
 	if (error) {
+		console.log(error)
 		return response.status(500).json({ error: 'Internal Server Error' })
 	}
 	next(error)

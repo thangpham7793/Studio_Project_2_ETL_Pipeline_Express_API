@@ -16,20 +16,21 @@ const ObjectID = require('mongodb').ObjectID
  * @param {*}
  */
 
-const findMineById = async (id) => {
+// this can be used to find any facility type
+const findById = async (id) => {
 	const o_id = new ObjectID(id)
 
 	//NOTE: business logic here (what to show)
 	//alternative syntax collection.find({}).project({a:1})
 	const targetFieldsObject = queryMakers.projectionMaker([
 		'_id',
-		'current_mine_name',
+		'site_name',
 		'primary_sic',
 		'secondary_sic',
-		'current_controller_name',
-		'current_operator_name',
-		'directions_to_mine',
-		'nearest_town',
+		'controller',
+		'operator',
+		'driving_directions',
+		'nearest_town_or_city',
 		'location',
 	])
 	let result
@@ -47,21 +48,20 @@ const findMineById = async (id) => {
 
 const findAllMaterials = async () => {
 	let primarySic, secondarySic, allMaterials
-	if (cachedResponse)
-		try {
-			//get all distinct materials from primary-sic and secondary-sic fields
-			primarySic = await collection.distinct('primary_sic')
-			secondarySic = await collection.distinct('secondary_sic')
-			allMaterials = [...primarySic, ...secondarySic]
+	try {
+		//get all distinct materials from primary-sic and secondary-sic fields
+		primarySic = await collection.distinct('primary_sic')
+		secondarySic = await collection.distinct('secondary_sic')
+		allMaterials = [...primarySic, ...secondarySic]
 
-			//remove duplicates by creating a set
-			const distinctMaterials = Array.from(new Set(allMaterials))
+		//remove duplicates by creating a set
+		const distinctMaterials = Array.from(new Set(allMaterials))
 
-			//FIXME: secondary_sic contains some unwanted materials
-			return distinctMaterials
-		} catch (error) {
-			console.log(error)
-		}
+		//FIXME: secondary_sic contains some unwanted materials
+		return distinctMaterials
+	} catch (error) {
+		console.log(error)
+	}
 }
 
 const findMinesByMaterialLatLngRadius = async (userInputObject) => {
@@ -72,14 +72,42 @@ const findMinesByMaterialLatLngRadius = async (userInputObject) => {
 	//alternative syntax collection.find({}).project({a:1})
 	const targetFieldsObject = queryMakers.projectionMaker([
 		'_id',
-		'current_mine_name',
-		'primary_sic',
 		'primary_canvass',
+		'site_name',
+		'primary_sic',
 		'secondary_sic',
-		'current_controller_name',
-		'current_operator_name',
-		'directions_to_mine',
-		'nearest_town',
+		'controller',
+		'operator',
+		'driving_directions',
+		'nearest_town_or_city',
+		'location',
+	])
+	let result
+	try {
+		result = await collection
+			.find(filter, {
+				projection: targetFieldsObject,
+			})
+			.toArray()
+		return result
+	} catch (error) {
+		logger.error(error)
+	}
+}
+
+const findLandfillsByLatLngRadius = async (userInputObject) => {
+	//construct filter based on user search params
+	const filter = queryMakers.landfillsByLatLngRadius(userInputObject)
+
+	//NOTE: business logic here (what to show)
+	//alternative syntax collection.find({}).project({a:1})
+	const targetFieldsObject = queryMakers.projectionMaker([
+		'_id',
+		'site_name',
+		'controller',
+		'operator',
+		'driving_directions',
+		'nearest_town_or_city',
 		'location',
 	])
 	let result
@@ -96,7 +124,8 @@ const findMinesByMaterialLatLngRadius = async (userInputObject) => {
 }
 
 module.exports = {
-	findMinesByMaterialLatLngRadius,
-	findMineById,
+	findById,
 	findAllMaterials,
+	findMinesByMaterialLatLngRadius,
+	findLandfillsByLatLngRadius,
 }

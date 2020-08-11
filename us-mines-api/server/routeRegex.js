@@ -1,3 +1,5 @@
+//MINES ROUTES
+
 //following Google (e.g. /dimension+stone/@-87.3432,45.123123,20)
 const minesByLatLng = '/@:lng(-\\d+.?\\d*),:lat(\\d+.?\\d*)'
 
@@ -13,10 +15,22 @@ const minesByMaterialAndLatLngAndRadius =
 //id must be 24-char long and contains only alphanumeric characters
 const mineById = '/:id(\\w{24})'
 
+//LANDFILLS ROUTES
+const landfillsByLatLng = '/@:lng(-\\d+.?\\d*),:lat(\\d+.?\\d*)'
+
+const landfillsByLatLngAndRadius =
+	'/@:lng(-\\d+.?\\d*),:lat(\\d+.?\\d*),:radius(\\d+.?\\d*)'
+
+//id must be 24-char long and contains only alphanumeric characters
+const landfillById = '/:id(\\w{24})'
+
 module.exports = {
 	minesByLatLng,
 	minesByLatLngAndRadius,
 	minesByMaterialAndLatLng,
 	minesByMaterialAndLatLngAndRadius,
 	mineById,
+	landfillsByLatLng,
+	landfillsByLatLngAndRadius,
+	landfillById,
 }

@@ -8,6 +8,8 @@ const METERS_PER_MILE = 1609.34
  * For geo-related queries in MongoDB: https://docs.mongodb.com/manual/reference/operator/query/near/#op._S_near
  */
 
+//MINES QUERIES
+
 const minesByLatLngMaterialRadius = ({ lat, lng, material, radius }) => {
 	const inputRadius = radius || 200
 	if (material != undefined) {
@@ -16,6 +18,7 @@ const minesByLatLngMaterialRadius = ({ lat, lng, material, radius }) => {
 				{ primary_sic: { $regex: `${material}`, $options: 'gi' } },
 				{ secondary_sic: { $regex: `${material}`, $options: 'gi' } },
 			],
+			site_type: 'mines',
 			location: {
 				$near: {
 					$geometry: {
@@ -57,6 +60,25 @@ const projectionMaker = (fieldsArray) => {
 const allMinesByLatLng = ({ lat, lng, radius }) => {
 	const inputRadius = radius || 200
 	return {
+		site_type: 'mine',
+		location: {
+			$near: {
+				$geometry: {
+					type: 'Point',
+					coordinates: [lng, lat],
+				},
+				$maxDistance: inputRadius * METERS_PER_MILE,
+			},
+		},
+	}
+}
+
+// LANDFILLS QUERIES
+
+const landfillsByLatLngRadius = ({ lat, lng, radius }) => {
+	const inputRadius = radius || 200
+	return {
+		site_type: 'landfill',
 		location: {
 			$near: {
 				$geometry: {
@@ -73,4 +95,5 @@ module.exports = {
 	allMinesByLatLng,
 	minesByLatLngMaterialRadius,
 	projectionMaker,
+	landfillsByLatLngRadius,
 }
