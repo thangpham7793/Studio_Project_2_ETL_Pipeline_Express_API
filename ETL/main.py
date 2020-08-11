@@ -17,16 +17,17 @@ steps = [
     {"step": "VALIDATE_COLNAMES", "function": validate_colnames},
     {"step": "BASIC_CLEAN_UP", "function": basic_clean_up},
     {"step": "FUZZY_COL_FILTER", "function": fuzzy_col_filter},
-    {"step": "FUZZY_ROW_FILTER", "function": fuzzy_row_filter},
+    # {"step": "FUZZY_ROW_FILTER", "function": fuzzy_row_filter},
     # filter_columns must go first
     # to allow user or the program to pick out the latlng columns
     # filter rows reduce the number of modifications later
-    {"step": "ADD_LOCATION", "function": add_location},
-    {"step": "STRINGIFY_ROWS", "function": stringify_rows},
-    {"step": "LOAD_INTO_DATABASE", "function": load_into_database},
+    # {"step": "ADD_LOCATION", "function": add_location},
+    # {"step": "STRINGIFY_ROWS", "function": stringify_rows},
+    # {"step": "LOAD_INTO_DATABASE", "function": load_into_database},
 ]
 
-
+# this function is useful for debugging as it returns the output dataframe
+# from the last step that was executed
 def build_pipeline_and_run(file_path):
     # need to copy the steps since the recursive pipeline
     # will consume each step one by one
@@ -35,4 +36,6 @@ def build_pipeline_and_run(file_path):
     return run_pipeline()
 
 
+# this function doesn't return the dataframe as the result of each step
+# and should be used to process an entire directory recursively.
 main = Util.apply_on_all_files(build_pipeline_and_run)

@@ -27,6 +27,7 @@ def pipe_and_apply(next_input, steps_list):
         else:
             print(f"\nCould not finish {step} step. Invalid input: \n\n {output}")
             return
+    return result
 
 
 # a higher-order function that returns a customized function that recursively

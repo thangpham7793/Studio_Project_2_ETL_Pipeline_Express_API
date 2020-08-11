@@ -78,7 +78,12 @@ def read_file(file_path: str) -> Union[pd.DataFrame, None]:
             df = file_reader(file_path, sep="|", encoding="unicode_escape")
         else:
             df = file_reader(file_path)
-        return df
+            # check if df is empty
+            if df.empty:
+                print("The file contains no data!")
+                return
+            else:
+                return df
     except FileNotFoundError:
         print("File not found!")
         return
