@@ -38,11 +38,25 @@
                <div class="form-row">
                  <div class="form-group col-md-6">
                    <label for="inputRequestFirstName">First Name</label>
-                   <input type="text" name="firstName" class="form-control" id="inputRequestFirstName" placeholder="First name...">
+                   <?php
+                   if (isset($_SESSION['firstName'])) {
+                     echo '<input type="text" name="firstName" class="form-control" id="inputRequestFirstName" placeholder="First name..." value="'.$_SESSION['firstName'].'"">';
+                   }
+                   else {
+                     echo '<input type="text" name="firstName" class="form-control" id="inputRequestFirstName" placeholder="First name...">';
+                   }
+                   ?>
                  </div>
                  <div class="form-group col-md-6">
                    <label for="inputRequestSurname">Surname</label>
-                   <input type="text" name="surname" class="form-control" id="inputRequestSurname" placeholder="Surname...">
+                   <?php
+                   if (isset($_SESSION['surname'])) {
+                     echo '<input type="text" name="surname" class="form-control" id="inputRequestSurname" placeholder="Surname..." value="'.$_SESSION['surname'].'">';
+                   }
+                   else {
+                     echo '<input type="text" name="surname" class="form-control" id="inputRequestSurname" placeholder="Surname...">';
+                   }
+                   ?>
                  </div>
                </div>
                <div class="form-row">
@@ -52,7 +66,14 @@
                  </div>
                  <div class="form-group col-md-6">
                    <label for="inputRequestEmail">Email</label>
-                   <input type="text" name="email" class="form-control" id="inputRequestEmail" placeholder="Email...">
+                   <?php
+                   if (isset($_SESSION['email'])) {
+                     echo '<input type="text" name="email" class="form-control" id="inputRequestEmail" placeholder="Email..." value="'.$_SESSION['email'].'">';
+                   }
+                   else {
+                     echo '<input type="text" name="email" class="form-control" id="inputRequestEmail" placeholder="Email...">';
+                   }
+                   ?>
                  </div>
                </div>
                <div class="form-group">

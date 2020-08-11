@@ -43,6 +43,8 @@ if (isset($_POST['login-submit'])) {
             session_start();
             $_SESSION['userID'] = $row['userID'];
             $_SESSION['firstName'] = $row['firstName'];
+            $_SESSION['surname'] = $row['surname'];
+            $_SESSION['email'] = $row['email'];
 
             header("Location: ../index.php?login=success");
             exit();
