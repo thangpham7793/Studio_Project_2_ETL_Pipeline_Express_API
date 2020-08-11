@@ -5,6 +5,8 @@ var markers = new Array();
 var searchResults = new Array();
 var materialsAtLocation = new Array();
 var activeInfoWindow;
+var selectedSupplierID;
+var selectedSupplierName;
 
 /* Handler for range slider
  * Updates the search radius shown to user on map and updates the shown data
@@ -354,6 +356,9 @@ function displayValidSearchResult(item) {
       activeInfoWindow.close();
     }
     activeInfoWindow = infowindow;
+    selectedSupplierID = item['_id'];
+    selectedSupplierName = item['current_mine_name'];
+
     infowindow.open(map, marker);
   });
 
@@ -366,6 +371,8 @@ function displayValidSearchResult(item) {
       activeInfoWindow.close();
     }
     activeInfoWindow = infowindow;
+    selectedSupplierID = item['_id'];
+    selectedSupplierName = item['current_mine_name'];
 
     map.setZoom(15);
     map.panTo(marker.getPosition());
@@ -396,6 +403,10 @@ function init() {
     updateSearchCircle([lat, lng]);
     updateSearch();
   });
+
+  $('#modal_request_price').on('hidden.bs.modal', function () {
+    $("#submitRequest-feedback").empty();
+  });
 }
 
 // Initialise everything that's needed on page load
@@ -423,6 +434,35 @@ $(document).ready(function() {
       email: email,
       pwd: pwd,
       pwdConfirm: pwdConfirm
+    });
+  });
+
+  $("#formRequestPrice").submit(function(event) {
+    // Stop form submission
+    event.preventDefault();
+
+    // Extract all values from form
+    var firstName = $("#inputRequestFirstName").val();
+    var surname = $("#inputRequestSurname").val();
+    var phone = $("#inputRequestPhone").val();
+    var email = $("#inputRequestEmail").val();
+    var address = $("#inputRequestAddress").val();
+    var materials = $("#inputRequestMaterials").val();
+    var addDetails = $("#inputRequestAddDetails").val();
+
+    // TODO SET POST signup-submit
+    // Run signup php code, pass through values. PHP echos out feedback
+    // of submission into #submit-feedback element
+    $("#submitRequest-feedback").load("includes/request_submit.inc.php", {
+      firstName: firstName,
+      surname: surname,
+      phone: phone,
+      email: email,
+      address: address,
+      materials: materials,
+      addDetails: addDetails,
+      supplierID: selectedSupplierID,
+      supplierName: selectedSupplierName
     });
   });
 });

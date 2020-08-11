@@ -32,8 +32,8 @@
             </button>
           </div>
 
-          <!-- Signup modal -->
-          <form id="formRequestPrice" action="includes/???????" method="post">
+          <!-- Request modal -->
+          <form id="formRequestPrice" action="includes/request_submit.inc.php" method="post">
           <div class="modal-body">
                <div class="form-row">
                  <div class="form-group col-md-6">
@@ -52,7 +52,7 @@
                  </div>
                  <div class="form-group col-md-6">
                    <label for="inputRequestEmail">Email</label>
-                   <input type="password" name="email" class="form-control" id="inputRequestEmail" placeholder="Email...">
+                   <input type="text" name="email" class="form-control" id="inputRequestEmail" placeholder="Email...">
                  </div>
                </div>
                <div class="form-group">

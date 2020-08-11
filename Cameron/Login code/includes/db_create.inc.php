@@ -58,13 +58,15 @@ if(!$dbError) {
 	// Query for request table
 	$sql = "CREATE TABLE IF NOT EXISTS request (
 	requestID INT AUTO_INCREMENT PRIMARY KEY,
-	userID INT NOT NULL,
-	userContact TEXT NOT NULL,
-	supplierID INT NOT NULL,
-	supplierName TEXT NOT NULL,
-	supplierContact TEXT NOT NULL,
-	material TEXT NOT NULL,
-	deliveryAddress TEXT NOT NULL
+	userFirstName TEXT NOT NULL,
+	userSurname TEXT NOT NULL,
+	userPhone TEXT NOT NULL,
+	userEmail TEXT NOT NULL,
+	deliveryAddress TEXT NOT NULL,
+	materials TEXT NOT NULL,
+	addDetails TEXT NOT NULL,
+	supplierID TEXT NOT NULL,
+	supplierName TEXT NOT NULL
 	)";
 	echo("creating request table");
 	echo("<br>");
