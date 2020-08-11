@@ -38,4 +38,5 @@ def build_pipeline_and_run(file_path):
 
 # this function doesn't return the dataframe as the result of each step
 # and should be used to process an entire directory recursively.
-main = Util.apply_on_all_files(build_pipeline_and_run)
+local_main = Util.apply_on_all_files(build_pipeline_and_run)
+

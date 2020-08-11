@@ -1,5 +1,7 @@
+# THE BELOW FUNCTIONS ARE USED INSIDE GOOGLE COLAB
+
 # !python -m pip install fuzzywuzzy python-Levenshtein pymongo[srv]
-# run this cell first to install missing packages
+# the above line should be copied into the 1st cell to import missing packages
 
 # import python libs
 import sys
@@ -11,9 +13,7 @@ sys.path.append(f"{parser_path}")
 
 # The packages below are used for file uploading
 from google.colab import files
-
-# import parser function
-from main import main
+from local_main import local_main
 
 
 def run_main():
@@ -32,7 +32,7 @@ def run_main():
     path = os.path.abspath(file_name)
 
     # run parser
-    main(path)
+    local_main(path)
 
 
 def menu():
@@ -59,5 +59,3 @@ def menu():
             print("Bye")
             break
 
-
-menu()
