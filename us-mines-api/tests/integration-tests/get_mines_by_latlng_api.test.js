@@ -54,4 +54,4 @@ describe('Integration Test: Search Mines Params', function () {
 		})
 	})
 })
-//FIXME: still can't connect to MongoDB
+//TODO: need tests that actually connects to MongoDB

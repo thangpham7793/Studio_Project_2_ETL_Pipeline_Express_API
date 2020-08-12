@@ -1,6 +1,5 @@
 const http = require('http')
 const logger = require('../utils/logger')
-const { PORT } = require('../utils/config')
 const client = require('./client.js')
 
 const connectToDBAndStartServer = () => {
@@ -13,7 +12,9 @@ const connectToDBAndStartServer = () => {
 			//only initialize express app when connected to database
 			const app = require('../app')
 			const server = http.createServer(app)
+			const PORT = process.env.PORT || 3000
 
+			//start server
 			server.listen(PORT, () => {
 				logger.info(`Listening on port ${PORT}`)
 			})
