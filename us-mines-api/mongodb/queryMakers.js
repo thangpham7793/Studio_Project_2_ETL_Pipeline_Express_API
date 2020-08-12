@@ -2,7 +2,7 @@ const METERS_PER_MILE = 1609.34
 
 /**
  * The below functions construct MongoDB Queries For Each Requests
- * from the search queries in the params.body
+ * from the search queries in the request.params.body
  * @param {params.body}
  *
  * For geo-related queries in MongoDB: https://docs.mongodb.com/manual/reference/operator/query/near/#op._S_near
@@ -18,7 +18,7 @@ const minesByLatLngMaterialRadius = ({ lat, lng, material, radius }) => {
 				{ primary_sic: { $regex: `${material}`, $options: 'gi' } },
 				{ secondary_sic: { $regex: `${material}`, $options: 'gi' } },
 			],
-			site_type: 'mines',
+			site_type: 'mine',
 			location: {
 				$near: {
 					$geometry: {
@@ -31,6 +31,7 @@ const minesByLatLngMaterialRadius = ({ lat, lng, material, radius }) => {
 		}
 	} else {
 		return {
+			site_type: 'mine',
 			location: {
 				$near: {
 					$geometry: {
