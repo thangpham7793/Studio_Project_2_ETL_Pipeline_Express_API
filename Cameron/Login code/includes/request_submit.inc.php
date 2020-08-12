@@ -13,7 +13,13 @@
     $materials = $_POST['materials'];
     $addDetails = $_POST['addDetails'];
     $supplierID = $_POST['supplierID'];
-    $supplierName = $_POST['supplierName'];
+    $supplierMineName = $_POST['supplierMineName'];
+    $supplierControllerName = $_POST['supplierControllerName'];
+    $supplierOperatorName = $_POST['supplierOperatorName'];
+    $supplierNearestTown = $_POST['supplierNearestTown'];
+    $supplierCoordinates = $_POST['supplierCoordinates'];
+    $pending = "FALSE";
+    $completed = "FALSE";
 
     $emptyFirstName = false;
     $emptySurname = false;
@@ -61,7 +67,7 @@
     // Check if all inputs are valid, enter info into DB
     if($validInputs) {
       // Fresh user, prepare SQL. '?' is a standin that is replaced during binding
-      $sql = "INSERT INTO request(userFirstName, userSurname, userPhone, userEmail, deliveryAddress, materials, addDetails, supplierID, supplierName) VALUES(?,?,?,?,?,?,?,?,?)";
+      $sql = "INSERT INTO request(userFirstName, userSurname, userPhone, userEmail, deliveryAddress, materials, addDetails, supplierID, supplierMineName, supplierControllerName, supplierOperatorName, supplierNearestTown, supplierCoordinates, pending, completed) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
       $stmt = mysqli_stmt_init($conn);
 
       //Send prepared statement to server
@@ -71,7 +77,7 @@
       }
       else {
         // Bind parameters to statement
-        mysqli_stmt_bind_param($stmt, "sssssssss", $firstName, $surname, $phone, $email, $address, $materials, $addDetails, $supplierID, $supplierName);
+        mysqli_stmt_bind_param($stmt, "sssssssssssssss", $firstName, $surname, $phone, $email, $address, $materials, $addDetails, $supplierID, $supplierMineName, $supplierControllerName, $supplierOperatorName, $supplierNearestTown, $supplierCoordinates, $pending, $completed);
 
         // Run statement
         mysqli_stmt_execute($stmt);

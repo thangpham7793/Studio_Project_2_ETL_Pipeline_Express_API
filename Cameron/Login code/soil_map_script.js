@@ -5,8 +5,7 @@ var markers = new Array();
 var searchResults = new Array();
 var materialsAtLocation = new Array();
 var activeInfoWindow;
-var selectedSupplierID;
-var selectedSupplierName;
+var selectedSupplier;
 
 /* Handler for range slider
  * Updates the search radius shown to user on map and updates the shown data
@@ -157,7 +156,6 @@ function searchForSupplier() {
   }
 }
 
-//TODO check that this still works
 // Removes all markers from the map
 function removeMarkers() {
   // Loop over markers and remove them from map
@@ -168,7 +166,6 @@ function removeMarkers() {
   markers = new Array();
 }
 
-// TODO circle
 // Remove existing search radius circle from map and create a new up to date one
 function updateSearchCircle(addressCoords) {
   var searchRadius = $("#sliderSearchRadius").val();
@@ -197,7 +194,10 @@ function updateSearchCircle(addressCoords) {
   });
 }
 
-// Returns the distance between 2 points in miles
+/*
+ * Returns the distance between 2 points in miles, uses the Haversine formula
+ * found here: https://cloud.google.com/blog/products/maps-platform/how-calculate-distances-map-maps-javascript-api
+*/
 function getDistance(p1, p2) {
   var R = 3958.8; // Radius of the Earth in miles
   var rlat1 = p1[0] * (Math.PI/180); // Convert degrees to radians
@@ -239,7 +239,6 @@ function updateSearchData(address, searchRadius) {
 }
 
 
-// TODO
 /* Checks the item given through parameter against the search criteria and returns
  * true if it meets all of the search criteria (material, address set,
  *distance from address => search radius), else return false */
@@ -356,8 +355,7 @@ function displayValidSearchResult(item) {
       activeInfoWindow.close();
     }
     activeInfoWindow = infowindow;
-    selectedSupplierID = item['_id'];
-    selectedSupplierName = item['current_mine_name'];
+    selectedSupplier = item;
 
     infowindow.open(map, marker);
   });
@@ -371,8 +369,7 @@ function displayValidSearchResult(item) {
       activeInfoWindow.close();
     }
     activeInfoWindow = infowindow;
-    selectedSupplierID = item['_id'];
-    selectedSupplierName = item['current_mine_name'];
+    selectedSupplier = item;
 
     map.setZoom(15);
     map.panTo(marker.getPosition());
@@ -381,6 +378,7 @@ function displayValidSearchResult(item) {
 }
 
 function init() {
+  // Set up map
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 40, lng: -100 },
     zoom: 4.5,
@@ -388,6 +386,7 @@ function init() {
     disableDefaultUI: true,
     zoomControl: true
   });
+
   // Retrieve material list on load
   getMaterials();
 
@@ -404,6 +403,7 @@ function init() {
     updateSearch();
   });
 
+  // On modal close - empty feedback from request form
   $('#modal_request_price').on('hidden.bs.modal', function () {
     $("#submitRequest-feedback").empty();
   });
@@ -412,8 +412,9 @@ function init() {
 // Initialise everything that's needed on page load
 window.onload = init;
 
-// Prevent PHP submitting and reloading the page on signup form submission
+// Prevent PHP submitting and reloading the page on form submissions
 $(document).ready(function() {
+  // Signup form submission
   $("#formSignup").submit(function(event) {
     // Stop form submission
     event.preventDefault();
@@ -437,6 +438,7 @@ $(document).ready(function() {
     });
   });
 
+  // Request form submission
   $("#formRequestPrice").submit(function(event) {
     // Stop form submission
     event.preventDefault();
@@ -449,7 +451,7 @@ $(document).ready(function() {
     var address = $("#inputRequestAddress").val();
     var materials = $("#inputRequestMaterials").val();
     var addDetails = $("#inputRequestAddDetails").val();
-
+    var coordinates = selectedSupplier['location']['coordinates'][0] + "," + selectedSupplier['location']['coordinates'][1];
     // TODO SET POST signup-submit
     // Run signup php code, pass through values. PHP echos out feedback
     // of submission into #submit-feedback element
@@ -461,8 +463,12 @@ $(document).ready(function() {
       address: address,
       materials: materials,
       addDetails: addDetails,
-      supplierID: selectedSupplierID,
-      supplierName: selectedSupplierName
+      supplierID: selectedSupplier['_id'],
+      supplierMineName: selectedSupplier['current_mine_name'],
+      supplierControllerName: selectedSupplier['current_controller_name'],
+      supplierOperatorName: selectedSupplier['current_operator_name'],
+      supplierNearestTown: selectedSupplier['nearest_town'],
+      supplierCoordinates: coordinates,
     });
   });
 });

@@ -32,7 +32,7 @@
             </button>
           </div>
 
-          <!-- Request modal -->
+          <!-- Request modal - if user logged in autofill some inputs -->
           <form id="formRequestPrice" action="includes/request_submit.inc.php" method="post">
           <div class="modal-body">
                <div class="form-row">

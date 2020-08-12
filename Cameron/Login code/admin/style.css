@@ -1,0 +1,36 @@
+#centerContainer {
+  width: 50%;
+  margin: auto;
+}
+
+.btn-group {
+  width: 50%;
+  left: 25%;
+  margin-top: 1%;
+}
+
+.request {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding-top: 2%;
+  padding-left: 2%;
+  margin-top: 2%;
+}
+
+.update-button {
+  margin-bottom: 2%;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}

@@ -56,6 +56,7 @@ if(!$dbError) {
 	}
 
 	// Query for request table
+	// TODO supplier details in separate table
 	$sql = "CREATE TABLE IF NOT EXISTS request (
 	requestID INT AUTO_INCREMENT PRIMARY KEY,
 	userFirstName TEXT NOT NULL,
@@ -66,7 +67,13 @@ if(!$dbError) {
 	materials TEXT NOT NULL,
 	addDetails TEXT NOT NULL,
 	supplierID TEXT NOT NULL,
-	supplierName TEXT NOT NULL
+	supplierMineName TEXT NOT NULL,
+	supplierControllerName TEXT NOT NULL,
+	supplierOperatorName TEXT NOT NULL,
+	supplierNearestTown TEXT NOT NULL,
+	supplierCoordinates TEXT NOT NULL,
+	pending BOOLEAN NOT NULL,
+	completed BOOLEAN NOT NULL
 	)";
 	echo("creating request table");
 	echo("<br>");
