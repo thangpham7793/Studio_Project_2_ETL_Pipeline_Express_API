@@ -40,3 +40,7 @@ def build_pipeline_and_run(file_path):
 # and should be used to process an entire directory recursively.
 local_main = Util.apply_on_all_files(build_pipeline_and_run)
 
+local_main(
+    "/home/amaterrapper/projects/alliance-truck-project/Signal_Studio_Project2/ETL/data/Pit-Dump Locations/TX/Stormwater Permits/Industrial IP.xls"
+)
+
