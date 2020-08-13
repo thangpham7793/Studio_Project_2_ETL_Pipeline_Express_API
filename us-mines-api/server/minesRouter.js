@@ -6,15 +6,15 @@ const cors = require('cors') //allow cross-origin-requests for certain routes
 
 require('express-async-errors')
 
+// GET MINES BY LATLNG (200 MILES RADIUS DEFAULT) REGARDLESS OF MATERIALS
+minesRouter.get(routeRegex.minesByLatLng, cors(), routeHandlers.getMines)
+
 // GET MINES BY LATLNG AND RADIUS REGARDLESS OF MATERIALS
 minesRouter.get(
 	routeRegex.minesByLatLngAndRadius,
 	cors(),
 	routeHandlers.getMines
 )
-
-// GET MINES BY LATLNG (200 MILES RADIUS DEFAULT) REGARDLESS OF MATERIALS
-minesRouter.get(routeRegex.minesByLatLng, cors(), routeHandlers.getMines)
 
 // GET MINES BY LATLONG AND MATERIAL WITHIN A SPECIFIC RADIUS
 minesRouter.get(
@@ -31,7 +31,7 @@ minesRouter.get(
 )
 
 // GET ONE MINE BY ID
-minesRouter.get(routeRegex.mineById, routeHandlers.getOneMineById)
+minesRouter.get(routeRegex.mineById, routeHandlers.getOneById)
 
 // GET ALL AVAILABLE MATERIALS
 minesRouter.get('/materials', routeHandlers.getMaterials)

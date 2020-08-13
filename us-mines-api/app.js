@@ -28,8 +28,8 @@ app.use('/mines', minesRouter)
 app.use('/landfills', landfillsRouter)
 
 //handle errors
-app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
+app.use(middleware.unknownEndpoint)
 
 module.exports = app
 
