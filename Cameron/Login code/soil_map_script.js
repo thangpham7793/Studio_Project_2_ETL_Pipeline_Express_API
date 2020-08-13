@@ -311,13 +311,13 @@ function displayValidSearchResult(item) {
 
   if(item['secondary_sic'] != undefined) {
     // Text that goes inside div
-    var searchText = $("<p></p>").html("Supplier: " + item['current_mine_name'] + "<br>Operator name: " +
-    item['current_operator_name'] + "<br>Material: " + item['primary_sic'] + " & " + item['secondary_sic']);
+    var searchText = $("<p></p>").html("Supplier: " + item['site_name'] + "<br>Operator name: " +
+    item['operator'] + "<br>Material: " + item['primary_sic'] + " & " + item['secondary_sic']);
   }
   else {
     // Text that goes inside div
-    var searchText = $("<p></p>").html("Supplier: " + item['current_mine_name'] + "<br>Operator name: " +
-    item['current_operator_name'] + "<br>Material: " + item['primary_sic']);
+    var searchText = $("<p></p>").html("Supplier: " + item['site_name'] + "<br>Operator name: " +
+    item['operator'] + "<br>Material: " + item['primary_sic']);
   }
 
 
@@ -345,10 +345,19 @@ function displayValidSearchResult(item) {
   });
   markers.push(marker);
 
+  var infowindow;
   // Set marker popup menu
-  const infowindow = new google.maps.InfoWindow({
-    content: "<b>Supplier:</b> " + item['current_mine_name'] + "<br><b>Operator:</b> " + item['current_operator_name'] + "<br><b>Material:</b> " + item['primary_sic'] + " & " + item['secondary_sic'] + requestPriceHTML
-  });
+  if(item['secondary_sic'] != undefined) {
+    infowindow = new google.maps.InfoWindow({
+      content: "<b>Supplier:</b> " + item['site_name'] + "<br><b>Operator:</b> " + item['operator'] + "<br><b>Material:</b> " + item['primary_sic'] + " & " + item['secondary_sic'] + requestPriceHTML
+    });
+  }
+  else {
+    infowindow = new google.maps.InfoWindow({
+      content: "<b>Supplier:</b> " + item['site_name'] + "<br><b>Operator:</b> " + item['operator'] + "<br><b>Material:</b> " + item['primary_sic'] + requestPriceHTML
+    });
+  }
+
 
   marker.addListener("click", () => {
     if(activeInfoWindow != undefined) {
@@ -464,10 +473,10 @@ $(document).ready(function() {
       materials: materials,
       addDetails: addDetails,
       supplierID: selectedSupplier['_id'],
-      supplierMineName: selectedSupplier['current_mine_name'],
-      supplierControllerName: selectedSupplier['current_controller_name'],
-      supplierOperatorName: selectedSupplier['current_operator_name'],
-      supplierNearestTown: selectedSupplier['nearest_town'],
+      supplierMineName: selectedSupplier['site_name'],
+      supplierControllerName: selectedSupplier['controller'],
+      supplierOperatorName: selectedSupplier['operator'],
+      supplierNearestTown: selectedSupplier['nearest_town_or_city'],
       supplierCoordinates: coordinates,
     });
   });
