@@ -26,7 +26,7 @@
           <input type="radio" name="options" onclick="tabChange(event, 'pending')"> Pending
         </label>
         <label id="completedButton" class="btn btn-secondary">
-          <input type="radio" name="options" onclick="tabChange(event, 'complete')"> Complete
+          <input type="radio" name="options" onclick="tabChange(event, 'completed')"> Complete
         </label>
       </div>
 
@@ -147,7 +147,7 @@
          ?>
       </div>
 
-      <div id="complete" class="tabcontent">
+      <div id="completed" class="tabcontent">
         <?php
           // Select all completed requests - order by descending so most recent shows first
           $requestSQL = "SELECT * FROM request WHERE completed = 1  ORDER BY requestID DESC";
