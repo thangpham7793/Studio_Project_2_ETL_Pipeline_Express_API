@@ -6,7 +6,7 @@ require('dotenv').config()
 
 module.exports = {
 	PORT: process.env.PORT || 3000,
-	MONGODB_URI: process.env.MONGODB_APP_URI,
+	MONGODB_APP_URI: process.env.MONGODB_APP_URI,
 	MONGODB_NAME: process.env.MONGODB_NAME,
 	MONGODB_COLLECTION: process.env.MONGODB_COLLECTION,
 	CLIENT_CONFIG: { useNewUrlParser: true, useUnifiedTopology: true },

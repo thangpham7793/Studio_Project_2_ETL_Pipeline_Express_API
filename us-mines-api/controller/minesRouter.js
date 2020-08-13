@@ -39,7 +39,7 @@ minesRouter.get('/materials', routeHandlers.getMaterials)
 // WELCOME ROUTE
 minesRouter.get('/', (request, response) => {
 	response.status(200).json({
-		message: '<h1>Welcome to the US Mines API Service</h1>',
+		message: 'Welcome to the US Mines API Service',
 	})
 })
 

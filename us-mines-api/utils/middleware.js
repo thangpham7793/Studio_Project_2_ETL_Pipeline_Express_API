@@ -6,6 +6,10 @@ const errorHandler = (error, request, response, next) => {
 				return response.status(400).json({ error: error.message })
 			case 'Radius must be bigger than 0!':
 				return response.status(400).json({ error: error.message })
+			case 'Argument passed in must be a single String of 12 bytes or a string of 24 hex characters':
+				return response.status(400).json({
+					error: error.message,
+				})
 			default:
 				return response.status(500).json({ error: 'Internal Server Error' })
 		}
@@ -16,13 +20,14 @@ const errorHandler = (error, request, response, next) => {
 
 //unknown endpoint err handler (the last errorHandler)
 const unknownEndpoint = (request, response, next) => {
+	console.log(request.params.id)
 	if (
 		//check if the request hits the correct available routes
 		request.url.startsWith('/mines') ||
 		request.url.startsWith('/landfills')
 	) {
 		//if yes, return a custom error message for the search params
-		response.status(400).json({ error: `Malformatted or Missing Parameters!` })
+		response.status(400).json({ error: 'Malformatted or Missing Parameters!' })
 	} else {
 		response.status(404).json({ error: 'unknown endpoint' })
 	}

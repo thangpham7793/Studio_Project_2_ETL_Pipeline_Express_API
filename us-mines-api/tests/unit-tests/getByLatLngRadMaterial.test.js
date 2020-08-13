@@ -1,8 +1,9 @@
 const assert = require('assert')
-const parsePath = require('./testUtils')
+const { parsePath } = require('../testUtils')
 const longitudePattern = '/@:lng(-\\d+.?\\d*)'
 const materialPattern = '/:material([a-zA-Z-_+]{1,})'
-const fullPattern = require('../../server/routeRegex').minesByMaterialAndLatLng
+const fullPattern = require('../../controller/routeRegex')
+	.minesByMaterialAndLatLng
 
 describe('Unit Test: GET Mines by Material and LatLng Path Regex', () => {
 	describe(`the regex path "/@:lng(-\\d+)"`, () => {
