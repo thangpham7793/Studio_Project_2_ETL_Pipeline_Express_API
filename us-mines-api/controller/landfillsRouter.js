@@ -26,7 +26,7 @@ landfillsRouter.get(routeRegex.landfillById, routeHandlers.getOneById)
 // WELCOME ROUTE
 landfillsRouter.get('/', (request, response) => {
 	response.status(200).json({
-		message: '<h1>Welcome to the US landfills API Service</h1>',
+		message: 'Welcome to the US Landfills API Service',
 	})
 })
 
