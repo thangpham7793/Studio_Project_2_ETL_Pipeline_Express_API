@@ -435,7 +435,6 @@ $(document).ready(function() {
     var pwd = $("#inputPwd").val();
     var pwdConfirm = $("#inputPwdConfirm").val();
 
-    // TODO SET POST signup-submit
     // Run signup php code, pass through values. PHP echos out feedback
     // of submission into #submit-feedback element
     $("#submit-feedback").load("includes/signup.inc.php", {
@@ -443,7 +442,8 @@ $(document).ready(function() {
       surname: surname,
       email: email,
       pwd: pwd,
-      pwdConfirm: pwdConfirm
+      pwdConfirm: pwdConfirm,
+      signupSubmit: "true"
     });
   });
 
@@ -461,9 +461,9 @@ $(document).ready(function() {
     var materials = $("#inputRequestMaterials").val();
     var addDetails = $("#inputRequestAddDetails").val();
     var coordinates = selectedSupplier['location']['coordinates'][0] + "," + selectedSupplier['location']['coordinates'][1];
-    // TODO SET POST signup-submit
+
     // Run signup php code, pass through values. PHP echos out feedback
-    // of submission into #submit-feedback element
+    // of submission into #submitRequest-feedback element
     $("#submitRequest-feedback").load("includes/request_submit.inc.php", {
       firstName: firstName,
       surname: surname,
@@ -478,6 +478,7 @@ $(document).ready(function() {
       supplierOperatorName: selectedSupplier['operator'],
       supplierNearestTown: selectedSupplier['nearest_town_or_city'],
       supplierCoordinates: coordinates,
+      requestSubmit: "true"
     });
   });
 });

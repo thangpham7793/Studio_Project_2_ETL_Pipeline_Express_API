@@ -1,6 +1,6 @@
 <?php
 // Check user got here from signup form
-//if (isset($_POST['signup-submit'])) {
+if (isset($_POST['signupSubmit'])) {
     // Start DB connection
     require 'dbh.inc.php';
 
@@ -180,10 +180,10 @@
     }
 
     mysqli_close($conn);
-//}
-//else {
-  // User did not get here through form, send them back
-  //header("Location: ../index.php");
-  //exit();
-//}
+}
+else {
+  //User did not get here through form, send them back
+  header("Location: ../index.php");
+  exit();
+}
 ?>
