@@ -6,18 +6,125 @@ var searchResults = new Array();
 var materialsAtLocation = new Array();
 var activeInfoWindow;
 var selectedSupplier;
+const apiKey = "AIzaSyDYso3RVo8lv770AknwyoaH_Bq8tr2CSr4";
+var addressCoords = [];
+
+function setAddressCoordinates(address) {
+  var regex=/([a-zA-Z])/;
+  if(regex.test(address)){
+    addressName = address.split(' ').join('+');
+    $.ajax({
+      type: 'GET',
+      url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + addressName + '&key=' + apiKey,
+      statusCode: {
+        // 400 means no result from the query
+        400: function() {
+          alert( "No result" );
+        }
+      },
+      success: function (geocode) {
+        var lat = geocode['results'][0]['geometry']['location']['lat'];
+        var lng = geocode['results'][0]['geometry']['location']['lng'];
+        addressCoords = [lat,lng];
+
+        //Continue the chain, searching for suppliers at coordinates
+        addressCoordsSuccess()
+      }
+    });
+  }else{
+    addressCoords = address.split(',');
+    //Continue the chain, searching for suppliers at coordinates
+    addressCoordsSuccess()
+  }
+}
+
+function addressCoordsSuccess() {
+  // Disable button until new search location is selected
+  $("#btnSearch").prop('disabled', true);
+  $("#btnSearch").text("Select a new location to enable a new search");
+
+  // Inputs are correct, remove any highlights
+  $("#inputAddress").removeClass("input-error");
+
+  // Remove old search results
+  $(".searchResult").remove();
+  removeMarkers();
+  materialsAtLocation = new Array();
+  updateSearchCircle();
+
+  // Add spinner to show user that something has happened after clicking search button
+  $(".sidebar").append('<div id="loadingSpinner" class="spinner-border text-primary" role="status"> <span class="sr-only">Loading...</span> </div>');
+
+  // AJAX call to API to get list of suppliers
+  $.ajax({
+    type: 'GET',                                   //API uses lng/lat instead of lat/lng
+    url: 'http://us-mines-api.herokuapp.com/mines/@' + addressCoords[1] + "," + addressCoords[0],
+    statusCode: {
+      // 400 means no result from the query
+      400: function() {
+        $("#loadingSpinner").remove();
+        alert( "No result" );
+      }
+    },
+    success: function (data) {
+      // Remove spinner to show search has finished
+      $("#loadingSpinner").remove();
+      searchResults = data;
+
+      // Loop over data(supplier info)
+      data.forEach((item, i) => {
+        if(itemMeetsSearchCriteria(item)) {
+          if(!materialsAtLocation.includes(item['primary_sic'])) {
+            materialsAtLocation.push(item['primary_sic']);
+          }
+          if(item['secondary_sic'] != undefined) {
+            if(!materialsAtLocation.includes(item['secondary_sic'])) {
+              materialsAtLocation.push(item['secondary_sic']);
+            }
+          }
+          displayValidSearchResult(item);
+        }
+      });
+      displayAvailableMaterials();
+    }
+  });
+}
+
+$("#inputAddress").keyup(delay(function(e){
+  $.ajax({
+    type:'GET',
+    url:'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=' + this.value + '&key=' + apiKey,
+    success: function(data){
+      var input = data['predictions']
+      input.forEach((item, i) => {
+        var option = document.createElement('option');
+        option.setAttribute('value',item['description']);
+        document.getElementById('addressAutocomplete').appendChild(option);
+      });
+    }
+  })
+},500));
+
+function delay(callback, ms) {
+  var timer = 0;
+  return function() {
+    var context = this, args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      callback.apply(context, args);
+    }, ms || 0);
+  };
+}
 
 /* Handler for range slider
  * Updates the search radius shown to user on map and updates the shown data
  * based on current search criteria */
 function updateRangeValue(val) {
   $("#searchRadiusDisplay").html(val);
-  var address = $("#inputAddress").val();
 
-  if(address != "") {
-    var addressCoords = address.split(',');
-    updateSearchCircle(addressCoords);
-    updateSearchData(addressCoords, val);
+  if(addressCoords.length > 0) {
+    updateSearchCircle();
+    updateSearchData(val);
     displayAvailableMaterials();
   }
 }
@@ -29,8 +136,7 @@ function updateSearch() {
   var searchRadius = $("#sliderSearchRadius").val();
 
   if(address != "") {
-    var addressCoords = address.split(',');
-    updateSearchData(addressCoords, searchRadius);
+    updateSearchData(searchRadius);
   }
 }
 
@@ -92,67 +198,13 @@ function enableSearch() {
  * Processes all results to current search criteria to have them displayed to user. */
 function searchForSupplier() {
   var address = $("#inputAddress").val();
-  var addressCoords = address.split(',');
 
   // Check that inputs aren't empty
   if(address != "") {
-    // Disable button until new search location is selected
-    $("#btnSearch").prop('disabled', true);
-    $("#btnSearch").text("Select a new location to enable a new search");
-
-    // Inputs are correct, remove any highlights
-    $("#inputAddress").removeClass("input-error");
-
-    // Remove old search results
-    $(".searchResult").remove();
-    removeMarkers();
-    materialsAtLocation = new Array();
-    updateSearchCircle(addressCoords);
-
-    // Add spinner to show user that something has happened after clicking search button
-    $(".sidebar").append('<div id="loadingSpinner" class="spinner-border text-primary" role="status"> <span class="sr-only">Loading...</span> </div>');
-
-    // 0 holds lat, 1 holds lng
-    var addressCoords = address.split(',');
-
-    // AJAX call to API to get list of suppliers
-    $.ajax({
-      type: 'GET',                                   //API uses lng/lat instead of lat/lng
-      url: 'http://us-mines-api.herokuapp.com/mines/@' + addressCoords[1] + "," + addressCoords[0],
-      statusCode: {
-        // 400 means no result from the query
-        400: function() {
-          $("#loadingSpinner").remove();
-          alert( "No result" );
-        }
-      },
-      success: function (data) {
-        // Remove spinner to show search has finished
-        $("#loadingSpinner").remove();
-        searchResults = data;
-
-        // Loop over data(supplier info)
-        data.forEach((item, i) => {
-          if(itemMeetsSearchCriteria(item)) {
-            if(!materialsAtLocation.includes(item['primary_sic'])) {
-              materialsAtLocation.push(item['primary_sic']);
-            }
-            if(item['secondary_sic'] != undefined) {
-              if(!materialsAtLocation.includes(item['secondary_sic'])) {
-                materialsAtLocation.push(item['secondary_sic']);
-              }
-            }
-            displayValidSearchResult(item);
-          }
-        });
-        displayAvailableMaterials();
-      }
-    });
+    setAddressCoordinates(address)
   }
   else { // Address input is empty, highlight to user
-    if(address == "") {
-      $("#inputAddress").addClass("input-error");
-    }
+    $("#inputAddress").addClass("input-error");
   }
 }
 
@@ -167,7 +219,7 @@ function removeMarkers() {
 }
 
 // Remove existing search radius circle from map and create a new up to date one
-function updateSearchCircle(addressCoords) {
+function updateSearchCircle() {
   var searchRadius = $("#sliderSearchRadius").val();
 
   // Remove search radius from map
@@ -211,7 +263,7 @@ function getDistance(p1, p2) {
 
 /* Loops over all stored search results and checks them against current
  * search criteria and displays it to the user */
-function updateSearchData(address, searchRadius) {
+function updateSearchData(searchRadius) {
   // Remove old search results
   $(".searchResult").remove();
   materialsAtLocation = new Array();
@@ -243,15 +295,11 @@ function updateSearchData(address, searchRadius) {
  * true if it meets all of the search criteria (material, address set,
  *distance from address => search radius), else return false */
 function itemMeetsSearchCriteria(item) {
-  var address = $("#inputAddress").val();
   var material = $("#inputMaterial").val();
   var searchRadius = $("#sliderSearchRadius").val();
 
   // Doesn't meet criteria as no location to search by
-  if(address != "") {
-    // Input box for address currently sets "lat,lng", split to get individual values
-    var addressCoords = address.split(',');
-
+  if(addressCoords.length > 0) {
     // Get distance from address to the supplier           supplier coordinates come back as [lng,lat] needs to be reversed
     var distanceBetween = getDistance(addressCoords,[item['location']['coordinates'][1],item['location']['coordinates'][0]]);
 
@@ -408,7 +456,8 @@ function init() {
     var lng = mapsMouseEvent.latLng.lng() ;
 
     $("#inputAddress").val(lat + "," + lng);
-    updateSearchCircle([lat, lng]);
+    addressCoords = [lat,lng];
+    updateSearchCircle();
     updateSearch();
   });
 

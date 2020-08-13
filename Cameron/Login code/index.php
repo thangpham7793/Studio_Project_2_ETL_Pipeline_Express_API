@@ -8,7 +8,9 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <p>Click map to set location</p>
-      <input class="sidebar_input" id="inputAddress" type="text" placeholder="Click to set location" onkeyup="enableSearch()">
+      <input class="sidebar_input" id="inputAddress" type="text" list="addressAutocomplete" placeholder="Click to set location" onkeyup="enableSearch()">
+      <datalist id="addressAutocomplete">
+      </datalist>
       <input class="sidebar_input" id="inputMaterial" type="text" list="materialList" placeholder="All Material" onkeyup="updateSearch()">
       <datalist id="materialList">
       </datalist>
