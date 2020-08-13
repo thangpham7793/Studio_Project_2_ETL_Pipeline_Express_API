@@ -38,6 +38,15 @@ function setAddressCoordinates(address) {
   }
 }
 
+function toggleIcon(){
+  if($("#toggleIcon").html() == "^") {
+    $("#toggleIcon").html("v");
+  }
+  else {
+    $("#toggleIcon").html("^");
+  }
+}
+
 function addressCoordsSuccess() {
   // Disable button until new search location is selected
   $("#btnSearch").prop('disabled', true);
@@ -53,7 +62,7 @@ function addressCoordsSuccess() {
   updateSearchCircle();
 
   // Add spinner to show user that something has happened after clicking search button
-  $(".sidebar").append('<div id="loadingSpinner" class="spinner-border text-primary" role="status"> <span class="sr-only">Loading...</span> </div>');
+  $("#sidebarContent").append('<div id="loadingSpinner" class="spinner-border text-primary" role="status"> <span class="sr-only">Loading...</span> </div>');
 
   // AJAX call to API to get list of suppliers
   $.ajax({
@@ -372,8 +381,8 @@ function displayValidSearchResult(item) {
   // Add text to div
   searchResultBox.append(searchText);
 
-  // Add div to sidebar
-  $(".sidebar").append(searchResultBox);
+  // Add div to sidebarContent
+  $("#sidebarContent").append(searchResultBox);
 
   // HTML to add button to marker popup menu
   var requestPriceHTML = `

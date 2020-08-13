@@ -16,7 +16,7 @@ else {
     <div class="input-group mb-2 mr-sm-2">
       <input type="password" name="pwd" class="form-control" id="inputLoginPassword" placeholder="Password...">
     </div>
-    <button type="submit" name="login-submit" class="btn btn-primary mb-2">Login</button>
+    <button type="submit" name="login-submit" class="btn btn-primary mb-2 login">Login</button>
   </form>
   <button type="button" class="btn btn-primary mb-2 signup" data-toggle="modal" data-target="#modal_signup">
     Sign up

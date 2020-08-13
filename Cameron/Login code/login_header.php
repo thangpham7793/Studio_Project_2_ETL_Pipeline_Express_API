@@ -16,7 +16,7 @@ session_start();
      </head>
      <body>
        <header>
-          <nav class="navbar navbar-expand-lg navbar_custom">
+          <nav class="navbar navbar-expand-lg navbar-dark navbar_custom">
             <a class="navbar-brand" href="#">
               <img id="logo" src="images/alliance_logo.png" alt="logo">
             </a>
