@@ -33,9 +33,9 @@ Examples:
 
 - http://us-mines-api.herokuapp.com/mines/5f326ec5903f3e0d204c26da
 
-### GET REQUEST FOR LANDFILLS
+### REQUESTs FOR LANDFILLS
 
-#### AVAILABLE ROUTES
+#### GET
 
 Similar to Mines but much simpler since there's no material filter.
 

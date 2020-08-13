@@ -6,13 +6,6 @@ const cors = require('cors') //allow cross-origin-requests for certain routes
 
 require('express-async-errors')
 
-// GET landfills BY LATLNG AND RADIUS
-landfillsRouter.get(
-	routeRegex.landfillsByLatLngAndRadius,
-	cors(),
-	routeHandlers.getLandfills
-)
-
 // GET landfills BY LATLNG (200 MILES RADIUS DEFAULT)
 landfillsRouter.get(
 	routeRegex.landfillsByLatLng,
@@ -20,8 +13,15 @@ landfillsRouter.get(
 	routeHandlers.getLandfills
 )
 
+// GET landfills BY LATLNG AND RADIUS
+landfillsRouter.get(
+	routeRegex.landfillsByLatLngAndRadius,
+	cors(),
+	routeHandlers.getLandfills
+)
+
 // GET ONE landfill BY ID
-landfillsRouter.get(routeRegex.landfillById, routeHandlers.getOneLandfillById)
+landfillsRouter.get(routeRegex.landfillById, routeHandlers.getOneById)
 
 // WELCOME ROUTE
 landfillsRouter.get('/', (request, response) => {
