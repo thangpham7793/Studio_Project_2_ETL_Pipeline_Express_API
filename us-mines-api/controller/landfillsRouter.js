@@ -26,7 +26,8 @@ landfillsRouter.get(routeRegex.landfillById, routeHandlers.getOneById)
 // WELCOME ROUTE
 landfillsRouter.get('/', (request, response) => {
 	response.status(200).json({
-		message: 'Welcome to the US Landfills API Service',
+		message:
+			'Welcome to the US Landfills API Service. Visit "https://github.com/CGHill/Signal_Studio_Project2/tree/master/us-mines-api" for Documentation',
 	})
 })
 

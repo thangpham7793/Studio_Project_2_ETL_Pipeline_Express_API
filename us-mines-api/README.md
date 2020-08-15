@@ -1,6 +1,12 @@
 ## US-MINES-API DOCUMENTATION
 
-All requests should begin with https://us-mines-api.herokuapp.com
+All requests should begin with
+
+- https://us-mines-api.herokuapp.com
+
+or if you're testing it locally:
+
+- http://localhost:3000/ (or the port number that is set in your .env)
 
 ### REQUESTs FOR MINES
 
