@@ -2,8 +2,8 @@ const queryHandlers = require('../mongodb/queryHandlers')
 
 /**
  * Route each GET request to its suitable query handler
- * @param {*} request
- * @param {*} response
+ * @param {object} request
+ * @param {object} response
  */
 
 //MINES QUERY HANDLERS

@@ -16,3 +16,4 @@ env/data/
 env/
 test.csv
 main.ipynb
+Dockerfile

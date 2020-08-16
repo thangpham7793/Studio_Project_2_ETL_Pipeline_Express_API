@@ -13,10 +13,13 @@ const ObjectID = require('mongodb').ObjectID
 /**
  * The below functions executes queries against the database and return results
  * as either an array or object that will be processed by their route handlers.
- * @param {*}
+ *
  */
 
 // this can be used to find any facility type
+/**
+ * @param {string} id
+ */
 const findById = async (id) => {
 	const o_id = new ObjectID(id)
 
@@ -64,6 +67,9 @@ const findAllMaterials = async () => {
 	}
 }
 
+/**
+ * @param {object} userInputObject contains latlng, material, radius parsed from the url
+ */
 const findMinesByMaterialLatLngRadius = async (userInputObject) => {
 	//construct filter based on user search params
 	const filter = queryMakers.minesByLatLngMaterialRadius(userInputObject)
@@ -95,6 +101,7 @@ const findMinesByMaterialLatLngRadius = async (userInputObject) => {
 	}
 }
 
+//signature same as above
 const findLandfillsByLatLngRadius = async (userInputObject) => {
 	//construct filter based on user search params
 	const filter = queryMakers.landfillsByLatLngRadius(userInputObject)

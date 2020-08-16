@@ -16,12 +16,10 @@ app.use(urlencoded({ extended: false }))
 
 //welcome message for index page
 app.get('/', (request, response) =>
-	response
-		.status(200)
-		.send({
-			message:
-				'Welcome to the US Mines & Landfills API Service. Visit "https://github.com/CGHill/Signal_Studio_Project2/tree/master/us-mines-api" for Documentation',
-		})
+	response.status(200).send({
+		message:
+			'Welcome to the US Mines & Landfills API Service. Visit "https://github.com/CGHill/Signal_Studio_Project2/tree/master/us-mines-api" for Documentation',
+	})
 )
 
 //direct mines-related queries to its dedicated mini-app

@@ -20,7 +20,6 @@ const errorHandler = (error, request, response, next) => {
 
 //unknown endpoint err handler (the last errorHandler)
 const unknownEndpoint = (request, response, next) => {
-	console.log(request.params.id)
 	if (
 		//check if the request hits the correct available routes
 		request.url.startsWith('/mines') ||

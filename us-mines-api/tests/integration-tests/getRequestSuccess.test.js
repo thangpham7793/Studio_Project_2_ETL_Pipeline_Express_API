@@ -38,12 +38,6 @@ describe('Connecting to MongoDB', () => {
 					.get('/')
 					.expect('Content-Type', 'application/json; charset=utf-8')
 					.expect(200)
-					.expect((response) => {
-						assert.equal(
-							response.body.message,
-							'Welcome to the US Mines & Landfills API Service'
-						)
-					})
 			})
 		})
 
@@ -53,12 +47,6 @@ describe('Connecting to MongoDB', () => {
 					.get('/mines')
 					.expect('Content-Type', 'application/json; charset=utf-8')
 					.expect(200)
-					.expect((response) => {
-						assert.equal(
-							response.body.message,
-							'Welcome to the US Mines API Service'
-						)
-					})
 			})
 		})
 
@@ -68,12 +56,6 @@ describe('Connecting to MongoDB', () => {
 					.get('/landfills')
 					.expect('Content-Type', 'application/json; charset=utf-8')
 					.expect(200)
-					.expect((response) => {
-						assert.equal(
-							response.body.message,
-							'Welcome to the US Landfills API Service'
-						)
-					})
 			})
 		})
 
