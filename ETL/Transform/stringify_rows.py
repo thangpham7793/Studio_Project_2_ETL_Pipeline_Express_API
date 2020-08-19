@@ -32,7 +32,7 @@ def remove_non_char(value: str) -> str:
 
 def stringify_rows(df: pd.DataFrame) -> pd.DataFrame:
     for col in set(df.columns):
-        if col not in ["location", "latitude", "longitude"]:
+        if col not in ["location", "latitude", "longitude", "dataset_name"]:
             new_col = df[col].apply(lambda x: remove_non_char(str(x).lower().strip()))
             # just in case there are duplicate colnames
             try:
